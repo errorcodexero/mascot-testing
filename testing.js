@@ -29,11 +29,9 @@ function draw() {
 	for (i = 0; i < smile.length; i++) {
 		for (j = 0; j < smile[0].length; j++) {
 			ctx.fillStyle = "#"+smile[i][j][0]+smile[i][j][1]+smile[i][j][2];
-			//ctx.fillRect(j*50, i*50, 50, 50);
 			ctx.beginPath();
 			ctx.arc(25 + 50 * j, 25 + 50 * i, 10, 0, 2 * Math.PI, false);
 			ctx.fill();
-			//console.log(i+", "+j);
 		}
 	}
 	
