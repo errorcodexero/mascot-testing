@@ -1,3 +1,17 @@
-body {
-	font-family: "15 px Impact";
+button {
+	outline: 0;
+	font-size: 24px;
+	width: 100px;
+	height: 50px;
+	border-style: visible;
+	border-width: 3px;
+	border-color: #000;
+	margin-top: 5px;
+	margin-left: 5px;
+	background-color: #555;
+	color: #000;
+}
+
+button:hover {
+	color: #fff;
 }
