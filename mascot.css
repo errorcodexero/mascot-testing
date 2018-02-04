@@ -15,3 +15,8 @@ button {
 button:hover {
 	color: #fff;
 }
+
+#modes {
+	width: 100px;
+	float: right;
+}
