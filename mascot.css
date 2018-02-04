@@ -7,7 +7,6 @@ button {
 	border-width: 3px;
 	border-color: #000;
 	margin-top: 5px;
-	margin-left: 5px;
 	background-color: #555;
 	color: #000;
 }
@@ -18,5 +17,9 @@ button:hover {
 
 #modes {
 	width: 100px;
-	float: right;
+	float: left;
+}
+
+#simulator {
+	height: 600px;
 }

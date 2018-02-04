@@ -250,7 +250,6 @@ function draw() {
 				ctx.fill();
 			}
 		}
+		count++;
 	}
-	
-	count++;
 }
