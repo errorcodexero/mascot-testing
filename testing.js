@@ -744,7 +744,7 @@ var tron = [
 	]
 ];
 
-var screen = tron;
+var screen = smile;
 
 setInterval(draw, 500);
 var count = 0;
