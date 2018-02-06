@@ -11,6 +11,10 @@ button {
 	color: #000;
 }
 
+canvas {
+	float: left;
+}
+
 button:hover {
 	color: #fff;
 }
