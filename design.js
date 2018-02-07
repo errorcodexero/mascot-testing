@@ -98,6 +98,17 @@ function output() {
 	document.getElementById("display").innerHTML = display;
 }
 
+function input() {
+	var input = prompt("Paste array");
+	eval("screen = "+input+";");
+	if (f > screen.length - 1) {
+		f = screen.length - 1; 
+		document.getElementById("fSl").value = f+1;
+	}
+	document.getElementById("fSl").max = screen.length;
+	document.getElementById("fLabel").innerHTML = (f+1)+"/"+document.getElementById("fSl").max;
+}
+
 setInterval(draw, 50);
 
 function draw() {
