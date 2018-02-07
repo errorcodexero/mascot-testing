@@ -1,12 +1,21 @@
+h5{
+	margin-top: 3px;
+	margin-bottom: -2px;
+}
+
+h6{
+	font-size: 9px;
+}
+
 button {
 	outline: 0;
-	font-size: 24px;
+	font-size: 18px;
 	width: 100px;
-	height: 50px;
+	height: 30px;
 	border-style: visible;
 	border-width: 3px;
 	border-color: #000;
-	margin-top: 5px;
+	margin-top: 3px;
 	background-color: #555;
 	color: #000;
 }
@@ -22,8 +31,27 @@ button:hover {
 #modes {
 	width: 100px;
 	float: left;
+	margin-left: 10px;
 }
 
 #simulator {
 	height: 600px;
+}
+
+/*#sliders {
+	height: 600px;
+	width: 25px;
+	display: block;
+}*/
+
+input[type=range] {
+	-webkit-appearance: none; 
+	outline: 0;
+	width: 100px;
+	height: 20px;
+	background-color: #222;
+	border-style: hidden;
+	border-width: 3px;
+	margin-top: 3px;
+	margin-bottom: 0px;
 }
