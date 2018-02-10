@@ -6,6 +6,8 @@ console.clear();
 var mouseX, mouseY;
 var click = false;
 
+var picking = false;
+
 var screen = [new Array()];
 
 for (i = 0; i < 12; i++) {
@@ -155,15 +157,21 @@ document.onmousedown = function(e) {
     if(mouseX > 0 && mouseX < 800 && mouseY > 0 && mouseY < 600) {
     	var x  = Math.round((mouseX - 25) / 50);
     	var y  = Math.round((mouseY - 25) / 50);
-		if (color.startsWith("#")) {	
-			screen[f][y][x][0] = color.substr(1,2);
-			screen[f][y][x][1] = color.substr(3,2);
-			screen[f][y][x][2] = color.substr(5,2);
+    	if (picking) {
+    		color = "#"+screen[f][y][x][0]+screen[f][y][x][1]+screen[f][y][x][2];
+    		picking = false;
     	}
     	else {
-			screen[f][y][x][0] = parseInt(color.substr(4,color.indexOf(",")-4)).toString(16);
-			screen[f][y][x][1] = parseInt(color.substr(color.indexOf(",")+1,color.lastIndexOf(",")-color.indexOf(","))).toString(16);
-			screen[f][y][x][2] = parseInt(color.substr(color.lastIndexOf(",")+1,color.length-color.lastIndexOf(","))).toString(16);
+			if (color.startsWith("#")) {	
+				screen[f][y][x][0] = color.substr(1,2);
+				screen[f][y][x][1] = color.substr(3,2);
+				screen[f][y][x][2] = color.substr(5,2);
+			}
+			else {
+				screen[f][y][x][0] = parseInt(color.substr(4,color.indexOf(",")-4)).toString(16);
+				screen[f][y][x][1] = parseInt(color.substr(color.indexOf(",")+1,color.lastIndexOf(",")-color.indexOf(","))).toString(16);
+				screen[f][y][x][2] = parseInt(color.substr(color.lastIndexOf(",")+1,color.length-color.lastIndexOf(","))).toString(16);
+    		}
     	}
     }
     click = true;
