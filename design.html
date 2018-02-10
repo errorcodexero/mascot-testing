@@ -9,7 +9,7 @@
 			<a href="index.html">Tester</a>
 		</nav>
 		<div id="simulator">
-			<canvas id="design" width="800" height="600" style="border: 5px solid #111111;"></canvas>
+			<canvas id="design" width="750" height="600" style="border: 5px solid #111111;"></canvas>
 			<div id="modes">
 				<button type="button" id="red" onclick="color = '#ff1111';" style="background-color: #ff1111;">Red</button>
 				<button type="button" id="yellow" onclick="color = '#ffff11';" style="background-color: #ffff11;">Yellow</button>
@@ -32,8 +32,10 @@
 				</div>
 				<button type="button" id="add" onclick="addFrame();" style="background-color: #888888;">+Frame</button>
 				<button type="button" id="clone" onclick="cloneFrame();" style="background-color: #888888;">+Copy</button>
+				<button type="button" id="left" onclick="lastFrame();" style="background-color: #888888; width: 25px;"><</button>
 				<input type="range" id="fSl" min="1" max="1" value="1" step="1" style="background-color: #888;" oninput="updateFrame()"></input>
-				<h5 id="fLabel">1/1</h5>
+				<button type="button" id="left" onclick="nextFrame();" style="background-color: #888888; width: 25px;">></button>
+				<h5 id="fLabel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1/1</h5>
 				<button type="button" id="delete" onclick="deleteFrame();" style="background-color: #888888;">-Frame</button>
 				<br/>
 				<button type="button" id="input" onclick="input()" style="background-color: #888888;">Input</button>

@@ -44,7 +44,7 @@ function addFrame(){
 	if (f == screen.length - 1) screen[f+1] = newF;
 	else screen.splice(f+1, 0, newF);
 	document.getElementById("fSl").max = screen.length;
-	document.getElementById("fLabel").innerHTML = (f+1)+"/"+document.getElementById("fSl").max;
+	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f+1)+"/"+document.getElementById("fSl").max;
 }
 
 function cloneFrame(){
@@ -60,7 +60,7 @@ function cloneFrame(){
 	if (f == screen.length - 1) screen[f+1] = newF;
 	else screen.splice(f+1, 0, newF);
 	document.getElementById("fSl").max = screen.length;
-	document.getElementById("fLabel").innerHTML = (f+1)+"/"+document.getElementById("fSl").max;
+	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f+1)+"/"+document.getElementById("fSl").max;
 }
 
 function deleteFrame(){
@@ -71,13 +71,23 @@ function deleteFrame(){
 			document.getElementById("fSl").value = f+1;
 		}
 		document.getElementById("fSl").max = screen.length;
-		document.getElementById("fLabel").innerHTML = (f+1)+"/"+document.getElementById("fSl").max;
+		document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f+1)+"/"+document.getElementById("fSl").max;
 	}
 }
 
 function updateFrame() {
 	f = document.getElementById("fSl").value-1;
-	document.getElementById("fLabel").innerHTML = (f+1)+"/"+document.getElementById("fSl").max;
+	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f+1)+"/"+document.getElementById("fSl").max;
+}
+
+function nextFrame() {
+	if (f < screen.length - 1) f++;
+	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f+1)+"/"+document.getElementById("fSl").max;
+}
+
+function lastFrame() {
+	if (f > 0) f--;
+	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f+1)+"/"+document.getElementById("fSl").max;
 }
 
 function output() {
