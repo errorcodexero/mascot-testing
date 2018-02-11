@@ -83,11 +83,13 @@ function updateFrame() {
 function nextFrame() {
 	if (f < screen.length - 1) f++;
 	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f+1)+"/"+document.getElementById("fSl").max;
+	document.getElementById("fSl").value = f+1;
 }
 
 function lastFrame() {
 	if (f > 0) f--;
 	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f+1)+"/"+document.getElementById("fSl").max;
+	document.getElementById("fSl").value = f+1;
 }
 
 function output() {
