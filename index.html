@@ -14,23 +14,23 @@
 				<button type="button" id="smile" onclick="screen = smile;">Smile</button>
 				<button type="button" id="neutral" onclick="screen = neutral;">Neutral</button>
 				<button type="button" id="frown" onclick="screen = frown;">Frown</button>
-				<button type="button" id="space" onclick="screen = space; count = 0;">Space</button>
+				<button type="button" id="space" onclick="screen = space; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('space'))">Space</button>
 				<button type="button" id="fire" onclick="screen = fire;">Fire</button>
 				<button type="button" id="error" onclick="screen = error;">Error</button>
-				<button type="button" id="tron" onclick="screen = tron; count = 0;">Tron</button>
-				<button type="button" id="pacman" onclick="screen = pacman; count = 0;">Pacman</button>
+				<button type="button" id="tron" onclick="screen = tron; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('tron'))">Tron</button>
+				<button type="button" id="pacman" onclick="screen = pacman; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('pacman'))">Pacman</button>
 				<button type="button" id="first" onclick="screen = first;">FIRST</button>
-				<button type="button" id="surprise" onclick="screen = surprise; count = 0;">Surprise</button>
+				<button type="button" id="surprise" onclick="screen = surprise; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('surprise'))">Surprise</button>
 				<button type="button" id="slide" onclick="screen = slide;">Slide</button>
-				<button type="button" id="pong" onclick="screen = pong; count = 0;">Pong</button>
-				<button type="button" id="alert" onclick="screen = alert; count = 0;">Alert</button>
-				<button type="button" id="star" onclick="screen = star; count = 0;">Star</button>
-				<button type="button" id="blue" onclick="screen = blue; count = 0;">Blue</button>
-				<button type="button" id="red" onclick="screen = red; count = 0;">Red</button>
-				<button type="button" id="matrix" onclick="screen = matrix; count = 0;">Matrix</button>
-				<button type="button" id="wheel" onclick="screen = wheel; count = 0;">Wheel</button>
-				<button type="button" id="team" onclick="screen = fire2; count = 0;">Team</button>
-				<button type="button" id="tetris" onclick="screen = tetris; count = 0;">Tetris</button>
+				<button type="button" id="pong" onclick="screen = pong; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('pong'))">Pong</button>
+				<button type="button" id="alert" onclick="screen = alert; count = 0; cclearInterval(curInt); curInt = setInterval(draw, speed.get('alert'))">Alert</button>
+				<button type="button" id="star" onclick="screen = star; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('star'))">Star</button>
+				<button type="button" id="blue" onclick="screen = blue; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('blue'))">Blue</button>
+				<button type="button" id="red" onclick="screen = red; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('red'))">Red</button>
+				<button type="button" id="matrix" onclick="screen = matrix; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('matrix'))">Matrix</button>
+				<button type="button" id="wheel" onclick="screen = wheel; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('wheel'))">Wheel</button>
+				<button type="button" id="team" onclick="screen = fire2; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('fire2'))">Team</button>
+				<button type="button" id="tetris" onclick="screen = tetris; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('tetris'))">Tetris</button>
 			</div>
 		</div>
 		<script src="testing.js"></script>
