@@ -7,12 +7,16 @@ import java.util.Scanner;
 
 public class Importer {
 
-    public String getFilePath(String fileName){
-        String filePath = System.getProperty("user.dir") + "/" + fileName;
+    private String getFilePath(){
+        System.out.println("Insert name of html file to import (must be in the mascot-testing directory):");
+        Scanner in = new Scanner(System.in);
+        String fileNameIn = in.nextLine();
+        System.out.println("Input file: " + fileNameIn);
+        String filePath = System.getProperty("user.dir") + "/" + fileNameIn;
         return filePath;
     }
 
-    public int getFileLength(String filePath){
+    private int getFileLength(String filePath){
         int lineNumber = 0;
         try {
             FileReader fr = new FileReader(filePath);
@@ -30,22 +34,21 @@ public class Importer {
         return lineNumber;
     }
 
-    static String readFile(String path, Charset encoding) {
+    private String readFile(){
         try{
-            byte[] encoded = Files.readAllBytes(Paths.get(path));
-            return new String(encoded, encoding);
+            byte[] encoded = Files.readAllBytes(Paths.get(getFilePath()));
+            return new String(encoded, Charset.defaultCharset());
         }catch(IOException ioe){
             System.out.println("ERROR READING FILE/FILE PATH");
         }
         return "";
     }
 
-    /*public Array[][] parse(){
-
-    }*/
+    public String getFile(){
+        return readFile();
+    }
 
     public Importer(){
-
     }
 
     public static void main(String[] args){
@@ -55,9 +58,9 @@ public class Importer {
         String fileNameIn = in.nextLine();
         System.out.println("Input file: " + fileNameIn);
         System.out.println(System.getProperty("user.dir"));
-        String filePath=a.getFilePath(fileNameIn);
+        //String filePath=a.getFilePath(fileNameIn);
 
-        a.readFile(filePath,Charset.defaultCharset());
+        //a.readFile(filePath,Charset.defaultCharset());
 
     }
 }
