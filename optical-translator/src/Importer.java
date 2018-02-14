@@ -1,15 +1,37 @@
 import java.io.*;
 import java.lang.reflect.Array;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
+/**
+ * Class for importing a full string of the html image file
+ *
+ * @author CaptainGeo
+ * @date 2-12-2018
+ */
 public class Importer {
 
-    public String getFilePath(String fileName){
-        String filePath = System.getProperty("user.dir") + "/" + fileName;
+    /**
+     * Gets the file name (ex test.html) from the user, finds the full file path
+     * @return filepath
+     */
+    private String getFilePath(){
+        System.out.println("Insert name of html file to import (must be in the mascot-testing directory):");
+        Scanner in = new Scanner(System.in);
+        String fileNameIn = in.nextLine();
+        System.out.println("Input file: " + fileNameIn);
+        String filePath = System.getProperty("user.dir") + "/" + fileNameIn;
         return filePath;
     }
 
-    public int getFileLength(String filePath){
+    /**
+     * Finds file length (in lines)
+     * @param filePath
+     * @return file length
+     */
+    private int getFileLength(String filePath){
         int lineNumber = 0;
         try {
             FileReader fr = new FileReader(filePath);
@@ -17,7 +39,7 @@ public class Importer {
             while(lnr.readLine() != null){
                 lineNumber++;
             }
-            System.out.println("Number of Lines: "+lineNumber);
+            System.out.println("Number of Lines: " + lineNumber);
             lnr.close();
             return lineNumber;
         }
@@ -27,29 +49,32 @@ public class Importer {
         return lineNumber;
     }
 
-    public void read(String filePath){
-        String out;
-        int length = getFileLength(filePath);
-        String line = "";
-        for(int i=0;i<=length;i++){
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader(filePath));
-                line = reader.readLine();
-                System.out.println("Read Line "+i+": "+line);
-            } catch (IOException x) {
-                //x.printStackTrace(new PrintStream(System.out));
-                System.out.println("ERROR READING LINE");
-            }
+    /**
+     * Adds entire file contents into a string
+     * @return file contents
+     */
+    private String readFile(){
+        try{
+            byte[] encoded = Files.readAllBytes(Paths.get(getFilePath()));
+            return new String(encoded, Charset.defaultCharset());
+        }catch(IOException ioe){
+            System.out.println("ERROR READING FILE/FILE PATH");
         }
-        //return out;
+        return "";
     }
 
-    /*public Array[][] parse(){
+    /**
+     * Getter for string with file text
+     * @return file string
+     */
+    public String getFile(){
+        return readFile();
+    }
 
-    }*/
-
+    /**
+     * Importer constructor
+     */
     public Importer(){
-
     }
 
     public static void main(String[] args){
@@ -59,9 +84,9 @@ public class Importer {
         String fileNameIn = in.nextLine();
         System.out.println("Input file: " + fileNameIn);
         System.out.println(System.getProperty("user.dir"));
-        String filePath=a.getFilePath(fileNameIn);
+        //String filePath=a.getFilePath(fileNameIn);
 
-        a.read(filePath);
+        //a.readFile(filePath,Charset.defaultCharset());
 
     }
 }
