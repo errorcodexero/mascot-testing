@@ -18,11 +18,18 @@ public class Importer {
      * @return filepath
      */
     private String getFilePath(){
+        String OS = System.getProperty("os.name").toLowerCase();
         System.out.println("Insert name of html file to import (must be in the mascot-testing directory):");
         Scanner in = new Scanner(System.in);
         String fileNameIn = in.nextLine();
         System.out.println("Input file: " + fileNameIn);
-        String filePath = System.getProperty("user.dir") + "\\" + fileNameIn;
+        String filePath = "";
+        if (OS == "win") {
+            filePath = System.getProperty("user.dir") + "\\" + fileNameIn;
+        } else {
+            filePath = System.getProperty("user.dir") + "/"+ fileNameIn;
+        }
+
         System.out.println("File path: "+filePath);
         return filePath;
     }
