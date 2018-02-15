@@ -32,6 +32,11 @@ public class Parser {
         return out;
     }
 
+    public ArrayList<String> getParsed(){
+        Importer importer = new Importer();
+        return parseRaw(importer.getFile());
+    }
+
     public static void main(String[] args){
         Importer importer = new Importer();
         String raw = importer.getFile();
