@@ -22,7 +22,8 @@ public class Importer {
         Scanner in = new Scanner(System.in);
         String fileNameIn = in.nextLine();
         System.out.println("Input file: " + fileNameIn);
-        String filePath = System.getProperty("user.dir") + "/" + fileNameIn;
+        String filePath = System.getProperty("user.dir") + "\\" + fileNameIn;
+        System.out.println("File path: "+filePath);
         return filePath;
     }
 

@@ -4,6 +4,7 @@ public class Parser {
 
     private ArrayList<String> parseRaw(String raw){
         ArrayList<String> out = null;
+        //ArrayList<String> out;
 
 
         int lengthRaw = raw.length();
