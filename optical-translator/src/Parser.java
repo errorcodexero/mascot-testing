@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Parser {
 
     private ArrayList<String> parseRaw(String raw){
-        ArrayList<String> out = null;
+        ArrayList<String> out = new ArrayList<String>();
         //ArrayList<String> out;
 
 
