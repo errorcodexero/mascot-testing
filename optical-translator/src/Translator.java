@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ *
+ */
+
 public class Translator {
 
     private String translate(ArrayList<String> in){

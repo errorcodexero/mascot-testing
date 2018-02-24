@@ -25,9 +25,12 @@ public class Importer {
         String fileNameIn = in.nextLine();
         System.out.println("Input file: " + fileNameIn);
         String filePath = "";
-        if (OS == "win") {
-            filePath = System.getProperty("user.dir") + "\\" + fileNameIn;
+        if (OS.contains("win")) {
+            System.out.println("Detected OS (win): "+OS);
+            filePath = System.getProperty("user.dir").substring(0,System.getProperty("user.dir").length()) + "\\" + fileNameIn;
         } else {
+            System.out.println("Detected OS: "+OS);
+            //filePath = System.getProperty("user.dir") + "\\"+ fileNameIn;
             filePath = System.getProperty("user.dir") + "/"+ fileNameIn;
         }
 
