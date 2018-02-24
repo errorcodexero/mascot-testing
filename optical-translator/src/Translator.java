@@ -6,9 +6,9 @@ public class Translator {
         String out = "";
         int count = 0;
         if(in.size()==192){
-            out=out+"[["; //start
-            for(int y = 0; y<12;y++){
-                out=out+"["; //start of new row
+            out=out+"[\n\t["; //start
+            for(int y = 0; y<12; y++){
+                out=out+"\n\t\t["; //start of new row
                 for(int x = 0; x<15; x++){
                     out=out+"["; //start of pixel
                     out=out+"\""+in.get(count).substring(0,2)+"\",\""+in.get(count).substring(2,4)+"\",\""+in.get(count).substring(4)+"\"";
@@ -24,14 +24,13 @@ public class Translator {
                 }else{
                     out = out + "]"; //end of row
                 }
-                out=out+"]";
             }
 
-            out=out+"]"; //end
+            out=out+"\n\t]\n]"; //end
 
 
         }else{
-            System.err.println("WRONG SIZE");
+            System.err.println("WRONG SIZE: "+in.size());
         }
         return out;
     }
