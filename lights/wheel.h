@@ -2340,7 +2340,7 @@ struct Wheel: public Frame_set {
 		}
 	}
 
-	First_logo():Frame_set(1){}
+	Wheel():Frame_set(1){}
 };
 
 #endif
