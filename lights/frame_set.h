@@ -1,7 +1,7 @@
 #ifndef FRAME_SET_H
 #define FRAME_SET_H
 
-#include "FastLED.h"
+#include "FastLED.h" // http://fastled.io/docs/3.1/group___colorutils.html
 #include "assert.h"
 #include "lights_constants.h"
 

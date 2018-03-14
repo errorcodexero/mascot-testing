@@ -206,7 +206,7 @@ struct First_logo: public Frame_set {
 		}
 	}
 
-	Smile():Frame_set(1){}
+	First_logo():Frame_set(1){}
 };
 
 #endif

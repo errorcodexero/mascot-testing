@@ -1,6 +1,6 @@
 #include "lights_constants.h"
 
-#include "first_logo.h" // http://fastled.io/docs/3.1/group___colorutils.html
+#include "first_logo.h" 
 
 enum Mode{
     NEUTRAL = 0,//Neutral face
