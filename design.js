@@ -123,6 +123,20 @@ function input() {
 	document.getElementById("fLabel").innerHTML = (f+1)+"/"+document.getElementById("fSl").max;
 }
 
+function outputNew() {
+	var display = "";
+	for (a = 0; a < screen.length; a++) {
+		display += "case "+a+":";
+		for(i = 0; i < screen[a].length; i++) {
+			for(j = 0; j < screen[a][i].length; j++) {
+				display += '<br/>&nbsp;&nbsp;&nbsp;&nbsp;leds['+(i*16 + j)+'] = CRGB{'+parseInt(screen[a][i][j][0], 16)+','+parseInt(screen[a][i][j][1], 16)+','+parseInt(screen[a][i][j][2], 16)+'};';
+				if (i == screen[a].length - 1 && j == screen[a][i].length - 1) display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;return;<br/>";
+			}
+		}
+	}
+	document.getElementById("display").innerHTML = display;
+}
+
 setInterval(draw, 50);
 
 function draw() {
