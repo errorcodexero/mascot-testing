@@ -134,7 +134,7 @@ function outputNew() {
 				else display += '0,';
 				if (screen[a][i][j][1] != "11") display += parseInt(screen[a][i][j][1], 16)+',';
 				else display += '0,';
-				if (screen[a][i][j][2] != "11") console.log(parseInt(screen[a][i][j][2], 16));
+				if (screen[a][i][j][2] != "11") display += parseInt(screen[a][i][j][2], 16)+'};';
 				else display += '0};';
 				if (i == screen[a].length - 1 && j == screen[a][i].length - 1) display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;return;<br/>";
 			}
