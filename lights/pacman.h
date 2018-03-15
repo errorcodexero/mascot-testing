@@ -1,9 +1,9 @@
 #ifndef PACMAN_H
 #define PACMAN_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Pacman: public Frame_set {
+struct Pacman: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
 		leds[0] = CRGB{0,0,85};
 		leds[1] = CRGB{0,0,85};
@@ -250,7 +250,7 @@ struct Pacman: public Frame_set {
         }
     }
 
-    Pacman():Frame_set(19,100){}
+    Pacman():Design(19,100){}
 };
 
 #endif

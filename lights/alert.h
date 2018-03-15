@@ -1,9 +1,9 @@
 #ifndef ALERT_H
 #define ALERT_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Alert: public Frame_set {
+struct Alert: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -208,7 +208,7 @@ struct Alert: public Frame_set {
         }
     }
 
-    Alert():Frame_set(2,100){}
+    Alert():Design(2,100){}
 };
 
 #endif

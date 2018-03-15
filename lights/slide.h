@@ -1,9 +1,9 @@
 #ifndef SLIDE_H
 #define SLIDE_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Slide: public Frame_set {
+struct Slide: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -403,7 +403,7 @@ struct Slide: public Frame_set {
                 assert(0);
         }
     }
-    Slide():Frame_set(4,100){}
+    Slide():Design(4,100){}
 };
 
 #endif

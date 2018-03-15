@@ -1,9 +1,9 @@
 #ifndef SMILE_H
 #define SMILE_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Smile: public Frame_set {
+struct Smile: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -66,7 +66,7 @@ struct Smile: public Frame_set {
         }
     }
 
-    Smile():Frame_set(1,100){}
+    Smile():Design(1,100){}
 };
 
 #endif

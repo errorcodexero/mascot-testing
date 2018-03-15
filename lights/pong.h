@@ -1,9 +1,9 @@
 #ifndef PONG_H
 #define PONG_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Pong: public Frame_set {
+struct Pong: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -463,7 +463,7 @@ struct Pong: public Frame_set {
         }
     }
 
-    Pong():Frame_set(41,500){}
+    Pong():Design(41,500){}
 };
 
 #endif

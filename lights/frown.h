@@ -1,9 +1,9 @@
 #ifndef FROWN_H
 #define FROWN_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Frown: public Frame_set {
+struct Frown: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -66,7 +66,7 @@ struct Frown: public Frame_set {
         }
     }
 
-    Frown():Frame_set(1,100){}
+    Frown():Design(1,100){}
 };
 
 #endif

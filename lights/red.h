@@ -1,9 +1,9 @@
 #ifndef RED_H
 #define RED_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Red: public Frame_set {
+struct Red: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -239,7 +239,7 @@ struct Red: public Frame_set {
         }
     }
 
-	Red():Frame_set(2,500){}
+	Red():Design(2,500){}
 };
 
 #endif

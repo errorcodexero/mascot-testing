@@ -1,9 +1,9 @@
 #ifndef TETRIS_H
 #define TETRIS_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Tetris: public Frame_set {
+struct Tetris: public Design {
 	void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
 		leds[0] = CRGB{255,255,255};
 		leds[1] = CRGB{255,255,255};
@@ -2349,7 +2349,7 @@ struct Tetris: public Frame_set {
 		}
 	}
 
-	Tetris():Frame_set(91,200){}
+	Tetris():Design(91,200){}
 };
 
 #endif

@@ -1,9 +1,9 @@
 #ifndef FIRST_LOGO_H
 #define FIRST_LOGO_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct First_logo: public Frame_set {
+struct First_logo: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -100,7 +100,7 @@ struct First_logo: public Frame_set {
         }
     }
 
-    First_logo():Frame_set(1,100){}
+    First_logo():Design(1,100){}
 };
 
 #endif

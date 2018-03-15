@@ -1,9 +1,9 @@
 #ifndef CUBE_H
 #define CUBE_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Cube: public Frame_set {
+struct Cube: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -2306,7 +2306,7 @@ struct Cube: public Frame_set {
         }
     }
 
-    Cube():Frame_set(31,100){}
+    Cube():Design(31,100){}
 };
 
 #endif

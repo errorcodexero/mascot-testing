@@ -1,9 +1,9 @@
 #ifndef FIRE2_H
 #define FIRE2_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Fire2: public Frame_set {
+struct Fire2: public Design {//TODO: rename to Team?
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -1078,7 +1078,7 @@ struct Fire2: public Frame_set {
         }
     }
 
-    Fire2():Frame_set(10,100){}
+    Fire2():Design(10,100){}
 };
 
 #endif

@@ -1,9 +1,9 @@
 #ifndef NEUTRAL_H
 #define NEUTRAL_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Neutral: public Frame_set {
+struct Neutral: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -58,7 +58,7 @@ struct Neutral: public Frame_set {
         }
     }
 
-    Neutral():Frame_set(1,100){}
+    Neutral():Design(1,100){}
 };
 
 #endif

@@ -1,9 +1,9 @@
 #ifndef WHEEL_H
 #define WHEEL_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Wheel: public Frame_set {
+struct Wheel: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -1380,7 +1380,7 @@ struct Wheel: public Frame_set {
         }
     }
 
-    Wheel():Frame_set(12,100){}
+    Wheel():Design(12,100){}
 };
 
 #endif

@@ -1,9 +1,9 @@
 #ifndef SURPRISE_H
 #define SURPRISE_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Surprise: public Frame_set {
+struct Surprise: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -928,7 +928,7 @@ struct Surprise: public Frame_set {
         }
     }
 
-    Surprise():Frame_set(10,100){}
+    Surprise():Design(10,100){}
 };
 
 #endif

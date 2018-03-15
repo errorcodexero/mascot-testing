@@ -1,9 +1,9 @@
 #ifndef WAVE_H
 #define WAVE_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Wave: public Frame_set {
+struct Wave: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -328,7 +328,7 @@ struct Wave: public Frame_set {
         }
     }
 
-    Wave():Frame_set(14,100){}
+    Wave():Design(14,100){}
 };
 
 #endif

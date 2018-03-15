@@ -1,9 +1,9 @@
 #ifndef TRON_H
 #define TRON_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Tron: public Frame_set {
+struct Tron: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -2024,7 +2024,7 @@ struct Tron: public Frame_set {
         }
     }
 
-    Tron():Frame_set(24,100){}
+    Tron():Design(24,100){}
 };
 
 #endif

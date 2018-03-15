@@ -1,9 +1,9 @@
 #ifndef ERROR_H
 #define ERROR_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Error: public Frame_set {
+struct Error: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -206,7 +206,7 @@ struct Error: public Frame_set {
         }
     }
 
-    Error():Frame_set(1,100){}
+    Error():Design(1,100){}
 };
 
 #endif

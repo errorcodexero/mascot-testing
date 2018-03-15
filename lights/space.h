@@ -1,9 +1,9 @@
 #ifndef SPACE_H
 #define SPACE_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Space: public Frame_set {
+struct Space: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
         switch(current_frame){
             case 0:
@@ -332,7 +332,7 @@ struct Space: public Frame_set {
         }
     }
 
-    Space():Frame_set(9,100){}
+    Space():Design(9,100){}
 };
 
 #endif
