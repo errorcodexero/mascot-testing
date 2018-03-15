@@ -239,11 +239,7 @@ struct Red: public Frame_set {
         }
     }
 
-<<<<<<< HEAD
-    Red():Frame_set(2,300){}
-=======
 	Red():Frame_set(2,500){}
->>>>>>> cd77768b14663772020cc0802e5ae58715f7272d
 };
 
 #endif

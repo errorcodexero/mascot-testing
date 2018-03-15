@@ -6,6 +6,10 @@
 //#include "slide.h"
 #include "wave.h"
 //#include "wheel.h"
+//#include "tetris.h"
+//#include "matrix.h"
+//#include "tron.h"
+//#include "pong.h"
 
 enum Design{
 	NEUTRAL = 0,//Neutral face
@@ -105,6 +109,7 @@ void set_frame_set(){
 
 void setup() {
 	FastLED.addLeds <LED_CONTROLLER, Lights_constants::LED_STRIP_DATA_PIN, COLOR_ORDER>(leds, Lights_constants::NUMBER_OF_LEDS);
+	FastLED.setBrightness(Lights_constants::MAX_BRIGHTNESS);
 	Serial.begin(9600);
 }
 
@@ -133,8 +138,7 @@ void loop(){
 			Serial.println("NYI");
 			assert(0);
 	}
-	
-	frame_set -> set_leds(leds);
+	frame_set -> set_leds(leds);//TODO: only update when we've changed frames?
 	frame_set -> advance();
 	FastLED.show();
 }
