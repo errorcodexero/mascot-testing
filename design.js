@@ -131,7 +131,7 @@ function outputNew() {
 		display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case "+a+":";
 		for(i = 0; i < screen[a].length; i++) {
 			for(j = 0; j < screen[a][i].length; j++) {
-				if(screen[a][i][j] != ["11","11","11"]) {
+				if(!(screen[a][i][j][0] == "11" && screen[a][i][j][1] == "11" && screen[a][i][j][2] == "11")) {
 					display += '<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leds['+(i*16 + j)+'] = CRGB{';
 					if (screen[a][i][j][0] != "11") display += parseInt(screen[a][i][j][0], 16)+',';
 					else display += '0,';
