@@ -788,7 +788,7 @@ struct Slide: public Frame_set {
 		}
 	}
 
-	Slide():Frame_set(1){}
+	Slide():Frame_set(4,50){}
 };
 
 #endif

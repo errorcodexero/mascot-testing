@@ -1,11 +1,11 @@
 #include "countdown_timer.h"
 
 #include "blue.h"
-#include "first_logo.h" 
-#include "red.h"
-#include "slide.h"
-#include "wave.h"
-#include "wheel.h"
+//#include "first_logo.h" 
+//#include "red.h"
+//#include "slide.h"
+//#include "wave.h"
+//#include "wheel.h"
 
 enum Design{
 	NEUTRAL = 0,//Neutral face
@@ -39,10 +39,10 @@ enum Display_mode{
 	RANDOM
 };
 
-Display_mode display_mode;
+Display_mode display_mode = HOLD;
 
 CRGB leds[Lights_constants::NUMBER_OF_LEDS];
-Frame_set* frame_set = new First_logo(); //TODO: have first design be Surprise?
+Frame_set* frame_set = new Blue(); //TODO: have first design be Surprise?
 Countdown_timer cycle_timer;
 const unsigned long CYCLE_TIME = 10 * 1000;//ms
 
@@ -66,12 +66,12 @@ void set_frame_set(){
 		case PACMAN:
 			return;
 		case FIRST:
-			frame_set = new First_logo();
+			//frame_set = new First_logo();
 			return;
 		case SUPRISE:
 			return;
 		case SLIDE:
-			frame_set = new Slide();
+			//frame_set = new Slide();
 			return;
 		case PONG:
 			return;
@@ -83,12 +83,12 @@ void set_frame_set(){
 			frame_set = new Blue();
 			return;
 		case RED:
-			frame_set = new Red();
+			//frame_set = new Red();
 			return;
 		case MATRIX:
 			return;
 		case WHEEL:
-			frame_set = new Wheel();
+			//frame_set = new Wheel();
 			return;
 		case TEAM:
 			return;
@@ -137,6 +137,5 @@ void loop(){
 	frame_set -> set_leds(leds);
 	frame_set -> advance();
 	FastLED.show();
-	delay(Lights_constants::FRAME_LENGTH);
 }
 

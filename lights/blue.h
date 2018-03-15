@@ -400,7 +400,7 @@ struct Blue: public Frame_set {
 		}
 	}
 
-	Blue():Frame_set(1){}
+	Blue():Frame_set(2,500){}
 };
 
 #endif

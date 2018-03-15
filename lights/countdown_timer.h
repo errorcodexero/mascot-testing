@@ -5,12 +5,14 @@
 
 class Countdown_timer{
 	private:
+	unsigned long length;
 	unsigned long finish_time;
 	
 	public:
 	Countdown_timer();
 	Countdown_timer(const unsigned long);
 	void set(const unsigned long);
+	void reset();
 	bool done()const;
 };
 
