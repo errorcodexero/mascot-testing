@@ -2728,7 +2728,7 @@ struct Wave: public Frame_set {
 		}
 	}
 
-	Wave():Frame_set(1){}
+	Wave():Frame_set(14, 50){}
 };
 
 #endif

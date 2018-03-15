@@ -124,22 +124,25 @@ function input() {
 }
 
 function outputNew() {
-	var display = "";
+	var label = prompt("Name header file (First letter capitalized, underscores between words)");
+	var delay = prompt("Input the delay between frames in ms");
+	var display = '#ifndef '+label.toUpperCase()+'_H<br/>#define '+label.toUpperCase()+'_H<br/><br/>#include "frame_set.h"<br/><br/>struct '+label+': public Frame_set {<br/>&nbsp;&nbsp;&nbsp;&nbsp;void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{'+'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch(current_frame){';
 	for (a = 0; a < screen.length; a++) {
-		display += "case "+a+":";
+		display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case "+a+":";
 		for(i = 0; i < screen[a].length; i++) {
 			for(j = 0; j < screen[a][i].length; j++) {
-				display += '<br/>&nbsp;&nbsp;&nbsp;&nbsp;leds['+(i*16 + j)+'] = CRGB{';
+				display += '<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leds['+(i*16 + j)+'] = CRGB{';
 				if (screen[a][i][j][0] != "11") display += parseInt(screen[a][i][j][0], 16)+',';
 				else display += '0,';
 				if (screen[a][i][j][1] != "11") display += parseInt(screen[a][i][j][1], 16)+',';
 				else display += '0,';
 				if (screen[a][i][j][2] != "11") display += parseInt(screen[a][i][j][2], 16)+'};';
 				else display += '0};';
-				if (i == screen[a].length - 1 && j == screen[a][i].length - 1) display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;return;<br/>";
+				if (i == screen[a].length - 1 && j == screen[a][i].length - 1) display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;";
 			}
 		}
 	}
+	display += '<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial.println("NYI");<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert(0);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;'+label+'():Frame_set('+screen.length+','+delay+'){}<br/>};<br/><br/>#endif';
 	document.getElementById("display").innerHTML = display;
 }
 

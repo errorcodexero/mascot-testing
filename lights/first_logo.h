@@ -207,7 +207,7 @@ struct First_logo: public Frame_set {
 		}
 	}
 
-	First_logo():Frame_set(1){}
+	First_logo():Frame_set(1, 100){}
 };
 
 #endif
