@@ -1,6 +1,6 @@
 #include "countdown_timer.h"
 
-#include "blue.h"
+//#include "blue.h"
 //#include "first_logo.h" 
 //#include "red.h"
 //#include "slide.h"
@@ -42,7 +42,7 @@ enum Display_mode{
 Display_mode display_mode = HOLD;
 
 CRGB leds[Lights_constants::NUMBER_OF_LEDS];
-Frame_set* frame_set = new Blue(); //TODO: have first design be Surprise?
+Frame_set* frame_set = new Wave(); //TODO: have first design be Surprise?
 Countdown_timer cycle_timer;
 const unsigned long CYCLE_TIME = 10 * 1000;//ms
 
@@ -80,7 +80,7 @@ void set_frame_set(){
 		case STAR:
 			return;
 		case BLUE:
-			frame_set = new Blue();
+			//frame_set = new Blue();
 			return;
 		case RED:
 			//frame_set = new Red();
