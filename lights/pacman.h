@@ -250,7 +250,7 @@ struct Pacman: public Design {
         }
     }
 
-    Pacman():Design(19,100){}
+    Pacman():Frame_set(19,400){}
 };
 
 #endif

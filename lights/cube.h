@@ -2306,7 +2306,7 @@ struct Cube: public Design {
         }
     }
 
-    Cube():Design(31,100){}
+    Cube():Frame_set(31,300){}
 };
 
 #endif

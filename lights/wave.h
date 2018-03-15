@@ -328,7 +328,7 @@ struct Wave: public Design {
         }
     }
 
-    Wave():Design(14,100){}
+    Wave():Frame_set(14,50){}
 };
 
 #endif

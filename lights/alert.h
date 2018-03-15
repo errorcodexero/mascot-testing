@@ -208,7 +208,7 @@ struct Alert: public Design {
         }
     }
 
-    Alert():Design(2,100){}
+    Alert():Frame_set(2,200){}
 };
 
 #endif

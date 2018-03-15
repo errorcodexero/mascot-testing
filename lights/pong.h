@@ -463,7 +463,7 @@ struct Pong: public Design {
         }
     }
 
-    Pong():Design(41,500){}
+    Pong():Frame_set(41,200){}
 };
 
 #endif
