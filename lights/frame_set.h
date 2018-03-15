@@ -20,6 +20,7 @@ struct Frame_set{
 				current_frame = 0;
 			}
 			frame_timer.reset();
+			FastLED.clear();//TODO: move this?
 		}
 	}
 

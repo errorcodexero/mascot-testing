@@ -404,7 +404,11 @@ struct Slide: public Frame_set {
         }
     }
 
+<<<<<<< HEAD
     Slide():Frame_set(4,100){}
+=======
+	Slide():Frame_set(4,50){}
+>>>>>>> cd77768b14663772020cc0802e5ae58715f7272d
 };
 
 #endif
