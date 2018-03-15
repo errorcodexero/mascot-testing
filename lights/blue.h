@@ -400,7 +400,11 @@ struct Blue: public Frame_set {
 		}
 	}
 
+<<<<<<< HEAD
 	Blue():Frame_set(2, 300){}
+=======
+	Blue():Frame_set(2,500){}
+>>>>>>> 796fd41c7c9e7e75dd22aa10ef10b96b5f44093d
 };
 
 #endif
