@@ -208,7 +208,7 @@ struct Alert: public Frame_set {
         }
     }
 
-    Alert():Frame_set(2,100){}
+    Alert():Frame_set(2,200){}
 };
 
 #endif

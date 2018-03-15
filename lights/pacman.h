@@ -250,7 +250,7 @@ struct Pacman: public Frame_set {
         }
     }
 
-    Pacman():Frame_set(19,100){}
+    Pacman():Frame_set(19,400){}
 };
 
 #endif

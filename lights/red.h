@@ -239,7 +239,7 @@ struct Red: public Frame_set {
         }
     }
 
-	Red():Frame_set(2,500){}
+	Red():Frame_set(2,300){}
 };
 
 #endif

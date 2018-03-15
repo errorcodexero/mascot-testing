@@ -1078,7 +1078,7 @@ struct Fire2: public Frame_set {
         }
     }
 
-    Fire2():Frame_set(10,100){}
+    Fire2():Frame_set(10,400){}
 };
 
 #endif
