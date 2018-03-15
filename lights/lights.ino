@@ -4,9 +4,9 @@
 //#include "first_logo.h" 
 //#include "red.h"
 //#include "slide.h"
-#include "wave.h"
+//#include "wave.h"
 //#include "wheel.h"
-//#include "tetris.h"
+#include "tetris.h"
 //#include "matrix.h"
 //#include "tron.h"
 //#include "pong.h"
@@ -46,7 +46,7 @@ enum Display_mode{
 Display_mode display_mode = HOLD;
 
 CRGB leds[Lights_constants::NUMBER_OF_LEDS];
-Frame_set* frame_set = new Wave(); //TODO: have first design be Surprise?
+Frame_set* frame_set = new Tetris(); //TODO: have first design be Surprise?
 Countdown_timer cycle_timer;
 const unsigned long CYCLE_TIME = 10 * 1000;//ms
 
