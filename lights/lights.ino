@@ -4,7 +4,7 @@
 //#include "first_logo.h" 
 //#include "red.h"
 //#include "slide.h"
-//#include "wave.h"
+#include "wave.h"
 //#include "wheel.h"
 
 enum Design{

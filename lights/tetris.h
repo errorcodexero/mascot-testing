@@ -17666,7 +17666,7 @@ struct Tetris: public Frame_set {
 		}
 	}
 
-	Tetris():Frame_set(1){}
+	Tetris():Frame_set(91, 200){}
 };
 
 #endif

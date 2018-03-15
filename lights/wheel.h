@@ -2340,7 +2340,7 @@ struct Wheel: public Frame_set {
 		}
 	}
 
-	Wheel():Frame_set(12,100){}
+	Wheel():Frame_set(12, 100){}
 };
 
 #endif
