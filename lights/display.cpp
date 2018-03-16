@@ -76,6 +76,9 @@ void Display::set_design(const Design_picker new_design_picker){
 		case CUBE:
 			//design = new Cube();
 			break;
+		case CHARGING:
+			//design = new Charging();
+			break;
 		case DESIGNS:
 		default:
 			Serial.println("NYI");

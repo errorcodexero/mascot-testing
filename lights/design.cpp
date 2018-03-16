@@ -14,10 +14,19 @@ void Design::show(CRGB leds[Lights_constants::NUMBER_OF_LEDS]){
 	if(current_frame == last_shown_frame){
 		return;
 	}
+	#ifndef TESTING
 	FastLED.clear();
+	#else
+	for(unsigned i = 0; i < Lights_constants::NUMBER_OF_LEDS; i++){
+		leds[i] = CRGB(0,0,0);
+	}
+	#endif
 	Serial.println(current_frame);
 	set_leds(leds);
+	#ifndef TESTING
 	FastLED.show();
+	#endif
+
 
 	last_shown_frame = current_frame;
 }

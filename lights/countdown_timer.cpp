@@ -1,6 +1,10 @@
 #include "countdown_timer.h"
 
+#ifndef TESTING
 #include "Arduino.h"
+#else
+#include "tester.h"
+#endif
 
 Countdown_timer::Countdown_timer(const unsigned long LENGTH):length(LENGTH),finish_time(millis() + LENGTH){}
 Countdown_timer::Countdown_timer():Countdown_timer(0){}

@@ -1,7 +1,11 @@
 #ifndef DESIGN_H
 #define DESIGN_H
 
+#ifndef TESTING
 #include "FastLED.h" // http://fastled.io/docs/3.1/group___colorutils.html
+#else
+#include "tester.h"
+#endif
 #include "assert.h"
 #include "lights_constants.h"
 #include "countdown_timer.h"

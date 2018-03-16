@@ -3,6 +3,7 @@
 
 //#include "alert.h"
 //#include "blue.h"
+//#include "charging.h"
 //#include "cube.h"
 //#include "error.h"
 //#include "fire.h"
@@ -54,7 +55,8 @@ struct Display{
 		TEAM = 18,//Flames with team number animation
 		TETRIS = 19,//Tetris animation
 		CUBE = 20,//Rubik's cube animation
-		DESIGNS = 21 //Used to refer to the number of designs
+		CHARGING = 21,//displays a battery charging animation
+		DESIGNS = 22 //Used to refer to the number of designs
 	};
 	
 	const unsigned long CYCLE_TIME = 10 * 1000;//ms
@@ -65,7 +67,7 @@ struct Display{
 	Design_picker design_picker;
 
 	Countdown_timer cycle_timer;
-	
+
 	public:
 	void set_design(const Design_picker);
 	void set_display_mode(const Display_mode);

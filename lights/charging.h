@@ -1,9 +1,9 @@
 #ifndef CHARGING_H
 #define CHARGING_H
 
-#include "frame_set.h"
+#include "design.h"
 
-struct Charging: public Frame_set {
+struct Charging: public Design {
     void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{
 		leds[34] = CRGB{0,255,0};
 		leds[35] = CRGB{0,255,0};
@@ -474,7 +474,7 @@ struct Charging: public Frame_set {
         }
     }
 
-    Charging():Frame_set(12,300){}
+    Charging():Design(12,300){}
 };
 
 #endif
