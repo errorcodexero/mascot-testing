@@ -127,6 +127,24 @@ function outputNew() {
 	var label = prompt("Name header file (First letter capitalized, underscores between words)");
 	var delay = prompt("Input the delay between frames in ms");
 	var display = '#ifndef '+label.toUpperCase()+'_H<br/>#define '+label.toUpperCase()+'_H<br/><br/>#include "frame_set.h"<br/><br/>struct '+label+': public Frame_set {<br/>&nbsp;&nbsp;&nbsp;&nbsp;void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{'+'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch(current_frame){';
+	/*var template = new Array();
+	for (i = 0; i < screen[0].length; i++) {
+		template[i] = new Array();
+		for (j = 0; j < screen[0][i].length; j++) {
+			var first = screen[0][i][j];
+			var same = true;
+			for (a = 1; a < screen.length; a++) {
+				if (screen[a][i][j] != first) {
+					same = false;
+					break;
+				}
+			}
+			template[i][j] = same;
+			if (same) {
+				display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;"
+			}
+		}
+	}*/
 	for (a = 0; a < screen.length; a++) {
 		display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case "+a+":";
 		for(i = 0; i < screen[a].length; i++) {
