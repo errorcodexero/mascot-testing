@@ -1078,7 +1078,7 @@ struct Fire2: public Design {//TODO: rename to Team?
         }
     }
 
-    Fire2():Frame_set(10,400){}
+    Fire2():Design(10,400){}
 };
 
 #endif

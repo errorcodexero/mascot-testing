@@ -15,6 +15,7 @@ void Design::show(CRGB leds[Lights_constants::NUMBER_OF_LEDS]){
 		return;
 	}
 	FastLED.clear();
+	Serial.println(current_frame);
 	set_leds(leds);
 	FastLED.show();
 

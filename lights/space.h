@@ -332,7 +332,7 @@ struct Space: public Design {
         }
     }
 
-    Space():Frame_set(9,400){}
+    Space():Design(9,400){}
 };
 
 #endif

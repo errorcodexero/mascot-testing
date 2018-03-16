@@ -1,7 +1,7 @@
 #include "countdown_timer.h"
 #include "display.h"
 
-Display display = {new Tetris()};
+Display display;
 CRGB leds[Lights_constants::NUMBER_OF_LEDS];
 
 void setup() {
@@ -12,5 +12,13 @@ void setup() {
 
 void loop(){
 	display.show(leds);
+	/*
+	//sets all leds to white for debugging
+	FastLED.clear();
+	for(unsigned i = 0; i < Lights_constants::NUMBER_OF_LEDS; i++){
+		leds[i] = CRGB::White;
+	}
+	FastLED.show();
+	*/
 }
 

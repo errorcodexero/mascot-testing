@@ -203,7 +203,7 @@ struct Fire: public Design {
         }
     }
 
-    Fire():Frame_set(2,400){}
+    Fire():Design(2,400){}
 };
 
 #endif
