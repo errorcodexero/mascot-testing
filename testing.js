@@ -4703,7 +4703,7 @@ var color_bars = [
 ];
 speed.set("color_bars",100);
 screenArr[screenArr.length] = "Color Bars";
-screenMap.set("Color Bars", [color_bars]);
+screenMap.set("Color Bars", color_bars);
 
 var screen = smile;
 
