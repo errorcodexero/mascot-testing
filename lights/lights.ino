@@ -1,25 +1,21 @@
 #include "colors.h"
 
-#define LED_CONTROLLER WS2812B
-#define COLOR_ORDER GRB
-
-const uint8_t BRIGHTNESS = 255 * 0.3;
-const uint8_t LED_STRIP_DATA_PIN = 3;
-
-CRGB leds[NUMBER_OF_LEDS];
+CRGB leds[Constants::NUMBER_OF_LEDS];
 
 void setup() {
-	FastLED.addLeds <LED_CONTROLLER, LED_STRIP_DATA_PIN, COLOR_ORDER>(leds, NUMBER_OF_LEDS);
-	FastLED.setBrightness(BRIGHTNESS);
+	FastLED.addLeds <LED_CONTROLLER, Constants::LED_STRIP_DATA_PIN, COLOR_ORDER>(leds, Constants::NUMBER_OF_LEDS);
+	FastLED.setBrightness(Constants::BRIGHTNESS);
 	Serial.begin(9600);
 }
 
 void loop(){
 	//FastLED.clear();
-	for(unsigned i = 0; i < NUMBER_OF_LEDS; i++){
-		leds[i] = CRGB::White;
+	for(unsigned frame_index = 0; frame_index < Constants::FRAME_COUNT; frame_index++){
+		for(unsigned led_index = 0; led_index < Constants::NUMBER_OF_LEDS; led_index++){
+			leds[led_index] = index_to_color(FRAMES[frame_index][led_index);
+		}
 	}
 	FastLED.show();
-	
+	delay(100);//TODO
 }
 

@@ -1,7 +1,7 @@
 #include "display.h"
 
 Display::Display(Design* des):design(des),display_mode(HOLD),design_picker((Design_picker)0){}
-Display::Display():Display(new Fire2()){} //TODO: have first design be Surprise?
+Display::Display():Display(new Tetris()){} //TODO: have first design be Surprise?
 
 void Display::set_design(const Design_picker new_design_picker){
 	if(design_picker == new_design_picker){
