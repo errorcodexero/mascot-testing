@@ -166,6 +166,32 @@ function outputNew() {
 	document.getElementById("display").innerHTML = display;
 }
 
+var colors = new Map();
+colors.set(["11","11","11"], "BLACK");     //01
+colors.set(["ff","ff","ff"], "WHITE");     //02
+colors.set(["ff","11","11"], "RED");       //03
+colors.set(["11","ff","11"], "GREEN");     //04
+colors.set(["11","11","ff"], "BLUE");      //05
+colors.set(["11","ff","ff"], "CYAN");      //06
+colors.set(["ff","11","ff"], "MAGENTA");   //07
+colors.set(["ff","ff","11"], "YELLOW");    //08
+colors.set(["ff","88","11"], "ORANGE");    //09
+colors.set(["ff","cc","cc"], "PINK");      //10
+colors.set(["bb","11","11"], "DIM_RED");   //11
+colors.set(["11","11","55"], "DIM_BLUE");  //12
+colors.set(["11","33","33"], "DIM_CYAN");  //13
+colors.set(["bb","bb","11"], "DIM_YELLOW");//14
+colors.set(["bb","66","11"], "DIM_ORANGE");//15
+colors.set(["11","22","22"], "DARK_CYAN"); //16
+
+
+function outputConst() {
+	var display = "";
+	for (a = 0; a < screen.length; a++) {
+		display += "{<br/>&nbsp;&nbsp;&nbsp;&nbsp;";
+	}
+}
+
 setInterval(draw, 50);
 
 function draw() {
