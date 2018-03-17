@@ -197,7 +197,7 @@ function outputConst() {
 			}
 			display += "<br/>";
 		}
-		display += "}<br/>";
+		display += "},<br/>";
 	}
 	document.getElementById("display").innerHTML = display;
 }
