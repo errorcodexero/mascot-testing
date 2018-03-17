@@ -192,7 +192,7 @@ function outputConst() {
 		for (i = 0; i < screen[a].length; i++) {
 			display += "&nbsp;&nbsp;&nbsp;&nbsp;";
 			for (j = 0; j < screen[a][i].length; j++) {
-				display += "static_cast<uint8_t>(Color_index::"+colors.get(screen[a][i][j][0]+screen[a][i][j][1]+screen[a][i][j][2])+")";
+				display += "static_cast&lt;uint8_t&gt;(Color_index::"+colors.get(screen[a][i][j][0]+screen[a][i][j][1]+screen[a][i][j][2])+")";
 				if (i != screen[a].length - 1 || j != screen[a][i].length - 1) display += ", ";
 			}
 			display += "<br/>";
