@@ -1,3 +1,5 @@
+#ifdef TESTING
+
 #include "tester.h"
 
 #include <chrono>
@@ -173,3 +175,5 @@ int main(){
 	Display_parser::parse(new Fire2());
 	return 0;
 }
+
+#endif
