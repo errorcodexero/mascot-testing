@@ -4769,7 +4769,7 @@ var wink = [
 ];
 speed.set("wink", 300);
 screenArr[screenArr.length] = "Wink";
-screenMap.set("Wink", [wink]);
+screenMap.set("Wink", wink);
 
 var color_bars = [
     [
@@ -5383,6 +5383,8 @@ function outputConst() {
 	}
 	display += "}";
 	document.getElementById("display").innerHTML = display;
+	document.querySelector("display").select();
+	document.execCommand("Copy");
 }
 
 var delay = 200;
