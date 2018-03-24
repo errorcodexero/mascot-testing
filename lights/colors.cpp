@@ -1,6 +1,6 @@
 #include "colors.h"
 
-CRGB index_to_color(const Color_index COLOR_INDEX){
+CRGB index_to_color(const uint8_t COLOR_INDEX){
 	switch(COLOR_INDEX){
 		case Color_index::BLACK:
 			return CRGB(0,0,0);
@@ -38,8 +38,4 @@ CRGB index_to_color(const Color_index COLOR_INDEX){
 			Serial.println("ERROR");
 			return CRGB(0,0,0);
 	}
-}
-
-CRGB index_to_color(const uint8_t INDEX){
-	return index_to_color(static_cast<Color_index>(INDEX));
 }
