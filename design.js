@@ -176,7 +176,7 @@ colors.set("11ffff", "CYAN");      //06
 colors.set("ff11ff", "MAGENTA");   //07
 colors.set("ffff11", "YELLOW");    //08
 colors.set("ff8811", "ORANGE");    //09
-colors.set("ffcccc", "PINK");      //10
+colors.set("ff6464", "PINK");      //10
 colors.set("bb1111", "DIM_RED");   //11
 colors.set("111155", "DIM_BLUE");  //12
 colors.set("113333", "DIM_CYAN");  //13

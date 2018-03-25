@@ -21,7 +21,7 @@ CRGB index_to_color(const uint8_t COLOR_INDEX){
 		case Color_index::ORANGE:
 			return CRGB(255,136,0);
 		case Color_index::PINK:
-			return CRGB(255,204,204);
+			return CRGB(255,100,100);
 		case Color_index::DIM_RED:
 			return CRGB(187,0,0);
 		case Color_index::DIM_BLUE:
