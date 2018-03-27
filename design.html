@@ -30,6 +30,11 @@
 				<button type="button" id="hex" onclick="color = prompt('Input hex code:');" style="background-color: #888888;">Hex</button>
 				<button type="button" id="custom" onclick="color = document.getElementById('custom').style.backgroundColor;" style="background-color: #888888;">Custom</button>
 				<button type="button" id="picker" onclick="picking = true;" style="background-color: #888888;">Picker</button>
+				<br/>
+				<button type="button" id="shift_left" onclick="shiftFrameLeft();" style="background-color: #888888;">Shift Frame Left</button>
+				<button type="button" id="shift_right" onclick="shiftFrameRight();" style="background-color: #888888;">Shift Frame Right</button>
+				<button type="button" id="shift_up" onclick="shiftFrameUp();" style="background-color: #888888;">Shift Frame Up</button>
+				<button type="button" id="shift_down" onclick="shiftFrameDown();" style="background-color: #888888;">Shift Frame Down</button>
 				<div id="sliders">
 					<input type="range" id="rSl" min="17" max="255" value="127" step="1" style="background-color: #f11;" oninput="updateColor()"></input>
 					<h5 id="rLabel" style="color: #a00;">127</h5>

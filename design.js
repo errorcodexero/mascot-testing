@@ -92,6 +92,84 @@ function lastFrame() {
 	document.getElementById("fSl").value = f+1;
 }
 
+function shiftFrameLeft(){
+	var newF = new Array();
+
+	for (i = 0; i < 12; i++) {
+		newF[i] = new Array();
+		for (j = 1; j < 16; j++) {
+			newF[i][j - 1] = [screen[f][i][j][0], screen[f][i][j][1], screen[f][i][j][2]];
+		}
+		newF[i][15] =  ["11","11","11"];
+	}
+	
+	if (f == screen.length - 1) screen[f] = newF;
+	else screen.splice(f, 0, newF);
+	document.getElementById("fSl").max = screen.length;
+	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f + 1)+"/"+document.getElementById("fSl").max;
+}
+
+function shiftFrameRight(){
+	var newF = new Array();
+
+	for (i = 0; i < 12; i++) {
+		newF[i] = new Array();
+		for (j = 0; j < 16 - 1; j++) {
+			newF[i][j + 1] = [screen[f][i][j][0], screen[f][i][j][1], screen[f][i][j][2]];
+		}
+		newF[i][0] =  ["11","11","11"];
+	}
+	
+	if (f == screen.length - 1) screen[f] = newF;
+	else screen.splice(f, 0, newF);
+	document.getElementById("fSl").max = screen.length;
+	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f + 1)+"/"+document.getElementById("fSl").max;
+}
+
+function shiftFrameUp(){
+	var newF = new Array();
+
+	for (i = 1; i < 12; i++) {
+		newF[i - 1] = new Array();
+		for (j = 0; j < 16; j++) {
+			newF[i - 1][j] = [screen[f][i][j][0], screen[f][i][j][1], screen[f][i][j][2]];
+		}
+		
+	}
+	newF[11] = new Array();
+	for (j = 0; j < 16; j++) {
+		newF[11][j] =  ["11","11","11"];
+	}
+	
+	if (f == screen.length - 1) screen[f] = newF;
+	else screen.splice(f, 0, newF);
+	document.getElementById("fSl").max = screen.length;
+	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f + 1)+"/"+document.getElementById("fSl").max;
+}
+
+function shiftFrameDown(){
+	var newF = new Array();
+
+	newF[0] = new Array();
+	for (j = 0; j < 16; j++) {
+		newF[0][j] =  ["11","11","11"];
+	}
+	
+	for (i = 0; i < 12 - 1; i++) {
+		newF[i + 1] = new Array();
+		for (j = 0; j < 16; j++) {
+			newF[i + 1][j] = [screen[f][i][j][0], screen[f][i][j][1], screen[f][i][j][2]];
+		}
+		
+	}
+	
+	if (f == screen.length - 1) screen[f] = newF;
+	else screen.splice(f, 0, newF);
+	document.getElementById("fSl").max = screen.length;
+	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f + 1)+"/"+document.getElementById("fSl").max;
+}
+
+
 function output() {
 	var display = "[";
 	for (a = 0; a < screen.length; a++) {
