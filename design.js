@@ -3,6 +3,9 @@ var ctx = canvas.getContext("2d");
 
 console.clear();
 
+const WIDTH = 16;
+const HEIGHT = 12;
+
 var mouseX, mouseY;
 var click = false;
 
@@ -10,9 +13,9 @@ var picking = false;
 
 var screen = [new Array()];
 
-for (i = 0; i < 12; i++) {
+for (i = 0; i < HEIGHT; i++) {
 	screen[0][i] = new Array();
-	for (j = 0; j < 16; j++) {
+	for (j = 0; j < WIDTH; j++) {
 		screen[0][i][j] = ["11","11","11"];
 	}
 }
@@ -28,15 +31,15 @@ function updateColor() {
 	document.getElementById("gLabel").innerHTML = g;
 	var b = document.getElementById("bSl").value;
 	document.getElementById("bLabel").innerHTML = b;
-	document.getElementById("custom").style.backgroundColor = "#"+parseInt(r).toString(16)+parseInt(g).toString(16)+parseInt(b).toString(16);
+	document.getElementById("custom").style.backgroundColor = "#"+parseInt(r).toString(parseInt(WIDTH))+parseInt(g).toString(parseInt(WIDTH))+parseInt(b).toString(parseInt(WIDTH));
 }
 
 function addFrame(){
 	var newF = new Array();
 
-	for (i = 0; i < 12; i++) {
+	for (i = 0; i < HEIGHT; i++) {
 		newF[i] = new Array();
-		for (j = 0; j < 16; j++) {
+		for (j = 0; j < WIDTH; j++) {
 			newF[i][j] = ["11","11","11"];
 		}
 	}
@@ -50,9 +53,9 @@ function addFrame(){
 function cloneFrame(){
 	var newF = new Array();
 
-	for (i = 0; i < 12; i++) {
+	for (i = 0; i < HEIGHT; i++) {
 		newF[i] = new Array();
-		for (j = 0; j < 16; j++) {
+		for (j = 0; j < WIDTH; j++) {
 			newF[i][j] = [screen[f][i][j][0], screen[f][i][j][1], screen[f][i][j][2]];
 		}
 	}
@@ -95,12 +98,12 @@ function lastFrame() {
 function shiftFrameLeft(){
 	var newF = new Array();
 
-	for (i = 0; i < 12; i++) {
+	for (i = 0; i < HEIGHT; i++) {
 		newF[i] = new Array();
-		for (j = 1; j < 16; j++) {
+		for (j = 1; j < WIDTH; j++) {
 			newF[i][j - 1] = [screen[f][i][j][0], screen[f][i][j][1], screen[f][i][j][2]];
 		}
-		newF[i][15] =  ["11","11","11"];
+		newF[i][WIDTH - 1] =  ["11","11","11"];
 	}
 	
 	if (f == screen.length - 1) screen[f] = newF;
@@ -112,9 +115,9 @@ function shiftFrameLeft(){
 function shiftFrameRight(){
 	var newF = new Array();
 
-	for (i = 0; i < 12; i++) {
+	for (i = 0; i < HEIGHT; i++) {
 		newF[i] = new Array();
-		for (j = 0; j < 16 - 1; j++) {
+		for (j = 0; j < WIDTH - 1; j++) {
 			newF[i][j + 1] = [screen[f][i][j][0], screen[f][i][j][1], screen[f][i][j][2]];
 		}
 		newF[i][0] =  ["11","11","11"];
@@ -129,16 +132,16 @@ function shiftFrameRight(){
 function shiftFrameUp(){
 	var newF = new Array();
 
-	for (i = 1; i < 12; i++) {
+	for (i = 1; i < HEIGHT; i++) {
 		newF[i - 1] = new Array();
-		for (j = 0; j < 16; j++) {
+		for (j = 0; j < WIDTH; j++) {
 			newF[i - 1][j] = [screen[f][i][j][0], screen[f][i][j][1], screen[f][i][j][2]];
 		}
 		
 	}
-	newF[11] = new Array();
-	for (j = 0; j < 16; j++) {
-		newF[11][j] =  ["11","11","11"];
+	newF[HEIGHT - 1] = new Array();
+	for (j = 0; j < WIDTH; j++) {
+		newF[HEIGHT - 1][j] =  ["11","11","11"];
 	}
 	
 	if (f == screen.length - 1) screen[f] = newF;
@@ -151,13 +154,13 @@ function shiftFrameDown(){
 	var newF = new Array();
 
 	newF[0] = new Array();
-	for (j = 0; j < 16; j++) {
+	for (j = 0; j < WIDTH; j++) {
 		newF[0][j] =  ["11","11","11"];
 	}
 	
-	for (i = 0; i < 12 - 1; i++) {
+	for (i = 0; i < HEIGHT - 1; i++) {
 		newF[i + 1] = new Array();
-		for (j = 0; j < 16; j++) {
+		for (j = 0; j < WIDTH; j++) {
 			newF[i + 1][j] = [screen[f][i][j][0], screen[f][i][j][1], screen[f][i][j][2]];
 		}
 		
@@ -228,12 +231,12 @@ function outputNew() {
 		for(i = 0; i < screen[a].length; i++) {
 			for(j = 0; j < screen[a][i].length; j++) {
 				if(!(screen[a][i][j][0] == "11" && screen[a][i][j][1] == "11" && screen[a][i][j][2] == "11")) {
-					display += '<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leds['+(i*16 + j)+'] = CRGB{';
-					if (screen[a][i][j][0] != "11") display += parseInt(screen[a][i][j][0], 16)+',';
+					display += '<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leds['+(i*WIDTH + j)+'] = CRGB{';
+					if (screen[a][i][j][0] != "11") display += parseInt(screen[a][i][j][0], WIDTH)+',';
 					else display += '0,';
-					if (screen[a][i][j][1] != "11") display += parseInt(screen[a][i][j][1], 16)+',';
+					if (screen[a][i][j][1] != "11") display += parseInt(screen[a][i][j][1], WIDTH)+',';
 					else display += '0,';
-					if (screen[a][i][j][2] != "11") display += parseInt(screen[a][i][j][2], 16)+'};';
+					if (screen[a][i][j][2] != "11") display += parseInt(screen[a][i][j][2], WIDTH)+'};';
 					else display += '0};';
 				}
 				if (i == screen[a].length - 1 && j == screen[a][i].length - 1) display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;";
@@ -314,9 +317,9 @@ document.onmousemove = function(e) {
 			screen[f][y][x][2] = color.substr(5,2);
     	}
     	else {
-			screen[f][y][x][0] = parseInt(color.substr(4,color.indexOf(",")-4)).toString(16);
-			screen[f][y][x][1] = parseInt(color.substr(color.indexOf(",")+1,color.lastIndexOf(",")-color.indexOf(","))).toString(16);
-			screen[f][y][x][2] = parseInt(color.substr(color.lastIndexOf(",")+1,color.length-color.lastIndexOf(","))).toString(16);
+			screen[f][y][x][0] = parseInt(color.substr(4,color.indexOf(",")-4)).toString(WIDTH);
+			screen[f][y][x][1] = parseInt(color.substr(color.indexOf(",")+1,color.lastIndexOf(",")-color.indexOf(","))).toString(WIDTH);
+			screen[f][y][x][2] = parseInt(color.substr(color.lastIndexOf(",")+1,color.length-color.lastIndexOf(","))).toString(WIDTH);
     	}
     }
 }
@@ -337,9 +340,9 @@ document.onmousedown = function(e) {
 				screen[f][y][x][2] = color.substr(5,2);
 			}
 			else {
-				screen[f][y][x][0] = parseInt(color.substr(4,color.indexOf(",")-4)).toString(16);
-				screen[f][y][x][1] = parseInt(color.substr(color.indexOf(",")+1,color.lastIndexOf(",")-color.indexOf(","))).toString(16);
-				screen[f][y][x][2] = parseInt(color.substr(color.lastIndexOf(",")+1,color.length-color.lastIndexOf(","))).toString(16);
+				screen[f][y][x][0] = parseInt(color.substr(4,color.indexOf(",")-4)).toString(WIDTH);
+				screen[f][y][x][1] = parseInt(color.substr(color.indexOf(",")+1,color.lastIndexOf(",")-color.indexOf(","))).toString(WIDTH);
+				screen[f][y][x][2] = parseInt(color.substr(color.lastIndexOf(",")+1,color.length-color.lastIndexOf(","))).toString(WIDTH);
     		}
     	}
     }
