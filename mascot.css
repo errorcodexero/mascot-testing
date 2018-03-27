@@ -10,7 +10,7 @@ h6{
 button {
 	outline: 0;
 	font-size: 15px;
-	width: 100px;
+	width: 150px;
 	height: 25px;
 	border-style: visible;
 	border-width: 3px;
@@ -29,7 +29,7 @@ button:hover {
 }
 
 #modes {
-	width: 230px;
+	width: 330px;
 	float: left;
 	margin-left: 10px;
 }
