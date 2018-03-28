@@ -9673,7 +9673,6 @@ function outputConst() {
 			display += "<br/>";
 			ohBoy++;
 		}
-		ohBoy++;
 	}
 	display += "}";
 	document.getElementById("display").innerHTML = display;
