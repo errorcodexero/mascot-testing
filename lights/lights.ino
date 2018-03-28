@@ -51,7 +51,6 @@ void loop(){
 		design_selection = new_design_selection;
 	}
 	
-	/*
 	for(unsigned frame_index = DESIGNS[design_selection][0]; frame_index < (DESIGNS[design_selection][1] + 1); frame_index++){
 		for(unsigned led_index = 0; led_index < NUMBER_OF_LEDS; led_index++){
 			const uint8_t* i = &(FRAMES[frame_index][led_index]);
@@ -61,6 +60,6 @@ void loop(){
 		FastLED.show();
 		delay(DESIGNS[design_selection][2]);
 	}
-	*/
+	
 }
 

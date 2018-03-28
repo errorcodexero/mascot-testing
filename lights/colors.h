@@ -1,6 +1,7 @@
 #ifndef COLORS_H
 #define COLORS_H
-#define ARDUINO_SAMD_ZERO
+
+#define ARDUINO_SAMD_ZERO //Define this for FastLED to work with Arduino M0
 #include "FastLED.h"
 
 #define LED_CONTROLLER WS2812B
