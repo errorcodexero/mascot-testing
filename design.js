@@ -24,7 +24,7 @@ var f = 0;
 
 var color = "#ff0000";
 
-function updateColor() {
+function updatePickerColor() {
 	var r  = document.getElementById("rSl").value;
 	document.getElementById("rLabel").innerHTML = r;
 	var g = document.getElementById("gSl").value;
@@ -32,6 +32,12 @@ function updateColor() {
 	var b = document.getElementById("bSl").value;
 	document.getElementById("bLabel").innerHTML = b;
 	document.getElementById("custom").style.backgroundColor = "#"+parseInt(r).toString(parseInt(WIDTH))+parseInt(g).toString(parseInt(WIDTH))+parseInt(b).toString(parseInt(WIDTH));
+}
+
+function updateHexInputColor() {
+	var a = prompt('Input hex code:');
+	color = a;
+	document.getElementById("hex").style.backgroundColor = a;
 }
 
 function addFrame(){

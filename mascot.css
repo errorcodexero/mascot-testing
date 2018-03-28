@@ -12,12 +12,12 @@ button {
 	font-size: 15px;
 	width: 150px;
 	height: 25px;
-	border-style: visible;
+	border-style: solid;
 	border-width: 3px;
 	border-color: #000;
 	margin-top: 3px;
 	background-color: #555;
-	color: #000;
+	color: #000
 }
 
 canvas {
@@ -36,6 +36,23 @@ button:hover {
 
 #simulator {
 	height: 600px;
+}
+
+#unsupported_colors {
+	outline: 1px;
+	border-style: dashed;
+	border-color: #000;
+	border-color: #F33;
+	float: left;
+	margin-top: 3px;
+	padding: 3px 3px 3px 3px;
+}
+
+#unsupported_colors_header {
+	color: #000;
+	font-size: 15px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /*#sliders {

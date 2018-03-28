@@ -27,22 +27,25 @@
 				<button type="button" id="dim_red" onclick="color = '#bbbb11';" style="background-color: #bbbb11;">Dim Yellow</button>
 				<button type="button" id="dim_red" onclick="color = '#bb6611';" style="background-color: #bb6611;">Dim Orange</button>
 				<button type="button" id="dim_red" onclick="color = '#112222';" style="background-color: #112222;">Dark Cyan</button>
-				<button type="button" id="hex" onclick="color = prompt('Input hex code:');" style="background-color: #888888;">Hex</button>
-				<button type="button" id="custom" onclick="color = document.getElementById('custom').style.backgroundColor;" style="background-color: #888888;">Custom</button>
 				<button type="button" id="picker" onclick="picking = true;" style="background-color: #888888;">Picker</button>
-				<br/>
+				<div id="unsupported_colors">
+					<div id="unsupported_colors_header"> Other colors are unsupported </div>
+					<button type="button" id="hex" onclick="updateHexInputColor();" style="background-color: #888888;">Hex</button>
+					<button type="button" id="custom" onclick="color = document.getElementById('custom').style.backgroundColor;" style="background-color: #888888;">Custom</button>
+				
+					<div id="sliders">
+						<input type="range" id="rSl" min="17" max="255" value="127" step="1" style="background-color: #f11;" oninput="updatePickerColor()"></input>
+						<h5 id="rLabel" style="color: #a00;">127</h5>
+						<input type="range" id="gSl" min="17" max="255" value="127" step="1" style="background-color: #0f0;" oninput="updatePickerColor()"></input>
+						<h5 id="gLabel" style="color: #0a0;">127</h5>
+						<input type="range" id="bSl" min="17" max="255" value="127" step="1" style="background-color: #11f;" oninput="updatePickerColor()"></input>
+						<h5 id="bLabel" style="color: #00a;">127</h5>
+					</div>
+				</div>
 				<button type="button" id="shift_left" onclick="shiftFrameLeft();" style="background-color: #888888;">Shift Frame Left</button>
 				<button type="button" id="shift_right" onclick="shiftFrameRight();" style="background-color: #888888;">Shift Frame Right</button>
 				<button type="button" id="shift_up" onclick="shiftFrameUp();" style="background-color: #888888;">Shift Frame Up</button>
 				<button type="button" id="shift_down" onclick="shiftFrameDown();" style="background-color: #888888;">Shift Frame Down</button>
-				<div id="sliders">
-					<input type="range" id="rSl" min="17" max="255" value="127" step="1" style="background-color: #f11;" oninput="updateColor()"></input>
-					<h5 id="rLabel" style="color: #a00;">127</h5>
-					<input type="range" id="gSl" min="17" max="255" value="127" step="1" style="background-color: #0f0;" oninput="updateColor()"></input>
-					<h5 id="gLabel" style="color: #0a0;">127</h5>
-					<input type="range" id="bSl" min="17" max="255" value="127" step="1" style="background-color: #11f;" oninput="updateColor()"></input>
-					<h5 id="bLabel" style="color: #00a;">127</h5>
-				</div>
 				<button type="button" id="add" onclick="addFrame();" style="background-color: #888888;">+Frame</button>
 				<button type="button" id="clone" onclick="cloneFrame();" style="background-color: #888888;">+Copy</button>
 				<button type="button" id="left" onclick="lastFrame();" style="background-color: #888888; width: 25px;"><</button>
