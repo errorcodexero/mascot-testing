@@ -1810,7 +1810,7 @@ var pong = [
 ];//added
 speed.set("Pong", 200);
 screenArr[screenArr.length] = "Pong";
-screenMap.set("Pong", [pong]);
+screenMap.set("Pong", pong);
 
 var alert = [
 	[
