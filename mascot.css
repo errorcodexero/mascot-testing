@@ -9,7 +9,7 @@ h6{
 
 button {
 	outline: 0;
-	font-size: 15px;
+	font-size: 14px;
 	width: 150px;
 	height: 25px;
 	border-style: solid;
@@ -28,6 +28,26 @@ button:hover {
 	color: #fff;
 }
 
+#color_button {
+	width: 100px;
+}
+
+#rSl{
+	width: 300px;
+}
+
+#gSl{
+	width: 300px;
+}
+
+#bSl{
+	width: 300px;
+}
+
+#fSl{
+	width: 242px;
+}
+
 #modes {
 	width: 330px;
 	float: left;
@@ -43,6 +63,7 @@ button:hover {
 	border-style: dashed;
 	border-color: #000;
 	border-color: #F33;
+	background-color: #FAA;
 	float: left;
 	margin-top: 3px;
 	padding: 3px 3px 3px 3px;

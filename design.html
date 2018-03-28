@@ -11,34 +11,34 @@
 		<div id="simulator">
 			<canvas id="design" width="800" height="600" style="border: 5px solid #111111;"></canvas>
 			<div id="modes">
-				<button type="button" id="red" onclick="color = '#ff0000';" style="background-color: #ff0000;">Red</button>
-				<button type="button" id="yellow" onclick="color = '#ffff00';" style="background-color: #ffff00;">Yellow</button>
-				<button type="button" id="green" onclick="color = '#00ff00';" style="background-color: #00ff00;">Green</button>
-				<button type="button" id="magenta" onclick="color = '#ff00ff';" style="background-color: #ff00ff;">Magenta</button>
-				<button type="button" id="blue" onclick="color = '#0000ff';" style="background-color: #0000ff;">Blue</button>
-				<button type="button" id="cyan" onclick="color = '#00ffff';" style="background-color: #00ffff;">Cyan</button>
-				<button type="button" id="white" onclick="color = '#ffffff';" style="background-color: #ffffff;">White</button>
-				<button type="button" id="black" onclick="color = '#111111';" style="background-color: #111111;">Black</button>
-				<button type="button" id="orange" onclick="color = '#ff8800';" style="background-color: #ff8800;">Orange</button>
-				<button type="button" id="orange" onclick="color = '#ff6464';" style="background-color: #ff6464;">Pink</button>
-				<button type="button" id="dim_red" onclick="color = '#bb0000';" style="background-color: #bb0000;">Dim Red</button>
-				<button type="button" id="dim_red" onclick="color = '#000055';" style="background-color: #000055;">Dim Blue</button>
-				<button type="button" id="dim_red" onclick="color = '#003333';" style="background-color: #003333;">Dim Cyan</button>
-				<button type="button" id="dim_red" onclick="color = '#bbbb00';" style="background-color: #bbbb00;">Dim Yellow</button>
-				<button type="button" id="dim_red" onclick="color = '#bb6600';" style="background-color: #bb6600;">Dim Orange</button>
-				<button type="button" id="dim_red" onclick="color = '#002222';" style="background-color: #002222;">Dark Cyan</button>
-				<button type="button" id="picker" onclick="picking = true;" style="background-color: #888888;">Picker</button>
+				<button type="button" id="color_button" onclick="color = '#ff0000';" style="background-color: #ff0000;">Red</button>
+				<button type="button" id="color_button" onclick="color = '#00ff00';" style="background-color: #00ff00;">Green</button>
+				<button type="button" id="color_button" onclick="color = '#0000ff';" style="background-color: #0000ff;">Blue</button>
+				<button type="button" id="color_button" onclick="color = '#00ffff';" style="background-color: #00ffff;">Cyan</button>
+				<button type="button" id="color_button" onclick="color = '#ff00ff';" style="background-color: #ff00ff;">Magenta</button>
+				<button type="button" id="color_button" onclick="color = '#ffff00';" style="background-color: #ffff00;">Yellow</button>
+				<button type="button" id="color_button" onclick="color = '#ffffff';" style="background-color: #ffffff;">White</button>
+				<button type="button" id="color_button" onclick="color = '#111111';" style="background-color: #111111;">Black</button>
+				<button type="button" id="color_button" onclick="color = '#ff6464';" style="background-color: #ff6464;">Pink</button>
+				<button type="button" id="color_button" onclick="color = '#ff8800';" style="background-color: #ff8800;">Orange</button>
+				<button type="button" id="color_button" onclick="color = '#003333';" style="background-color: #003333;">Dim Cyan</button>
+				<button type="button" id="color_button" onclick="color = '#000055';" style="background-color: #000055;">Dim Blue</button>
+				<button type="button" id="color_button" onclick="color = '#bb6600';" style="background-color: #bb6600;">Dim Orange</button>
+				<button type="button" id="color_button" onclick="color = '#002222';" style="background-color: #002222;">Dark Cyan</button>
+				<button type="button" id="color_button" onclick="color = '#bbbb00';" style="background-color: #bbbb00;">Dim Yellow</button>
+				<button type="button" id="color_button" onclick="color = '#bb0000';" style="background-color: #bb0000;">Dim Red</button>
+				<button type="button" id="color_button" onclick="picking = true;" style="background-color: #888888;">Picker</button>
 				<div id="unsupported_colors">
-					<div id="unsupported_colors_header"> Other colors are unsupported </div>
+					<div id="unsupported_colors_header"><b>Other colors are not supported</b></div>
 					<button type="button" id="hex" onclick="updateHexInputColor();" style="background-color: #888888;">Hex</button>
 					<button type="button" id="custom" onclick="color = document.getElementById('custom').style.backgroundColor;" style="background-color: #888888;">Custom</button>
 				
 					<div id="sliders">
-						<input type="range" id="rSl" min="17" max="255" value="127" step="1" style="background-color: #f11;" oninput="updatePickerColor()"></input>
+						<input type="range" id="rSl" min="0" max="255" value="127" step="1" style="background-color: #f11;" oninput="updatePickerColor()"></input>
 						<h5 id="rLabel" style="color: #a00;">127</h5>
-						<input type="range" id="gSl" min="17" max="255" value="127" step="1" style="background-color: #0f0;" oninput="updatePickerColor()"></input>
+						<input type="range" id="gSl" min="0" max="255" value="127" step="1" style="background-color: #0f0;" oninput="updatePickerColor()"></input>
 						<h5 id="gLabel" style="color: #0a0;">127</h5>
-						<input type="range" id="bSl" min="17" max="255" value="127" step="1" style="background-color: #11f;" oninput="updatePickerColor()"></input>
+						<input type="range" id="bSl" min="0" max="255" value="127" step="1" style="background-color: #11f;" oninput="updatePickerColor()"></input>
 						<h5 id="bLabel" style="color: #00a;">127</h5>
 					</div>
 				</div>
