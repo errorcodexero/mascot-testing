@@ -35,7 +35,7 @@ CRGB index_to_color(const uint8_t COLOR_INDEX){
 		case Color_index::DARK_CYAN:
 			return CRGB(0,34,34);
 		default:
-			Serial.println("ERROR");
+			//Serial.println("ERROR");
 			return CRGB(0,0,0);
 	}
 }

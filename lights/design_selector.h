@@ -2,9 +2,11 @@
 #define DESIGN_SELECTOR_H
 
 #include "Arduino.h"
+#include "SevSeg.h"
 
-void set_up_seven_segment_display();
-uint16_t get_design_selection();
-void set_seven_segment_display(const uint16_t);
+uint8_t get_design_selection();
+uint16_t get_scaled_design_selection();
+void set_seven_segment_display(const uint16_t,SevSeg&);
+void set_seven_segment_display(char*,SevSeg&);
 
 #endif

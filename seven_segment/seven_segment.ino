@@ -15,7 +15,7 @@ void setup() {
 		13  //Dig 3 - 8
 	};
 	uint8_t segment_pins[] = {//pins on arduino which map to A through G plus DP on the display, comments are the pins on the display
-		3, //A  - 11
+		2, //A  - 11
 		4, //B  -  7
 		5, //C  -  4
 		6, //D  -  2
@@ -65,7 +65,7 @@ uint16_t parse_tens(){//read the two analog inputs into 100, 200, or 300
 	if(b > HIGH_POWER){
 		return 300;
 	}
-	return 200;	
+	return 200;
 }
 
 void loop(){
