@@ -9713,7 +9713,7 @@ function outputConst() {
 			if((s + 1) < screenArr.length){
 				display += ",";
 			}
-			display += "  //" + screenArr[s] + "<br/>";
+			display += "  //" + screenArr[s] + " " + s + "<br/>";
 		}
 		display += "};<br/>";
 	}

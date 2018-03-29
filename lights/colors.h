@@ -34,47 +34,47 @@ enum Color_index{
 CRGB index_to_color(const uint8_t); 
 
 constexpr PROGMEM uint16_t DESIGNS[NUMBER_OF_DESIGNS][3] = {//first is index of start of pattern, second is index of end of pattern, and the third is frame duration (ms) 
-    {0, 0, 100}, //Smile
-    {1, 1, 100}, //Neutral
-    {2, 2, 100}, //Frown
-    {3, 11, 400}, //Space
-    {12, 13, 400}, //Fire
-    {14, 23, 400}, //Team
-    {24, 24, 400}, //Error
-    {25, 48, 300}, //Tron
-    {49, 67, 400}, //Pacman
-    {68, 68, 400}, //FIRST
-    {69, 78, 100}, //Surprise
-    {79, 82, 100}, //Slide
-    {83, 123, 200}, //Pong
-    {124, 125, 200}, //Alert
-    {126, 131, 100}, //Star
-    {132, 133, 300}, //Blue
-    {134, 135, 300}, //Red
-    {136, 150, 100}, //Matrix
-    {151, 162, 100}, //Wheel
-    {163, 253, 200}, //Tetris
-    {254, 284, 300}, //Cube
-    {285, 298, 50}, //Wave
-    {299, 310, 300}, //Charging
-    {311, 320, 35}, //Portal
-    {321, 321, 100}, //Aperture
-    {322, 322, 100}, //VVVVVV
-    {323, 329, 300}, //Wink
-    {330, 330, 100}, //Color Bars
-    {331, 354, 200}, //Pokeball
-    {355, 530, 50}, //Maze
-    {531, 560, 200}, //Game of Life
-    {561, 567, 75}, //Flux
-    {568, 569, 150}, //Phoenix
-    {570, 599, 100}, //Box Flame
-    {600, 600, 100}, //Error Code
-    {601, 616, 100}, //Scroll 1425
-    {617, 623, 100}, //Square Wave
-    {624, 630, 100}, //Saw Wave
-    {631, 644, 100}, //Two Waves
-    {645, 657, 100}, //Triangle Wave
-    {658, 697, 125} //I Heart Robots
+{0, 0, 100}, //Smile 0
+    {1, 1, 100}, //Neutral 1
+    {2, 2, 100}, //Frown 2
+    {3, 11, 400}, //Space 3
+    {12, 13, 400}, //Fire 4
+    {14, 23, 400}, //Team 5
+    {24, 24, 400}, //Error 6
+    {25, 48, 300}, //Tron 7
+    {49, 67, 400}, //Pacman 8
+    {68, 68, 400}, //FIRST 9
+    {69, 78, 100}, //Surprise 10
+    {79, 82, 100}, //Slide 11
+    {83, 123, 200}, //Pong 12
+    {124, 125, 200}, //Alert 13
+    {126, 131, 100}, //Star 14
+    {132, 133, 300}, //Blue 15
+    {134, 135, 300}, //Red 16
+    {136, 150, 100}, //Matrix 17
+    {151, 162, 100}, //Wheel 18
+    {163, 253, 200}, //Tetris 19
+    {254, 284, 300}, //Cube 20
+    {285, 298, 50}, //Wave 21
+    {299, 310, 300}, //Charging 22
+    {311, 320, 35}, //Portal 23
+    {321, 321, 100}, //Aperture 24
+    {322, 322, 100}, //VVVVVV 25
+    {323, 329, 300}, //Wink 26
+    {330, 330, 100}, //Color Bars 27
+    {331, 354, 200}, //Pokeball 28
+    {355, 530, 50}, //Maze 29
+    {531, 560, 200}, //Game of Life 30
+    {561, 567, 75}, //Flux 31
+    {568, 569, 150}, //Phoenix 32
+    {570, 599, 100}, //Box Flame 33
+    {600, 600, 100}, //Error Code 34
+    {601, 616, 100}, //Scroll 1425 35
+    {617, 623, 100}, //Square Wave 36
+    {624, 630, 100}, //Saw Wave 37
+    {631, 644, 100}, //Two Waves 38
+    {645, 657, 100}, //Triangle Wave 39
+    {658, 697, 125} //I Heart Robots 40
 };
 
 static const uint16_t TOTAL_FRAME_COUNT = DESIGNS[NUMBER_OF_DESIGNS - 1][1] + 1;

@@ -9,15 +9,15 @@ const uint8_t TENS_SELECTOR_IN_PIN_B = 5;
 uint8_t interpret_10_turn_pot(uint16_t a){//parse the ten position pot
 	uint16_t limits[] = {
 		0,
-		80,
-		160,
+		120,
 		230,
-		300,
-		370,
-		440,
-		510,
-		590,
-		675
+		345,
+		460,
+		570,
+		690,
+		800,
+		920,
+		1020
 	};
 	for(uint8_t i = 0; i < 10; i++){
 		if(a < (limits[i] + 30)){
