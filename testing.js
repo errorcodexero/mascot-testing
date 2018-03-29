@@ -7590,7 +7590,7 @@ var maze = [
 		[["00","00","00"], ["00","00","00"], ["ff","ff","ff"], ["ff","ff","ff"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["ff","ff","ff"], ["00","00","00"], ["ff","ff","ff"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["ff","ff","ff"], ["00","00","00"]]
 	] //end maze 5
 ];
-speed.set("Maze",50)
+speed.set("Maze",50);
 screenArr[screenArr.length] = "Maze";
 screenMap.set("Maze", maze);
 /*
@@ -8020,6 +8020,7 @@ speed.set("Game of Life",200);
 screenArr[screenArr.length] = "Game of Life";
 screenMap.set("Game of Life", game_of_life);
 */
+/*
 var flux = [
     [
         [["00","00","00"], ["00","00","00"], ["ff","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["ff","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]],
@@ -8123,6 +8124,7 @@ var flux = [
 speed.set("Flux",75);
 screenArr[screenArr.length] = "Flux";
 screenMap.set("Flux", flux);
+*/
 /*
 var phoenix = [
     [
@@ -8204,7 +8206,7 @@ var box_flame = [
 ];
 speed.set("Box Flame", 100);
 screenArr[screenArr.length] = "Box Flame";
-screenMap.set("Box Flame", game_of_life);
+screenMap.set("Box Flame", box_flame);
 
 var scroll_1425 = [
 	[
