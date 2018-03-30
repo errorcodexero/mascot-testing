@@ -32,6 +32,34 @@ button:hover {
 	width: 100px;
 }
 
+#old_screen {
+	background-color: #353535;
+}
+
+#cur_modes_a {
+	outline: 1px;
+	border-style: dashed;
+	border-color: #000;
+	border-color: #3FF;
+	background-color: #AFF;
+}
+
+#cur_modes_b {
+	outline: 1px;
+	border-style: dashed;
+	border-color: #000;
+	border-color: #F3F;
+	background-color: #FAF;
+}
+
+#cur_modes_c {
+	outline: 1px;
+	border-style: dashed;
+	border-color: #000;
+	border-color: #FF3;
+	background-color: #FFA;
+}
+
 #rSl{
 	width: 300px;
 }
