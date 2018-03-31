@@ -23,8 +23,8 @@ var smile = [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]]
 ];//added
 speed.set("Smile", 100);
-screenArr[screenArr.length] = "Smile";
-screenMap.set("Smile", [smile]);
+screenArr[screenArr.length] = "smile";
+screenMap.set("smile", [smile]);
 
 var neutral = [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]], 
@@ -41,8 +41,8 @@ var neutral = [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]]
 ];//added
 speed.set("Neutral", 100);
-screenArr[screenArr.length] = "Neutral";
-screenMap.set("Neutral", [neutral]);
+screenArr[screenArr.length] = "neutral";
+screenMap.set("neutral", [neutral]);
 
 var frown = [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]], 
@@ -59,8 +59,8 @@ var frown = [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]]
 ];//added
 speed.set("Frown", 100);
-screenArr[screenArr.length] = "Frown";
-screenMap.set("Frown", [frown]);
+screenArr[screenArr.length] = "frown";
+screenMap.set("frown", [frown]);
 
 var space = [
 	[
@@ -191,8 +191,8 @@ var space = [
 	]
 ];//added
 speed.set("Space", 400);
-screenArr[screenArr.length] = "Space";
-screenMap.set("Space", space);
+screenArr[screenArr.length] = "space";
+screenMap.set("space", space);
 
 var fire = [
 	[
@@ -225,8 +225,8 @@ var fire = [
 	]
 ];//added
 speed.set("Fire", 400);
-screenArr[screenArr.length] = "Fire";
-screenMap.set("Fire", fire);
+screenArr[screenArr.length] = "fire";
+screenMap.set("fire", fire);
 
 var team = [
     [
@@ -371,8 +371,8 @@ var team = [
     ]
 ];//added
 speed.set("Team", 400);
-screenArr[screenArr.length] = "Team";
-screenMap.set("Team", team);
+screenArr[screenArr.length] = "team";
+screenMap.set("team", team);
 
 var tron = [
 	[
@@ -713,8 +713,8 @@ var tron = [
 	]
 ];//added
 speed.set("Tron", 300);
-screenArr[screenArr.length] = "Tron";
-screenMap.set("Tron", tron);
+screenArr[screenArr.length] = "tron";
+screenMap.set("tron", tron);
 
 var pacman = [
 	[
@@ -985,8 +985,8 @@ var pacman = [
 	]
 ];//added
 speed.set("Pacman", 400);
-screenArr[screenArr.length] = "Pacman";
-screenMap.set("Pacman", pacman);
+screenArr[screenArr.length] = "pacman";
+screenMap.set("pacman", pacman);
 
 var first = [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]],
@@ -1003,8 +1003,8 @@ var first = [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]]
 ];//added
 speed.set("FIRST", 400);
-screenArr[screenArr.length] = "FIRST";
-screenMap.set("FIRST", [first]);
+screenArr[screenArr.length] = "first";
+screenMap.set("first", [first]);
 
 var surprise = [
     [
@@ -1149,8 +1149,8 @@ var surprise = [
     ]
 ];//added
 speed.set("Surprise", 100);
-screenArr[screenArr.length] = "Surprise";
-screenMap.set("Surprise", surprise);
+screenArr[screenArr.length] = "surprise";
+screenMap.set("surprise", surprise);
 
 var slide = [
     [
@@ -1211,8 +1211,8 @@ var slide = [
     ]
 ];//added
 speed.set("Slide", 100);
-screenArr[screenArr.length] = "Slide";
-screenMap.set("Slide", slide);
+screenArr[screenArr.length] = "slide";
+screenMap.set("slide", slide);
 
 var pong = [
     [
@@ -1791,8 +1791,8 @@ var pong = [
     ]
 ];//added
 speed.set("Pong", 200);
-screenArr[screenArr.length] = "Pong";
-screenMap.set("Pong", pong);
+screenArr[screenArr.length] = "pong";
+screenMap.set("pong", pong);
 
 var alert = [
 	[
@@ -1825,8 +1825,8 @@ var alert = [
     ]
 ];//added
 speed.set("Alert", 200);
-screenArr[screenArr.length] = "Alert";
-screenMap.set("Alert", alert);
+screenArr[screenArr.length] = "alert";
+screenMap.set("alert", alert);
 
 var star = [
     [
@@ -1915,8 +1915,8 @@ var star = [
     ]
 ];//added
 speed.set("Star", 100);
-screenArr[screenArr.length] = "Star";
-screenMap.set("Star", star);
+screenArr[screenArr.length] = "star";
+screenMap.set("star", star);
 
 var blue = [
     [
@@ -1949,8 +1949,8 @@ var blue = [
     ]
 ];//added
 speed.set("Blue", 300);
-screenArr[screenArr.length] = "Blue";
-screenMap.set("Blue", blue);
+screenArr[screenArr.length] = "blue";
+screenMap.set("blue", blue);
 
 var red = [
     [
@@ -1983,8 +1983,8 @@ var red = [
     ]
 ];//added
 speed.set("Red", 300);
-screenArr[screenArr.length] = "Red";
-screenMap.set("Red", red);
+screenArr[screenArr.length] = "red";
+screenMap.set("red", red);
 
 var matrix = [
     [
@@ -2199,8 +2199,8 @@ var matrix = [
     ]
 ];//added
 speed.set("Matrix", 100);
-screenArr[screenArr.length] = "Matrix";
-screenMap.set("Matrix", matrix);
+screenArr[screenArr.length] = "matrix";
+screenMap.set("matrix", matrix);
 
 var wheel = [
     [
@@ -2373,8 +2373,8 @@ var wheel = [
     ]
 ];//added
 speed.set("Wheel", 100);
-screenArr[screenArr.length] = "Wheel";
-screenMap.set("Wheel", wheel);
+screenArr[screenArr.length] = "wheel";
+screenMap.set("wheel", wheel);
 
 var tetris = [
     [
@@ -3653,8 +3653,8 @@ var tetris = [
     ]
 ];//added
 speed.set("Tetris", 200);
-screenArr[screenArr.length] = "Tetris";
-screenMap.set("Tetris", tetris);
+screenArr[screenArr.length] = "tetris";
+screenMap.set("tetris", tetris);
 
 var cube = [
     [
@@ -4093,8 +4093,8 @@ var cube = [
     ]
 ];//added
 speed.set("Cube", 300);
-screenArr[screenArr.length] = "Cube";
-screenMap.set("Cube", cube);
+screenArr[screenArr.length] = "cube";
+screenMap.set("cube", cube);
 
 var wave = [
     [
@@ -4295,8 +4295,8 @@ var wave = [
     ]
 ];//added
 speed.set("Wave", 50);
-screenArr[screenArr.length] = "Wave";
-screenMap.set("Wave", wave);
+screenArr[screenArr.length] = "wave";
+screenMap.set("wave", wave);
 
 var charging = [
     [
@@ -4469,8 +4469,8 @@ var charging = [
     ]
 ];
 speed.set("Charging", 300);
-screenArr[screenArr.length] = "Charging";
-screenMap.set("Charging", charging);
+screenArr[screenArr.length] = "charging";
+screenMap.set("charging", charging);
 
 var portal = [
     [
@@ -4615,8 +4615,8 @@ var portal = [
     ]
 ];
 speed.set("Portal", 35);
-screenArr[screenArr.length] = "Portal";
-screenMap.set("Portal", portal);
+screenArr[screenArr.length] = "portal";
+screenMap.set("portal", portal);
 
 var aperture =  [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["ff","ff","ff"], ["ff","ff","ff"], ["ff","ff","ff"], ["ff","ff","ff"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]],
@@ -4633,8 +4633,8 @@ var aperture =  [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["ff","ff","ff"], ["ff","ff","ff"], ["ff","ff","ff"], ["ff","ff","ff"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]]
 ];
 speed.set("Aperture", 100);
-screenArr[screenArr.length] = "Aperture";
-screenMap.set("Aperture", [aperture]);
+screenArr[screenArr.length] = "aperture";
+screenMap.set("aperture", [aperture]);
 
 var vvvvvv =  [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]],
@@ -4651,8 +4651,8 @@ var vvvvvv =  [
 	[["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","ff","ff"], ["00","00","00"], ["00","00","00"], ["00","00","00"]]
 ];
 speed.set("VVVVVV", 100);
-screenArr[screenArr.length] = "VVVVVV";
-screenMap.set("VVVVVV", [vvvvvv]);
+screenArr[screenArr.length] = "vvvvvv";
+screenMap.set("vvvvvv", [vvvvvv]);
 
 var wink = [
     [
@@ -4755,8 +4755,8 @@ var wink = [
     ]
 ];
 speed.set("Wink", 300);
-screenArr[screenArr.length] = "Wink";
-screenMap.set("Wink", wink);
+screenArr[screenArr.length] = "wink";
+screenMap.set("wink", wink);
 
 var color_bars = [
     [
@@ -4775,8 +4775,8 @@ var color_bars = [
     ]
 ];
 speed.set("Color Bars",100);
-screenArr[screenArr.length] = "Color Bars";
-screenMap.set("Color Bars", color_bars);
+screenArr[screenArr.length] = "color_bars";
+screenMap.set("color_bars", color_bars);
 
 var pokeball = [    
 	[
@@ -7588,8 +7588,8 @@ var maze = [
 	] //end maze 5
 ];
 speed.set("Maze",50);
-screenArr[screenArr.length] = "Maze";
-screenMap.set("Maze", maze);
+screenArr[screenArr.length] = "maze";
+screenMap.set("maze", maze);
 
 var game_of_life = [
 	[
@@ -8014,10 +8014,9 @@ var game_of_life = [
 	]
 ];
 speed.set("Game of Life",200);
-screenArr[screenArr.length] = "Game of Life";
-screenMap.set("Game of Life", game_of_life);
+screenArr[screenArr.length] = "game_of_life";
+screenMap.set("game_of_life", game_of_life);
 
-/*
 var flux = [
     [
         [["00","00","00"], ["00","00","00"], ["ff","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["ff","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]],
@@ -8119,10 +8118,9 @@ var flux = [
     ]
 ];
 speed.set("Flux",75);
-screenArr[screenArr.length] = "Flux";
-screenMap.set("Flux", flux);
-*/
-/*
+screenArr[screenArr.length] = "flux";
+screenMap.set("flux", flux);
+
 var phoenix = [
     [
         [["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]],
@@ -8154,9 +8152,9 @@ var phoenix = [
     ]
 ];
 speed.set("Phoenix",150);
-screenArr[screenArr.length] = "Phoenix";
-screenMap.set("Phoenix", phoenix);
-*/
+screenArr[screenArr.length] = "phoenix";
+screenMap.set("phoenix", phoenix);
+
 var box_flame = [
     [
         [["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"], ["ff","00","00"]],
@@ -8202,8 +8200,8 @@ var box_flame = [
     ]
 ];
 speed.set("Box Flame", 100);
-screenArr[screenArr.length] = "Box Flame";
-screenMap.set("Box Flame", box_flame);
+screenArr[screenArr.length] = "box_flame";
+screenMap.set("box_flame", box_flame);
 
 var scroll_1425 = [
 	[
@@ -8432,8 +8430,8 @@ var scroll_1425 = [
 	]
 ];
 speed.set("Scroll 1425", 100);
-screenArr[screenArr.length] = "Scroll 1425";
-screenMap.set("Scroll 1425", scroll_1425);
+screenArr[screenArr.length] = "scroll_1425";
+screenMap.set("scroll_1425", scroll_1425);
 
 var square_wave = [
     [
@@ -8536,8 +8534,8 @@ var square_wave = [
     ]
 ];
 speed.set('Square Wave',100);
-screenArr[screenArr.length] = "Square Wave";
-screenMap.set("Square Wave", square_wave);
+screenArr[screenArr.length] = "square_wave";
+screenMap.set("square_wave", square_wave);
 
 var saw_wave = [
     [
@@ -8640,8 +8638,8 @@ var saw_wave = [
     ]
 ];
 speed.set('Saw Wave',100);
-screenArr[screenArr.length] = "Saw Wave";
-screenMap.set("Saw Wave", saw_wave);
+screenArr[screenArr.length] = "saw_wave";
+screenMap.set("saw_wave", saw_wave);
 
 var two_waves = [
     [
@@ -8842,9 +8840,9 @@ var two_waves = [
     ]
 ];
 speed.set('Two Waves',100);
-screenArr[screenArr.length] = "Two Waves";
-screenMap.set("Two Waves", two_waves);
-/*
+screenArr[screenArr.length] = "two_waves";
+screenMap.set("two_waves", two_waves);
+
 var triangle_wave = [
     [
         [["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"], ["00","22","22"]],
@@ -9030,9 +9028,9 @@ var triangle_wave = [
     ]
 ];
 speed.set('Triangle Wave',100);
-screenArr[screenArr.length] = "Triangle Wave";
-screenMap.set("Triangle Wave", triangle_wave);
-*/
+screenArr[screenArr.length] = "triangle_wave";
+screenMap.set("triangle_wave", triangle_wave);
+
 var I_heart_robots = [
     [
         [["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"], ["00","00","00"]],
@@ -9596,8 +9594,8 @@ var I_heart_robots = [
     ]
 ];
 speed.set('I Heart Robots',125);
-screenArr[screenArr.length] = "I Heart Robots";
-screenMap.set("I Heart Robots", I_heart_robots);
+screenArr[screenArr.length] = "i_heart_robots";
+screenMap.set("i_heart_robots", I_heart_robots);
 
 var spin = [
     [
@@ -9938,6 +9936,8 @@ var spin = [
     ]
 ];
 speed.set('Spin',100);
+screenArr[screenArr.length] = "spin";
+screenMap.set("spin", spin);
 
 var bear_metal = [
 	[["11","11","11"], ["ff","ff","00"], ["ff","ff","00"], ["11","11","11"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["11","11","11"], ["ff","ff","00"], ["ff","ff","00"], ["11","11","11"]],
@@ -9954,6 +9954,8 @@ var bear_metal = [
 	[["11","11","11"], ["11","11","11"], ["11","11","11"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["ff","ff","00"], ["11","11","11"], ["11","11","11"], ["11","11","11"]]
 ];
 speed.set('Bear_metal',100);
+screenArr[screenArr.length] = "bear_metal";
+screenMap.set("bear_metal", bear_metal);
 
 var woah = [
     [
@@ -12226,6 +12228,8 @@ var woah = [
     ]
 ];
 speed.set('Woah',50);
+screenArr[screenArr.length] = "woah";
+screenMap.set("woah", woah);
 
 var screen = smile;
 
@@ -12293,19 +12297,21 @@ function outputConst() {
 		
 		var frame_number = 0;
 		for (s = 0; s < screenArr.length; s++){
-			screen = screenMap.get(screenArr[s]);
-			display += "&nbsp;&nbsp;&nbsp;&nbsp;{";
-			for (a = 0; a < screen.length; a++) {
-				if (a == 0) display += frame_number + ", ";
-				if (a == screen.length - 1) display += frame_number + ", " ;
-				frame_number++;
+			if (document.getElementById(screenArr[s]+"_check")) {
+				screen = screenMap.get(screenArr[s]);
+				display += "&nbsp;&nbsp;&nbsp;&nbsp;{";
+				for (a = 0; a < screen.length; a++) {
+					if (a == 0) display += frame_number + ", ";
+					if (a == screen.length - 1) display += frame_number + ", " ;
+					frame_number++;
+				}
+				display += speed.get(screenArr[s] );
+				display += "}";
+				if((s + 1) < screenArr.length){
+					display += ",";
+				}
+				display += "  //" + screenArr[s] + " " + s + "<br/>";
 			}
-			display += speed.get(screenArr[s] );
-			display += "}";
-			if((s + 1) < screenArr.length){
-				display += ",";
-			}
-			display += "  //" + screenArr[s] + " " + s + "<br/>";
 		}
 		display += "};<br/>";
 	}

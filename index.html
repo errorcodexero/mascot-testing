@@ -13,54 +13,97 @@
 			<div id="modes">
 				<div id="cur_modes_a">
 					<button type="button" id="smile" onclick="screen = smile; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Smile'))">Smile</button>
+					<input type="checkbox" id="smile_check"></input>
 					<button type="button" id="neutral" onclick="screen = neutral; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Neutral'))">Neutral</button>
+					<input type="checkbox" id="neutral_check"></input>
 					<button type="button" id="frown" onclick="screen = frown; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Frown'))">Frown</button>
-					<button type="button" id="old_screen" onclick="screen = error; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Error'))">Error</button>
+					<input type="checkbox" id="frown_check"></input>
+					<button type="button" id="error" onclick="screen = error; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Error'))">Error</button>
+					<input type="checkbox" id="error_check"></input>
 					<button type="button" id="space" onclick="screen = space; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Space'))">Space</button>
+					<input type="checkbox" id="space_check"></input>
 					<button type="button" id="fire" onclick="screen = fire; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Fire'))">Fire</button>
+					<input type="checkbox" id="fire_check"></input>
 					<button type="button" id="team" onclick="screen = team; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Team'))">Team</button>
+					<input type="checkbox" id="team_check"></input>
 					<button type="button" id="tron" onclick="screen = tron; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Tron'))">Tron</button>
+					<input type="checkbox" id="tron_check"></input>
 					<button type="button" id="pacman" onclick="screen = pacman; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Pacman'))">Pacman</button>
+					<input type="checkbox" id="pacman_check"></input>
 					<button type="button" id="first" onclick="screen = first; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('FIRST'))">FIRST</button>
+					<input type="checkbox" id="first_check"></input>
 				</div>
 				<div id="cur_modes_b">
 					<button type="button" id="surprise" onclick="screen = surprise; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Surprise'))">Surprise</button>
+					<input type="checkbox" id="surprise_check"></input>
 					<button type="button" id="slide" onclick="screen = slide; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Slide'))">Slide</button>
+					<input type="checkbox" id="slide_check"></input>
 					<button type="button" id="pong" onclick="screen = pong; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Pong'))">Pong</button>
+					<input type="checkbox" id="pong_check"></input>
 					<button type="button" id="alert" onclick="screen = alert; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Alert'))">Alert</button>
+					<input type="checkbox" id="alert_check"></input>
 					<button type="button" id="star" onclick="screen = star; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Star'))">Star</button>
+					<input type="checkbox" id="star_check"></input>
 					<button type="button" id="blue" onclick="screen = blue; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Blue'))">Blue</button>
+					<input type="checkbox" id="blue_check"></input>
 					<button type="button" id="red" onclick="screen = red; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Red'))">Red</button>
+					<input type="checkbox" id="red_check"></input>
 					<button type="button" id="matrix" onclick="screen = matrix; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Matrix'))">Matrix</button>
+					<input type="checkbox" id="matrix_check"></input>
 					<button type="button" id="wheel" onclick="screen = wheel; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Wheel'))">Wheel</button>
+					<input type="checkbox" id="wheel_check"></input>
 					<button type="button" id="tetris" onclick="screen = tetris; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Tetris'))">Tetris</button>
+					<input type="checkbox" id="tetris_check"></input>
 				</div>
 				<div id="cur_modes_c">
-					<button type="button" id="old_screen" onclick="screen = cube; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Cube'))">Cube</button>
-					<button type="button" id="old_screen" onclick="screen = wave; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Wave'))">Wave</button>
+					<button type="button" id="cube" onclick="screen = cube; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Cube'))">Cube</button>
+					<input type="checkbox" id="cube_check"></input>
+					<button type="button" id="wave" onclick="screen = wave; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Wave'))">Wave</button>
+					<input type="checkbox" id="wave_check"></input>
 					<button type="button" id="charging" onclick="screen = charging; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Charging'))">Charging</button>
+					<input type="checkbox" id="charging_check"></input>
 					<button type="button" id="portal" onclick="screen = portal; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Portal'))">Portal</button>
-					<button type="button" id="old_screen" onclick="screen = aperture; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Aperture'))">Aperture</button>
-					<button type="button" id="old_screen" onclick="screen = vvvvvv; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('VVVVVV'))">VVVVVV</button>
+					<input type="checkbox" id="portal_check"></input>
+					<button type="button" id="aperture" onclick="screen = aperture; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Aperture'))">Aperture</button>
+					<input type="checkbox" id="aperture_check"></input>
+					<button type="button" id="vvvvvv" onclick="screen = vvvvvv; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('VVVVVV'))">VVVVVV</button>
+					<input type="checkbox" id="vvvvvv_check"></input>
 					<button type="button" id="wink" onclick="screen = wink; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Wink'))">Wink</button>
-					<button type="button" id="old_screen" onclick="screen = color_bars; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Color Bars'))">Color Bars</button>
-					<button type="button" id="old_screen" onclick="screen = pokeball; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Pokeball'))">Pokeball</button>
+					<input type="checkbox" id="wink_check"></input>
+					<button type="button" id="color_bars" onclick="screen = color_bars; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Color Bars'))">Color Bars</button>
+					<input type="checkbox" id="color bars_check"></input>
+					<button type="button" id="pokeball" onclick="screen = pokeball; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Pokeball'))">Pokeball</button>
+					<input type="checkbox" id="pokeball_check"></input>
 					<button type="button" id="maze" onclick="screen = maze; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Maze'))">Maze</button>
+					<input type="checkbox" id="maze_check"></input>
 				</div>
 					<div id="unsupported_colors">
-					<button type="button" id="old_screen" onclick="screen = game_of_life; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Game of Life'))">Game of Life</button>
-					<button type="button" id="old_screen" onclick="screen = phoenix; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Phoenix'))">Phoenix</button>
+					<button type="button" id="game_of_life" onclick="screen = game_of_life; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Game of Life'))">Game of Life</button>
+					<input type="checkbox" id="game_of_life_check"></input>
+					<button type="button" id="pheonix" onclick="screen = phoenix; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Phoenix'))">Phoenix</button>
+					<input type="checkbox" id="pheonix_check"></input>
 					<button type="button" id="box_flame" onclick="screen = box_flame; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Box Flame'))">Box Flame</button>
+					<input type="checkbox" id="box_flame_check"></input>
 					<button type="button" id="scroll_1425" onclick="screen = scroll_1425; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Scroll 1425'))">Scroll 1425</button>
-					<button type="button" id="old_screen" onclick="screen = flux; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Flux'))">Flux</button>
+					<input type="checkbox" id="scroll_1425_check"></input>
+					<button type="button" id="flux" onclick="screen = flux; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Flux'))">Flux</button>
+					<input type="checkbox" id="flux_check"></input>
 					<button type="button" id="square_wave" onclick="screen = square_wave; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Square Wave'))">Square Wave</button>
+					<input type="checkbox" id="square_wave_check"></input>
 					<button type="button" id="saw_wave" onclick="screen = saw_wave; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Saw Wave'))">Saw Wave</button>
+					<input type="checkbox" id="saw_wave_check"></input>
 					<button type="button" id="two_waves" onclick="screen = two_waves; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Two Waves'))">Two Waves</button>
-					<button type="button" id="old_screen" onclick="screen = triangle_wave; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Triangle Wave'))">Triangle Wave</button>
+					<input type="checkbox" id="two_waves_check"></input>
+					<button type="button" id="trainle_wave" onclick="screen = triangle_wave; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Triangle Wave'))">Triangle Wave</button>
+					<input type="checkbox" id="triangle_wave_check"></input>
 					<button type="button" id="I_heart_robots" onclick="screen = I_heart_robots; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('I Heart Robots'))">I Heart Robots</button>
+					<input type="checkbox" id="i_heart_robots_check"></input>
 					<button type="button" id="spin" onclick="screen = spin; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Spin'))">Spin</button>
+					<input type="checkbox" id="spin_check"></input>
 					<button type="button" id="bear_metal" onclick="screen = bear_metal; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Bear_metal'))">Bear Metal</button>
+					<input type="checkbox" id="bear_metal_check"></input>
 					<button type="button" id="woah" onclick="screen = woah; count = 0; clearInterval(curInt); curInt = setInterval(draw, speed.get('Woah'))">Woah</button>
+					<input type="checkbox" id="woah_check"></input>
 				</div>
 			</div>
 		</div>
