@@ -12297,7 +12297,7 @@ function outputConst() {
 		
 		var frame_number = 0;
 		for (s = 0; s < screenArr.length; s++){
-			if (document.getElementById(screenArr[s]+"_check")) {
+			//if (document.getElementById(screenArr[s]+"_check")) {
 				screen = screenMap.get(screenArr[s]);
 				display += "&nbsp;&nbsp;&nbsp;&nbsp;{";
 				for (a = 0; a < screen.length; a++) {
@@ -12311,7 +12311,7 @@ function outputConst() {
 					display += ",";
 				}
 				display += "  //" + screenArr[s] + " " + s + "<br/>";
-			}
+			//}
 		}
 		display += "};<br/>";
 	}

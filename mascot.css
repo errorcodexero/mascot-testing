@@ -60,6 +60,14 @@ button:hover {
 	background-color: #FFA;
 }
 
+#modes_f {
+	outline: 1px;
+	border-style: dashed;
+	border-color: #000;
+	border-color: #F33;
+	background-color: #FAA;
+}
+
 #rSl{
 	width: 300px;
 }
