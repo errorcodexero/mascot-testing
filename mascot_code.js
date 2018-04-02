@@ -1,20 +1,21 @@
 function parseCheckedDesigns(){
+	var checked_designs = []
 	var parameters = location.search.substring(location.search.lastIndexOf("[")+1,location.search.lastIndexOf("]")).split(",");
-	var designs = new Map();
 	for(var i = 0; i < parameters.length; i++){
-		designs.set(parameters[i],true);
-	}
-	for (s = 0; s < screenArr.length; s++){
-		if(designs.get(screenArr[s]) == null){
-			designs.set(screenArr[s],false);
+		if(parameters[i] == '') continue;
+		console.log(parameters[i]);
+		for(var j = 0; j < designs.length; j++){
+			if(designs[j].name == parameters[i]){
+				checked_designs.push(new Design(designs[j].name,designs[j].speed,designs[j].pattern,true));
+			}
 		}
 	}
-	return designs;
+	return checked_designs;
 }
 
 function isNotLastChecked(start,checked_designs){
-	for(var i = start + 1; i < screenArr.length; i++){
-		if(checked_designs.get(screenArr[i])){
+	for(var i = start + 1; i < checked_designs.length; i++){
+		if(checked_designs[i].checked){
 			return true;
 		}
 	}
@@ -24,15 +25,10 @@ function isNotLastChecked(start,checked_designs){
 function generateCCode() {
 	var display = "";
 	
-	var count = 0;
 	
 	var checked_designs = parseCheckedDesigns();
-	
-	for (s = 0; s < screenArr.length; s++){
-		if (checked_designs.get(screenArr[s])) count++;
-	}
-	
-	if(count == 0){
+
+	if(checked_designs.length == 0){
 		display = "No designs selected";
 	} else {	
 		display += "#ifndef COLORS_H<br/>\
@@ -75,22 +71,22 @@ function generateCCode() {
 			display += "constexpr PROGMEM uint16_t DESIGNS[NUMBER_OF_DESIGNS][3] = {//first is index of start of pattern, second is index of end of pattern, and the third is frame duration (ms) <br/>";
 			
 			var frame_number = 0;
-			for (s = 0; s < screenArr.length; s++){
-				if (checked_designs.get(screenArr[s])) {
-					screen = screenMap.get(screenArr[s]);
+			for(var s = 0; s < checked_designs.length; s++){
+				if(checked_designs[s].checked){
+					screen = checked_designs[s].pattern
 					display += "&nbsp;&nbsp;&nbsp;&nbsp;{";
 					for (a = 0; a < screen.length; a++) {
 						if (a == 0) display += frame_number + ", ";
 						if (a == screen.length - 1) display += frame_number + ", " ;
 						frame_number++;
 					}
-					display += speed.get(screenArr[s] );
+					display += checked_designs[s].speed;
 					display += "}";
 					
 					if(isNotLastChecked(s,checked_designs)){
 						display += ",";
 					}
-					display += "  //" + screenArr[s] + " " + s + "<br/>";
+					display += "  //" + checked_designs[s].name + " " + s + "<br/>";
 				}
 			}
 			display += "};<br/>";
@@ -100,25 +96,28 @@ function generateCCode() {
 		{
 			display += "constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {<br/>";
 			var frame_number = 0;
-			for (s = 0; s < screenArr.length; s++) {
-				if (checked_designs.get(screenArr[s])) {
-					screen = screenMap.get(screenArr[s]);
+			for (s = 0; s < checked_designs.length; s++) {
+				if(checked_designs[s].checked){
+					screen = checked_designs[s].pattern;
 					for (a = 0; a < screen.length; a++) {
 						display += "&nbsp;&nbsp;&nbsp;&nbsp;{"
-						if (a == 0) display += "//First frame of "+screenArr[s]+" ("+frame_number+")";
+						if (a == 0) display += "//First frame of "+checked_designs[s].name+" ("+frame_number+")";
 						display += "<br/>";
 						for (i = 0; i < screen[a].length; i++) {
 							display += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 							for (j = 0; j < screen[a][i].length; j++) {
 								display += "Color_index::"+colors.get(screen[a][i][j][0]+screen[a][i][j][1]+screen[a][i][j][2]);
 								if(colors.get(screen[a][i][j][0]+screen[a][i][j][1]+screen[a][i][j][2]) == undefined) undefined_color = true;
-								if (i != screen[a].length - 1 || j != screen[a][i].length - 1) display += ", ";
+								if ((i + 1) < screen[a].length || (j + 1) < screen[a][i].length) display += ", ";
 							}
 							display += "<br/>";
 						}
 						display += "&nbsp;&nbsp;&nbsp;&nbsp;}"
-						if (isNotLastChecked(s,checked_designs)) display += ",";
-						if (a == screen.length - 1) display += "//Last frame of "+screenArr[s]+" ("+frame_number+")";
+						if (isNotLastChecked(s,checked_designs) || (a + 1 ) < screen.length){
+							console.log("AHH");
+							display += ",";
+						}
+						if (a == screen.length - 1) display += "//Last frame of "+checked_designs[s].name+" ("+frame_number+")";
 						display += "<br/>";
 						frame_number++;
 					}
