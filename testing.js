@@ -13053,6 +13053,13 @@ function draw() {
 	}
 }
 
+function setDesign(design,design_name){
+	clearInterval(curInt); 
+	screen = design; 
+	count = 0; 
+	curInt = setInterval(draw, speed.get(design_name));
+}
+
 function isNotLastChecked(start){
 	for(var i = start + 1; i < screenArr.length; i++){
 		if(document.getElementById(screenArr[i]+"_check").checked){
