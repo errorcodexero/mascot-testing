@@ -112,8 +112,7 @@ function shiftFrameLeft(){
 		newF[i][WIDTH - 1] =  ["11","11","11"];
 	}
 	
-	if (f == screen.length - 1) screen[f] = newF;
-	else screen.splice(f, 0, newF);
+	screen[f] = newF;
 	document.getElementById("fSl").max = screen.length;
 	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f + 1)+"/"+document.getElementById("fSl").max;
 }
@@ -129,8 +128,7 @@ function shiftFrameRight(){
 		newF[i][0] =  ["11","11","11"];
 	}
 	
-	if (f == screen.length - 1) screen[f] = newF;
-	else screen.splice(f, 0, newF);
+	screen[f] = newF;
 	document.getElementById("fSl").max = screen.length;
 	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f + 1)+"/"+document.getElementById("fSl").max;
 }
@@ -150,8 +148,7 @@ function shiftFrameUp(){
 		newF[HEIGHT - 1][j] =  ["11","11","11"];
 	}
 	
-	if (f == screen.length - 1) screen[f] = newF;
-	else screen.splice(f, 0, newF);
+	screen[f] = newF;
 	document.getElementById("fSl").max = screen.length;
 	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f + 1)+"/"+document.getElementById("fSl").max;
 }
@@ -172,8 +169,7 @@ function shiftFrameDown(){
 		
 	}
 	
-	if (f == screen.length - 1) screen[f] = newF;
-	else screen.splice(f, 0, newF);
+	screen[f] = newF;
 	document.getElementById("fSl").max = screen.length;
 	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+(f + 1)+"/"+document.getElementById("fSl").max;
 }
@@ -208,49 +204,6 @@ function input() {
 	}
 	document.getElementById("fSl").max = screen.length;
 	document.getElementById("fLabel").innerHTML = (f+1)+"/"+document.getElementById("fSl").max;
-}
-
-function outputNew() {
-	var label = prompt("Name header file (First letter capitalized, underscores between words)");
-	var delay = prompt("Input the delay between frames in ms");
-	var display = '#ifndef '+label.toUpperCase()+'_H<br/>#define '+label.toUpperCase()+'_H<br/><br/>#include "design.h"<br/><br/>struct '+label+': public Design {<br/>&nbsp;&nbsp;&nbsp;&nbsp;void set_leds(CRGB leds[Lights_constants::NUMBER_OF_LEDS])const{'+'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch(current_frame){';
-	/*var template = new Array();
-	for (i = 0; i < screen[0].length; i++) {
-		template[i] = new Array();
-		for (j = 0; j < screen[0][i].length; j++) {
-			var first = screen[0][i][j];
-			var same = true;
-			for (a = 1; a < screen.length; a++) {
-				if (screen[a][i][j] != first) {
-					same = false;
-					break;
-				}
-			}
-			template[i][j] = same;
-			if (same) {
-				display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;"
-			}
-		}
-	}*/
-	for (a = 0; a < screen.length; a++) {
-		display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case "+a+":";
-		for(i = 0; i < screen[a].length; i++) {
-			for(j = 0; j < screen[a][i].length; j++) {
-				if(!(screen[a][i][j][0] == "11" && screen[a][i][j][1] == "11" && screen[a][i][j][2] == "11")) {
-					display += '<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leds['+(i*WIDTH + j)+'] = CRGB{';
-					if (screen[a][i][j][0] != "11") display += parseInt(screen[a][i][j][0], WIDTH)+',';
-					else display += '0,';
-					if (screen[a][i][j][1] != "11") display += parseInt(screen[a][i][j][1], WIDTH)+',';
-					else display += '0,';
-					if (screen[a][i][j][2] != "11") display += parseInt(screen[a][i][j][2], WIDTH)+'};';
-					else display += '0};';
-				}
-				if (i == screen[a].length - 1 && j == screen[a][i].length - 1) display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;";
-			}
-		}
-	}
-	display += '<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial.println("NYI");<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert(0);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;'+label+'():Design('+screen.length+','+delay+'){}<br/>};<br/><br/>#endif';
-	document.getElementById("display").innerHTML = display;
 }
 
 var colors = new Map();
