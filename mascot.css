@@ -36,34 +36,31 @@ button:hover {
 	background-color: #353535;
 }
 
-#cur_modes_a {
+#cur_modes_a, #cur_modes_b, #cur_modes_c, #modes_f {
 	outline: 1px;
 	border-style: dashed;
 	border-color: #000;
 	border-color: #3FF;
 	background-color: #AFF;
+	width: 400px;
+}
+
+#cur_modes_a {
+	border-color: #3FF;
+	background-color: #AFF;
 }
 
 #cur_modes_b {
-	outline: 1px;
-	border-style: dashed;
-	border-color: #000;
 	border-color: #F3F;
 	background-color: #FAF;
 }
 
 #cur_modes_c {
-	outline: 1px;
-	border-style: dashed;
-	border-color: #000;
 	border-color: #FF3;
 	background-color: #FFA;
 }
 
 #modes_f {
-	outline: 1px;
-	border-style: dashed;
-	border-color: #000;
 	border-color: #F33;
 	background-color: #FAA;
 }
