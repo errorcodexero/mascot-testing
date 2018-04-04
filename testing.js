@@ -76,7 +76,7 @@ function setDesign(design) {
 	draw_interval = setInterval(draw, designs[design].speed);
 }
 
-function sendToMascotCodeFile() {
+function generateArduinoCode() {
 	var target = 'mascot_code.html';
 
 	var selected = "";

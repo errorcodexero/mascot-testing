@@ -17,15 +17,15 @@ button {
 	border-color: #000;
 	margin-top: 3px;
 	background-color: #555;
-	color: #000
-}
-
-canvas {
-	float: left;
+	color: #000;
 }
 
 button:hover {
 	color: #fff;
+}
+
+canvas {
+	float: left;
 }
 
 #color_button {
@@ -38,6 +38,7 @@ button:hover {
 
 #testing {
 	border: 5px solid black;
+	display: inline-block;
 }
 
 #display {
@@ -68,6 +69,13 @@ button:hover {
 	margin-left: 10px;
 }
 
+#generate_code {
+	display: block;
+	margin-top: 30px;
+	width: 200px;
+	height: 50px;
+}
+
 #rSl{
 	width: 300px;
 }
@@ -85,7 +93,7 @@ button:hover {
 }
 
 #modes {
-	float: left;
+	display: inline-block;
 	margin-left: 10px;
 }
 
