@@ -1,4 +1,4 @@
-function generateCCode( {
+function generateCCode() {
 	var display = "";
 	
 	var open_index = location.search.lastIndexOf("["), close_index = location.search.lastIndexOf("]");
