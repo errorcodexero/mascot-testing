@@ -1,36 +1,12 @@
-function parseCheckedDesigns(){
-	var checked_designs = []
-	var parameters = location.search.substring(location.search.lastIndexOf("[")+1,location.search.lastIndexOf("]")).split(",");
-	for(var i = 0; i < parameters.length; i++){
-		if(parameters[i] == '') continue;
-		console.log(parameters[i]);
-		for(var j = 0; j < designs.length; j++){
-			if(designs[j].name == parameters[i]){
-				checked_designs.push(new Design(designs[j].name,designs[j].speed,designs[j].pattern,true));
-			}
-		}
-	}
-	return checked_designs;
-}
-
-function isNotLastChecked(start,checked_designs){
-	for(var i = start + 1; i < checked_designs.length; i++){
-		if(checked_designs[i].checked){
-			return true;
-		}
-	}
-	return false;
-}
-
-function generateCCode() {
+function generateCCode( {
 	var display = "";
 	
-	
-	var checked_designs = parseCheckedDesigns();
+	var open_index = location.search.lastIndexOf("["), close_index = location.search.lastIndexOf("]");
 
-	if(checked_designs.length == 0){
+	if(open_index == -1 || close_index == -1){
 		display = "No designs selected";
 	} else {	
+		var checked_designs = location.search.substring(open_index + 1, close_index).split(",");
 		display += "#ifndef COLORS_H<br/>\
 		#define COLORS_H <br/>\
 		<br/>\
@@ -43,7 +19,7 @@ function generateCCode() {
 		static const uint8_t NUMBER_OF_LEDS = 192; <br/>\
 		static const uint8_t BRIGHTNESS = 255 * 0.3; <br/>\
 		static const uint8_t LED_STRIP_DATA_PIN = 3; <br/>\
-		static const uint8_t NUMBER_OF_DESIGNS = " + count + "; <br/>\
+		static const uint8_t NUMBER_OF_DESIGNS = " + checked_designs.length + "; <br/>\
 		<br/>\
 		enum Color_index{ <br/>\
 		&nbsp;&nbsp;&nbsp;&nbsp;BLACK = 0, <br/>\
@@ -72,22 +48,20 @@ function generateCCode() {
 			
 			var frame_number = 0;
 			for(var s = 0; s < checked_designs.length; s++){
-				if(checked_designs[s].checked){
-					screen = checked_designs[s].pattern
-					display += "&nbsp;&nbsp;&nbsp;&nbsp;{";
-					for (a = 0; a < screen.length; a++) {
-						if (a == 0) display += frame_number + ", ";
-						if (a == screen.length - 1) display += frame_number + ", " ;
-						frame_number++;
-					}
-					display += checked_designs[s].speed;
-					display += "}";
-					
-					if(isNotLastChecked(s,checked_designs)){
-						display += ",";
-					}
-					display += "  //" + checked_designs[s].name + " " + s + "<br/>";
+				screen = designs[checked_designs[s]].pattern
+				display += "&nbsp;&nbsp;&nbsp;&nbsp;{";
+				for (a = 0; a < screen.length; a++) {
+					if (a == 0) display += frame_number + ", ";
+					if (a == screen.length - 1) display += frame_number + ", " ;
+					frame_number++;
 				}
+				display += designs[checked_designs[s]].speed;
+				display += "}";
+				
+				if(s < checked_designs.length - 1){
+					display += ",";
+				}
+				display += "  //" + designs[checked_designs[s]].name + " " + s + "<br/>";
 			}
 			display += "};<br/>";
 		}
@@ -97,30 +71,28 @@ function generateCCode() {
 			display += "constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {<br/>";
 			var frame_number = 0;
 			for (s = 0; s < checked_designs.length; s++) {
-				if(checked_designs[s].checked){
-					screen = checked_designs[s].pattern;
-					for (a = 0; a < screen.length; a++) {
-						display += "&nbsp;&nbsp;&nbsp;&nbsp;{"
-						if (a == 0) display += "//First frame of "+checked_designs[s].name+" ("+frame_number+")";
-						display += "<br/>";
-						for (i = 0; i < screen[a].length; i++) {
-							display += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-							for (j = 0; j < screen[a][i].length; j++) {
-								display += "Color_index::"+colors.get(screen[a][i][j][0]+screen[a][i][j][1]+screen[a][i][j][2]);
-								if(colors.get(screen[a][i][j][0]+screen[a][i][j][1]+screen[a][i][j][2]) == undefined) undefined_color = true;
-								if ((i + 1) < screen[a].length || (j + 1) < screen[a][i].length) display += ", ";
-							}
-							display += "<br/>";
+				screen = designs[checked_designs[s]].pattern;
+				for (a = 0; a < screen.length; a++) {
+					display += "&nbsp;&nbsp;&nbsp;&nbsp;{"
+					if (a == 0) display += "//First frame of "+designs[checked_designs[s]].name+" ("+frame_number+")";
+					display += "<br/>";
+					for (i = 0; i < screen[a].length; i++) {
+						display += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+						for (j = 0; j < screen[a][i].length; j++) {
+							display += "Color_index::"+colors.get(screen[a][i][j][0]+screen[a][i][j][1]+screen[a][i][j][2]);
+							if(colors.get(screen[a][i][j][0]+screen[a][i][j][1]+screen[a][i][j][2]) == undefined) undefined_color = true;
+							if ((i + 1) < screen[a].length || (j + 1) < screen[a][i].length) display += ", ";
 						}
-						display += "&nbsp;&nbsp;&nbsp;&nbsp;}"
-						if (isNotLastChecked(s,checked_designs) || (a + 1 ) < screen.length){
-							console.log("AHH");
-							display += ",";
-						}
-						if (a == screen.length - 1) display += "//Last frame of "+checked_designs[s].name+" ("+frame_number+")";
 						display += "<br/>";
-						frame_number++;
 					}
+					display += "&nbsp;&nbsp;&nbsp;&nbsp;}"
+					if (s < checked_designs.length - 1 || (a + 1 ) < screen.length){
+						console.log("AHH");
+						display += ",";
+					}
+					if (a == screen.length - 1) display += "//Last frame of "+designs[checked_designs[s]].name+" ("+frame_number+")";
+					display += "<br/>";
+					frame_number++;
 				}
 			}
 			display += "};<br/>";
@@ -137,3 +109,6 @@ function generateCCode() {
 	//document.querySelector("#display").select();
 	//document.execCommand("Copy");
 }
+
+setupCategories();
+onDesignsLoaded = generateCCode;
