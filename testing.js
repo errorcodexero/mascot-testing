@@ -114,16 +114,20 @@ function setupDesigns() {
 			designs[d].name = name_parts.join(" ");
 		}
 
+		var container = document.createElement("div");
+		container.setAttribute("class", "design_container");
+		designs[d].category.element.appendChild(container);
+
 		var button = document.createElement("button");
 		button.setAttribute("onclick", "setDesign(\"" + d + "\")");
 		button.innerHTML = designs[d].name;
-		designs[d].category.element.appendChild(button);
+		container.appendChild(button);
 
 		var checkbox = document.createElement("input");
 		checkbox.setAttribute("type", "checkbox");
 		checkbox.setAttribute("class", "checkbox");
 		designs[d].checkbox = checkbox;
-		designs[d].category.element.appendChild(checkbox);
+		container.appendChild(checkbox);
 	}
 }
 
