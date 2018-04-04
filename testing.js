@@ -23,6 +23,10 @@ function Category(name, color, border_color, contents) {
 	this.element.style.borderColor = border_color;
 	modes_container.appendChild(this.element);
 
+	var header = document.createElement("h4");
+	header.innerHTML = name;
+	this.element.appendChild(header);
+
 	for (var i = 0; i < this.contents.length; i++) {
 		designs[this.contents[i]] = {
 			category: this

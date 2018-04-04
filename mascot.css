@@ -1,9 +1,9 @@
-h5{
+h5 {
 	margin-top: 3px;
 	margin-bottom: -2px;
 }
 
-h6{
+h6 {
 	font-size: 9px;
 }
 
@@ -45,9 +45,15 @@ button:hover {
 }
 
 .category {
-	outline: 1px;
-	border-style: dashed;
 	width: 400px;
+	border-width: 2px;
+	border-style: dashed;
+	padding: 5px;
+}
+
+.category h4 {
+	margin-top: 0px;
+	margin-bottom: 3px;
 }
 
 .checkbox {
