@@ -213,6 +213,15 @@ function dropDesign(evt, switch_pos, dial_pos) {
 	selector[switch_pos][dial_pos] = design;
 }
 
+function clearSelections() {
+	for (var i = 0; i < selector.length; i++) {
+		for (var j = 0; j < selector[i].length; j++) {
+			selector[i][j] = "blank";
+			document.getElementById("di_" + i + "_" + j).innerHTML = designs.blank.name;
+		}
+	}
+}
+
 function exportSelections() {
 	var to_export = "";
 
