@@ -8,6 +8,19 @@ var current_design = "smile";
 var DRAW_DELAY = 200;
 var draw_interval;
 
+function cleanNode(node) {
+  for(var i = 0; i < node.childNodes.length; i++) {
+    var child = node.childNodes[i];
+    if (child.nodeType === 8 || (child.nodeType === 3 && !/\S/.test(child.nodeValue))) {
+      node.removeChild(child);
+      i--;
+    } else if (child.nodeType === 1) {
+      cleanNode(child);
+    }
+  }
+}
+cleanNode(document.body);
+
 onCategoryCreation = function(category) {
 	category.element = document.createElement("div");
 	category.element.setAttribute("class", "category");
@@ -24,6 +37,7 @@ setupCategories();
 
 onDesignsLoaded = function() {
 	setupDesigns();
+	setupSelector();
 	draw_interval = (ctx != null) ? setInterval(draw, DRAW_DELAY) : null;
 }
 
@@ -33,16 +47,89 @@ function setupDesigns() {
 		container.setAttribute("class", "design_container");
 		designs[d].category.element.appendChild(container);
 
-		var button = document.createElement("button");
+		var button = document.createElement("div");
+		button.setAttribute("class", "design_button");
 		button.setAttribute("onclick", "setDesign(\"" + d + "\")");
+		button.setAttribute("draggable", "true");
+		button.setAttribute("ondragstart", "dragDesign(event, \"" + d + "\")");
+		button.setAttribute("onmouseover", "mouseOverDesign(event, \"" + d + "\")");
+		button.setAttribute("onmouseout", "mouseOutDesign(event, \"" + d + "\")");
 		button.innerHTML = designs[d].name;
-		container.appendChild(button);
+		container.appendChild(button);	
+	}
+}
 
-		var checkbox = document.createElement("input");
-		checkbox.setAttribute("type", "checkbox");
-		checkbox.setAttribute("class", "checkbox");
-		designs[d].checkbox = checkbox;
-		container.appendChild(checkbox);
+var selector = [
+	[ //Switch position 0
+		"smile",
+		"neutral",
+		"frown",
+		"space",
+		"fire",
+		"team",
+		"tron",
+		"pacman",
+		"first",
+		"surprise"
+	],
+	[ //Switch position 1
+		"slide",
+		"pong",
+		"alert",
+		"star",
+		"blue",
+		"red",
+		"matrix",
+		"wheel",
+		"tetris",
+		"wave"
+	],
+	[ //Switch position 2
+		"portal",
+		"wink",
+		"color_bars",
+		"pokeball",
+		"maze",
+		"box_flame",
+		"i_heart_robots",
+		"woah",
+		"bear_2046",
+		"playoffs"
+	]
+];
+
+var SWITCH_POSITIONS = 3;
+var DIAL_POSITIONS = 10;
+function setupSelector() {
+	var selections_container = document.getElementById("selections");
+	for (var i = 0; i < SWITCH_POSITIONS; i++) {
+		var switch_col = document.createElement("div");
+		switch_col.setAttribute("class", "switch_col");
+		selections_container.appendChild(switch_col);
+
+		var switch_header = document.createElement("div");
+		switch_header.setAttribute("class", "switch_head");
+		switch_header.innerHTML = i;
+		switch_col.appendChild(switch_header);
+
+		for (var j = 0; j < DIAL_POSITIONS; j++) {
+			var dial_container = document.createElement("div");
+			dial_container.setAttribute("class", "dial_container");
+			switch_col.appendChild(dial_container);
+
+			var dial_label = document.createElement("div");
+			dial_label.setAttribute("class", "dial_label");
+			dial_label.innerHTML = j;
+			dial_container.appendChild(dial_label);
+
+			var dial_item = document.createElement("div");
+			dial_item.setAttribute("class", "dial_item");
+			dial_item.setAttribute("id", "di_" + i + "_" + j)
+			dial_item.setAttribute("ondragover", "dragDesignOver(event)");
+			dial_item.setAttribute("ondrop", "dropDesign(event, " + i + ", " + j + ")");
+			dial_item.innerHTML = designs[selector[i][j]].name;
+			dial_container.appendChild(dial_item);
+		}
 	}
 }
 
@@ -78,11 +165,11 @@ function setDesign(design) {
 
 function generateArduinoCode() {
 	var target = 'mascot_code.html';
-
+	
 	var selected = "";
-	for (var d in designs) {
-		if (designs[d].checkbox.checked) {
-			selected += d + ",";
+	for (var i = 0; i < selector.length; i++) {
+		for (var j = 0; j < selector[i].length; j++) {
+			selected += selector[i][j] + ",";
 		}
 	}
 	selected = selected.slice(0, -1);
@@ -91,4 +178,81 @@ function generateArduinoCode() {
 	}
 	
 	window.open(target, "Mascot Code");
+}
+
+function setSelectorBackgrounds(name, color) {
+	for (var i = 0; i < selector.length; i++) {
+		for (var j = 0; j < selector[i].length; j++) {
+			if (selector[i][j] == name) {
+				document.getElementById("di_" + i + "_" + j).style.backgroundColor = color;
+			}
+		}
+	}
+}
+
+function mouseOverDesign(evt, name) {
+	setSelectorBackgrounds(name, "#D00");
+}
+
+function mouseOutDesign(evt, name) {
+	setSelectorBackgrounds(name, "#888");
+}
+
+function dragDesign(evt, name) {
+	evt.dataTransfer.setData("design", name);
+}
+
+function dragDesignOver(evt) {
+	evt.preventDefault();
+}
+
+function dropDesign(evt, switch_pos, dial_pos) {
+	evt.preventDefault();
+	var design = evt.dataTransfer.getData("design");
+	evt.target.innerHTML = designs[design].name;
+	selector[switch_pos][dial_pos] = design;
+}
+
+function exportSelections() {
+	var to_export = "";
+
+	to_export += "var selector = [\n";
+	for (var i = 0; i < selector.length; i++) {
+		to_export += "\t[ //Switch position " + i + "\n";
+		for (var j = 0; j < selector[i].length; j++) {
+			to_export += "\t\t" + selector[i][j];
+			if (j < selector[i].length - 1) {
+				to_export += ",";
+			}
+			to_export += "\n";
+		}
+		to_export += "\t]";
+		if (i < selector.length - 1) {
+			to_export += ",";
+		}
+		to_export += "\n";
+	}
+	to_export += "]";
+
+	document.getElementById("import_export").value = to_export;
+}
+
+function importSelections() {
+	var to_import = document.getElementById("import_export").value.split(/[\[\]]+/);
+	for (var i = to_import.length - 1; i >= 0; i--) {
+		var comment_pos = to_import[i].indexOf("//");
+		if (comment_pos != -1) {
+			to_import[i] = to_import[i].substring(to_import[i].indexOf("\n"));
+		}
+		to_import[i] = to_import[i].replace(/[\s]/g, "");
+		if (to_import[i].length == 0 || to_import[i] == "," || to_import[i] == "varselector=") {
+			to_import.splice(i, 1);
+		}
+	}
+	for (var i = 0; i < selector.length; i++) {
+		selector[i] = to_import[i].split(",");
+		for (var j = 0; j < selector[i].length; j++) {
+			document.getElementById("di_" + i + "_" + j).innerHTML = designs[selector[i][j]].name;
+		}
+	}
 }

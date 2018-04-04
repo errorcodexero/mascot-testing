@@ -7,20 +7,42 @@ h6 {
 	font-size: 9px;
 }
 
-button {
-	outline: 0;
-	font-size: 14px;
-	width: 150px;
-	height: 25px;
+button, .design_button, .dial_item {
 	border-style: solid;
 	border-width: 3px;
 	border-color: #000;
-	margin-top: 3px;
-	background-color: #555;
+	background-color: #888;
 	color: #000;
 }
 
-button:hover {
+button, .design_button {
+	outline: 0;
+	font-size: 14px;
+	margin-top: 3px;
+	font-family: "DejaVu Sans";
+	font-size: 14px;
+}
+
+.design_button, .dial_item {
+	-moz-user-select: none;
+	user-select: none;
+	padding: 0px 8px;
+}
+
+.design_button {
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	float: left;
+	width: 128px;
+	height: 19px;
+}
+
+.design_button:active {
+	box-shadow: 0 0 5px -1px #00823F;
+}
+
+button:hover, .design_button:hover {
 	color: #fff;
 }
 
@@ -59,14 +81,85 @@ canvas {
 	margin-top: 0px;
 	margin-bottom: 3px;
 	grid-column: 1 / 3;
+	font-family: "DejaVu Sans";
 }
 
 .design_container {
 	
 }
 
-.checkbox {
+#selections_column {
+	display: inline-block;
 	margin-left: 10px;
+	vertical-align: top;
+	font-family: "DejaVu Sans";
+}
+
+#selections {
+	-moz-user-select: none;
+	user-select: none;
+}
+
+#selections > .switch_col {
+	width: 200px;
+	display: inline-block;
+	border: 2px solid black;
+	border-left: 2px solid black;
+}
+
+#selections > .switch_col ~ .switch_col {
+	border-left: none;
+}
+
+#selections_controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	margin: 20px;
+}
+
+#selections_controls button {
+	margin-right: 20px;
+	width: 200px;
+	height: 50px;
+}
+
+#import_export {
+	width: 100%;
+	height: 300px;
+}
+
+.switch_head {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 40px;
+	border-bottom: 2px solid black;
+	font-size: 30px;
+}
+
+.dial_container {
+	display: flex;
+	align-items: center;
+	height: 20px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.dial_label {
+	margin-left: 5px;
+}
+
+.dial_item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 100%;
+	vertical-align: top;
 }
 
 #generate_code {

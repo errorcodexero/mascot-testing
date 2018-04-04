@@ -11,6 +11,14 @@
 		<div id="simulator">
 			<canvas id="testing" width="800" height="600"></canvas>
 			<div id="modes"></div>
+			<div id="selections_column">
+				<div id="selections"></div>
+				<div id="selections_controls">
+					<button onclick="exportSelections()">Export</button>
+					<button onclick="importSelections()">Import</button>
+				</div>
+				<textarea id="import_export"></textarea>
+			</div>
 		</div>
 		<button id="generate_code" onclick="generateArduinoCode()">Generate Arduino Code</button>
 		<script src="load_designs.js"></script>
