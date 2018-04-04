@@ -3,10 +3,6 @@ h5 {
 	margin-bottom: -2px;
 }
 
-h6 {
-	font-size: 9px;
-}
-
 button, .design_button, .dial_item {
 	border-style: solid;
 	border-width: 3px;
@@ -72,10 +68,6 @@ canvas {
 	height: 50px;
 	margin-top: 30px;
 	margin-bottom: 30px;
-}
-
-#display {
-	margin-top: 50px;
 }
 
 .category {
@@ -171,6 +163,26 @@ canvas {
 	margin-right: 5px;
 	width: 100%;
 	vertical-align: top;
+}
+
+#copy_button {
+	width: 200px;
+	height: 70px;
+	font-size: 20px;
+	margin-right: 20px;
+}
+
+#download_button {
+	width: 200px;
+	height: 70px;
+	font-size: 20px;
+}
+
+#display {
+	margin-top: 20px;
+	font-size: 9px;
+	width: 100%;
+	height: calc(100% - 100px);
 }
 
 #rSl{
