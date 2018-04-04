@@ -85,6 +85,7 @@ function setupCategories() {
 		unused: new Category("Unused", "#FAA", "#F33", [
 			"bear_2046",
 			"bear_metal",
+			"blank",
 			"box_flame",
 			"flux",
 			"game_of_life",
