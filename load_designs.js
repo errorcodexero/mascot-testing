@@ -1,5 +1,6 @@
 var colors = new Map();
 colors.set("000000", "BLACK");     //01
+colors.set("111111", "BLACK");     //01
 colors.set("ffffff", "WHITE");     //02
 colors.set("ff0000", "RED");       //03
 colors.set("00ff00", "GREEN");     //04
