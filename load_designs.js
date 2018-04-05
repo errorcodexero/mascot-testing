@@ -93,6 +93,7 @@ function setupCategories() {
 			"flux",
 			"game_of_life",
 			"i_heart_robots",
+			"nose",
 			"phoenix",
 			"playoffs",
 			"saw_wave",

@@ -94,7 +94,7 @@ var selector = [
 		"i_heart_robots", //Design 26, selector 306 
 		"woah", //Design 27, selector 307 
 		"bear_2046", //Design 28, selector 308 
-		"playoffs" //Design 29, selector 309 
+		"nose" //Design 29, selector 309 
 	]
 ];
 

@@ -36,7 +36,7 @@ void setup() {
 		const uint8_t HARDWARE_CONFIG = COMMON_CATHODE;
 	
 		sevseg.begin(HARDWARE_CONFIG, DIGIT_COUNT, digit_pins, segment_pins, RESISTORS_ON_SEGMENTS);
-		sevseg.setBrightness(100);//0-100 note: 0 is not off
+		sevseg.setBrightness(50);//0-100 note: 0 is not off
 	}
 	pinMode(ACTIVATE_SWITCH_PIN, INPUT_PULLDOWN); 
 	//SerialUSB.begin(9600);
