@@ -61,40 +61,40 @@ function setupDesigns() {
 
 var selector = [
 	[ //Switch position 0
-		"smile",
-		"neutral",
-		"frown",
-		"space",
-		"fire",
-		"team",
-		"tron",
-		"pacman",
-		"first",
-		"surprise"
+		"smile", //Design 0, selector 100 
+		"neutral", //Design 1, selector 101 
+		"frown", //Design 2, selector 102 
+		"space", //Design 3, selector 103 
+		"fire", //Design 4, selector 104 
+		"team", //Design 5, selector 105 
+		"tron", //Design 6, selector 106 
+		"pacman", //Design 7, selector 107 
+		"first", //Design 8, selector 108 
+		"surprise" //Design 9, selector 109 
 	],
 	[ //Switch position 1
-		"slide",
-		"pong",
-		"alert",
-		"star",
-		"blue",
-		"red",
-		"matrix",
-		"wheel",
-		"tetris",
-		"wave"
+		"slide", //Design 10, selector 200 
+		"pong", //Design 11, selector 201 
+		"alert", //Design 12, selector 202 
+		"star", //Design 13, selector 203 
+		"blue", //Design 14, selector 204 
+		"red", //Design 15, selector 205 
+		"matrix", //Design 16, selector 206 
+		"wheel", //Design 17, selector 207 
+		"tetris", //Design 18, selector 208 
+		"wave" //Design 19, selector 209 
 	],
 	[ //Switch position 2
-		"portal",
-		"wink",
-		"color_bars",
-		"pokeball",
-		"maze",
-		"box_flame",
-		"i_heart_robots",
-		"woah",
-		"bear_2046",
-		"playoffs"
+		"portal", //Design 20, selector 300 
+		"wink", //Design 21, selector 301 
+		"color_bars", //Design 22, selector 302 
+		"pokeball", //Design 23, selector 303 
+		"maze", //Design 24, selector 304 
+		"box_flame", //Design 25, selector 305 
+		"i_heart_robots", //Design 26, selector 306 
+		"woah", //Design 27, selector 307 
+		"bear_2046", //Design 28, selector 308 
+		"playoffs" //Design 29, selector 309 
 	]
 ];
 
@@ -229,11 +229,11 @@ function exportSelections() {
 	for (var i = 0; i < selector.length; i++) {
 		to_export += "\t[ //Switch position " + i + "\n";
 		for (var j = 0; j < selector[i].length; j++) {
-			to_export += "\t\t" + selector[i][j];
+			to_export += "\t\t\"" + selector[i][j] + "\"";
 			if (j < selector[i].length - 1) {
 				to_export += ",";
 			}
-			to_export += "\n";
+			to_export += " //Design " + (i * 10 + j) + ", selector " + ((i + 1) * 100 + j) + " \n";
 		}
 		to_export += "\t]";
 		if (i < selector.length - 1) {
@@ -241,7 +241,7 @@ function exportSelections() {
 		}
 		to_export += "\n";
 	}
-	to_export += "]";
+	to_export += "];";
 
 	document.getElementById("import_export").value = to_export;
 }

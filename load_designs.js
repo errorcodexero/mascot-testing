@@ -47,7 +47,7 @@ function Category(name, color, border_color, contents) {
 
 function setupCategories() {
 	var files = {
-		dial_0: new Category("Dial Position 0", "#AFF", "#3FF", [
+		dial_0: new Category("Switch Position 0", "#AFF", "#3FF", [
 			"smile",
 			"neutral",
 			"frown",
@@ -58,7 +58,7 @@ function setupCategories() {
 			"pacman",
 			"first"
 		]),
-		dial_1: new Category("Dial Position 1", "#FAF", "#F3F", [
+		dial_1: new Category("Switch Position 1", "#FAF", "#F3F", [
 			"surprise",
 			"slide",
 			"pong",
@@ -70,7 +70,7 @@ function setupCategories() {
 			"wheel",
 			"tetris"
 		]),
-		dial_2: new Category("Dial Position 2", "#FFA", "#FF3", [
+		dial_2: new Category("Switch Position 2", "#FFA", "#FF3", [
 			"cube",
 			"wave",
 			"charging",

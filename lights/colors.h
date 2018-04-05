@@ -34,42 +34,42 @@ enum Color_index{
 CRGB index_to_color(const uint8_t); 
 
 constexpr PROGMEM uint16_t DESIGNS[NUMBER_OF_DESIGNS][3] = {//first is index of start of pattern, second is index of end of pattern, and the third is frame duration (ms) 
-    {0, 0, 100}, //smile 0
-    {1, 1, 100}, //neutral 1
-    {2, 2, 100}, //frown 2
-    {3, 11, 400}, //space 3
-    {12, 13, 400}, //fire 4
-    {14, 23, 400}, //team 5
-    {24, 47, 300}, //tron 6
-    {48, 66, 400}, //pacman 7
-    {67, 67, 400}, //first 8
-    {68, 77, 100}, //surprise 9
-    {78, 81, 100}, //slide 10
-    {82, 122, 200}, //pong 11
-    {123, 124, 200}, //alert 12
-    {125, 130, 100}, //star 13
-    {131, 132, 300}, //blue 14
-    {133, 134, 300}, //red 15
-    {135, 149, 100}, //matrix 16
-    {150, 161, 100}, //wheel 17
-    {162, 252, 200}, //tetris 18
-    {253, 266, 50}, //wave 20
-    {267, 276, 35}, //portal 22
-    {277, 283, 300}, //wink 25
-    {284, 284, 100}, //color_bars 26
-    {285, 308, 200}, //pokeball 27
-    {309, 484, 50}, //maze 28
-    {485, 487, 100}, //box_flame 32
-    {488, 527, 125}, //i_heart_robots 38
-    {528, 689, 50}, //woah 41
-    {690, 701, 200}, //2046_bear 42
-    {702, 743, 300} //playoffs 43
+    {0, 0, 100},  //Smile - Design 0, selector 100 
+    {1, 1, 100},  //Neutral - Design 1, selector 101 
+    {2, 2, 100},  //Frown - Design 2, selector 102 
+    {3, 11, 400},  //Space - Design 3, selector 103 
+    {12, 13, 400},  //Fire - Design 4, selector 104 
+    {14, 23, 400},  //Team - Design 5, selector 105 
+    {24, 47, 300},  //Tron - Design 6, selector 106 
+    {48, 66, 400},  //Pacman - Design 7, selector 107 
+    {67, 67, 400},  //FIRST - Design 8, selector 108 
+    {68, 77, 100},  //Surprise - Design 9, selector 109 
+    {78, 81, 100},  //Slide - Design 10, selector 200 
+    {82, 122, 200},  //Pong - Design 11, selector 201 
+    {123, 124, 200},  //Alert - Design 12, selector 202 
+    {125, 130, 100},  //Star - Design 13, selector 203 
+    {131, 132, 300},  //Blue - Design 14, selector 204 
+    {133, 134, 300},  //Red - Design 15, selector 205 
+    {135, 149, 100},  //Matrix - Design 16, selector 206 
+    {150, 161, 100},  //Wheel - Design 17, selector 207 
+    {162, 252, 200},  //Tetris - Design 18, selector 208 
+    {253, 266, 50},  //Wave - Design 19, selector 209 
+    {267, 276, 35},  //Portal - Design 20, selector 300 
+    {277, 283, 300},  //Wink - Design 21, selector 301 
+    {284, 284, 100},  //Color Bars - Design 22, selector 302 
+    {285, 308, 200},  //Pokeball - Design 23, selector 303 
+    {309, 484, 50},  //Maze - Design 24, selector 304 
+    {485, 487, 100},  //Box Flame - Design 25, selector 305 
+    {488, 527, 125},  //I Heart Robots - Design 26, selector 306 
+    {528, 689, 50},  //Woah - Design 27, selector 307 
+    {690, 701, 200},  //Bear 2046 - Design 28, selector 308 
+    {702, 743, 300}  //Playoffs - Design 29, selector 309 
 };
 
 static const uint16_t TOTAL_FRAME_COUNT = DESIGNS[NUMBER_OF_DESIGNS - 1][1] + 1;
 
 constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
-    {//First frame of smile (0)
+    {//First frame of Smile (0)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -82,8 +82,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of smile (0)
-    {//First frame of neutral (1)
+    },//Last frame of Smile (0)
+    {//First frame of Neutral (1)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -96,8 +96,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of neutral (1)
-    {//First frame of frown (2)
+    },//Last frame of Neutral (1)
+    {//First frame of Frown (2)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -110,8 +110,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of frown (2)
-    {//First frame of space (3)
+    },//Last frame of Frown (2)
+    {//First frame of Space (3)
         Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, 
@@ -236,8 +236,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of space (11)
-    {//First frame of fire (12)
+    },//Last frame of Space (11)
+    {//First frame of Fire (12)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::ORANGE, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::BLACK, Color_index::BLACK, 
@@ -264,8 +264,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::ORANGE, Color_index::ORANGE, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::ORANGE, Color_index::ORANGE, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::RED, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of fire (13)
-    {//First frame of team (14)
+    },//Last frame of Fire (13)
+    {//First frame of Team (14)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::DIM_RED, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::DIM_RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::DIM_RED, Color_index::DIM_ORANGE, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::DIM_RED, Color_index::BLACK, Color_index::BLACK, 
@@ -404,8 +404,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::DIM_RED, Color_index::DIM_RED, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_ORANGE, Color_index::DIM_RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::DIM_RED, Color_index::DIM_RED, Color_index::DIM_ORANGE, Color_index::DIM_ORANGE, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_ORANGE, Color_index::DIM_RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::DIM_RED, Color_index::DIM_RED, Color_index::DIM_ORANGE, Color_index::DIM_ORANGE, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_YELLOW, Color_index::DIM_ORANGE, Color_index::DIM_RED, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of team (23)
-    {//First frame of tron (24)
+    },//Last frame of Team (23)
+    {//First frame of Tron (24)
         Color_index::CYAN, Color_index::CYAN, Color_index::CYAN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::CYAN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::CYAN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -740,8 +740,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLUE, Color_index::ORANGE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::ORANGE, Color_index::ORANGE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, 
         Color_index::BLACK, Color_index::BLUE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, 
         Color_index::BLACK, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of tron (47)
-    {//First frame of pacman (48)
+    },//Last frame of Tron (47)
+    {//First frame of Pacman (48)
         Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, 
         Color_index::DIM_BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::CYAN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::PINK, Color_index::BLACK, Color_index::BLACK, Color_index::DIM_BLUE, 
         Color_index::DIM_BLUE, Color_index::BLACK, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::BLACK, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::BLACK, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::BLACK, Color_index::DIM_BLUE, 
@@ -1006,8 +1006,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::DIM_BLUE, Color_index::BLACK, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::BLACK, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::BLACK, Color_index::DIM_BLUE, 
         Color_index::DIM_BLUE, Color_index::BLACK, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::DIM_BLUE, 
         Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE, Color_index::DIM_BLUE
-    },//Last frame of pacman (66)
-    {//First frame of first (67)
+    },//Last frame of Pacman (66)
+    {//First frame of FIRST (67)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -1020,8 +1020,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of first (67)
-    {//First frame of surprise (68)
+    },//Last frame of FIRST (67)
+    {//First frame of Surprise (68)
         Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, 
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, 
         Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, 
@@ -1160,8 +1160,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK
-    },//Last frame of surprise (77)
-    {//First frame of slide (78)
+    },//Last frame of Surprise (77)
+    {//First frame of Slide (78)
         Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, 
         Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, 
         Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, 
@@ -1216,8 +1216,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, 
         Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, 
         Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK
-    },//Last frame of slide (81)
-    {//First frame of pong (82)
+    },//Last frame of Slide (81)
+    {//First frame of Pong (82)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -1790,8 +1790,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of pong (122)
-    {//First frame of alert (123)
+    },//Last frame of Pong (122)
+    {//First frame of Alert (123)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -1818,8 +1818,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, 
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, 
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED
-    },//Last frame of alert (124)
-    {//First frame of star (125)
+    },//Last frame of Alert (124)
+    {//First frame of Star (125)
         Color_index::GREEN, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::RED, Color_index::YELLOW, Color_index::YELLOW, Color_index::RED, Color_index::ORANGE, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::GREEN, 
         Color_index::YELLOW, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::RED, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::RED, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::YELLOW, 
         Color_index::ORANGE, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::ORANGE, 
@@ -1902,8 +1902,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::GREEN, Color_index::YELLOW, Color_index::ORANGE, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::YELLOW, Color_index::GREEN, 
         Color_index::GREEN, Color_index::YELLOW, Color_index::ORANGE, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::ORANGE, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::YELLOW, Color_index::GREEN, 
         Color_index::GREEN, Color_index::YELLOW, Color_index::ORANGE, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::YELLOW, Color_index::GREEN
-    },//Last frame of star (130)
-    {//First frame of blue (131)
+    },//Last frame of Star (130)
+    {//First frame of Blue (131)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -1930,8 +1930,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, 
         Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, 
         Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE
-    },//Last frame of blue (132)
-    {//First frame of red (133)
+    },//Last frame of Blue (132)
+    {//First frame of Red (133)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -1958,8 +1958,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, 
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, 
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED
-    },//Last frame of red (134)
-    {//First frame of matrix (135)
+    },//Last frame of Red (134)
+    {//First frame of Matrix (135)
         Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, 
@@ -2168,8 +2168,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::GREEN, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, 
         Color_index::GREEN, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK, Color_index::GREEN, Color_index::BLACK
-    },//Last frame of matrix (149)
-    {//First frame of wheel (150)
+    },//Last frame of Matrix (149)
+    {//First frame of Wheel (150)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -2336,8 +2336,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of wheel (161)
-    {//First frame of tetris (162)
+    },//Last frame of Wheel (161)
+    {//First frame of Tetris (162)
         Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, 
         Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, 
         Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::GREEN, Color_index::GREEN, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, 
@@ -3610,8 +3610,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, 
         Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, 
         Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE
-    },//Last frame of tetris (252)
-    {//First frame of wave (253)
+    },//Last frame of Tetris (252)
+    {//First frame of Wave (253)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -3806,8 +3806,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of wave (266)
-    {//First frame of portal (267)
+    },//Last frame of Wave (266)
+    {//First frame of Portal (267)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::ORANGE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::ORANGE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -3946,8 +3946,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of portal (276)
-    {//First frame of wink (277)
+    },//Last frame of Portal (276)
+    {//First frame of Wink (277)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -4044,8 +4044,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of wink (283)
-    {//First frame of color_bars (284)
+    },//Last frame of Wink (283)
+    {//First frame of Color Bars (284)
         Color_index::WHITE, Color_index::WHITE, Color_index::YELLOW, Color_index::YELLOW, Color_index::CYAN, Color_index::CYAN, Color_index::GREEN, Color_index::GREEN, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::RED, Color_index::RED, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, 
         Color_index::WHITE, Color_index::WHITE, Color_index::YELLOW, Color_index::YELLOW, Color_index::CYAN, Color_index::CYAN, Color_index::GREEN, Color_index::GREEN, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::RED, Color_index::RED, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, 
         Color_index::WHITE, Color_index::WHITE, Color_index::YELLOW, Color_index::YELLOW, Color_index::CYAN, Color_index::CYAN, Color_index::GREEN, Color_index::GREEN, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::RED, Color_index::RED, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, 
@@ -4058,8 +4058,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::WHITE, Color_index::WHITE, Color_index::YELLOW, Color_index::YELLOW, Color_index::CYAN, Color_index::CYAN, Color_index::GREEN, Color_index::GREEN, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::RED, Color_index::RED, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLUE, Color_index::BLUE, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::YELLOW, Color_index::YELLOW, Color_index::RED, Color_index::RED, Color_index::CYAN, Color_index::CYAN, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::GREEN, Color_index::GREEN, 
         Color_index::BLUE, Color_index::BLUE, Color_index::MAGENTA, Color_index::MAGENTA, Color_index::YELLOW, Color_index::YELLOW, Color_index::RED, Color_index::RED, Color_index::CYAN, Color_index::CYAN, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::GREEN, Color_index::GREEN
-    },//Last frame of color_bars (284)
-    {//First frame of pokeball (285)
+    },//Last frame of Color Bars (284)
+    {//First frame of Pokeball (285)
         Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, 
         Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, 
         Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, Color_index::GREEN, 
@@ -4394,8 +4394,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLUE, Color_index::BLUE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of pokeball (308)
-    {//First frame of maze (309)
+    },//Last frame of Pokeball (308)
+    {//First frame of Maze (309)
         Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, 
         Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -6858,8 +6858,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, 
         Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::BLACK
-    },//Last frame of maze (484)
-    {//First frame of box_flame (485)
+    },//Last frame of Maze (484)
+    {//First frame of Box Flame (485)
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, 
         Color_index::RED, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::RED, 
         Color_index::RED, Color_index::ORANGE, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::ORANGE, Color_index::RED, 
@@ -6900,8 +6900,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::YELLOW, Color_index::RED, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::ORANGE, Color_index::RED, Color_index::YELLOW, 
         Color_index::YELLOW, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::YELLOW, 
         Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW
-    },//Last frame of box_flame (487)
-    {//First frame of i_heart_robots (488)
+    },//Last frame of Box Flame (487)
+    {//First frame of I Heart Robots (488)
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
@@ -7460,8 +7460,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, 
         Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK
-    },//Last frame of i_heart_robots (527)
-    {//First frame of woah (528)
+    },//Last frame of I Heart Robots (527)
+    {//First frame of Woah (528)
         Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, 
         Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, 
         Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, 
@@ -9728,8 +9728,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, 
         Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, 
         Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::BLUE, Color_index::CYAN
-    },//Last frame of woah (689)
-    {//First frame of 2046_bear (690)
+    },//Last frame of Woah (689)
+    {//First frame of Bear 2046 (690)
         Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, 
         Color_index::WHITE, Color_index::WHITE, Color_index::RED, Color_index::RED, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::RED, Color_index::RED, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, 
         Color_index::WHITE, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::WHITE, Color_index::WHITE, 
@@ -9896,8 +9896,8 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::YELLOW, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, 
         Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, 
         Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE, Color_index::WHITE
-    },//Last frame of 2046_bear (701)
-    {//First frame of playoffs (702)
+    },//Last frame of Bear 2046 (701)
+    {//First frame of Playoffs (702)
         Color_index::BLACK, Color_index::YELLOW, Color_index::YELLOW, Color_index::BLACK, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::YELLOW, Color_index::BLACK, Color_index::YELLOW, Color_index::YELLOW, Color_index::BLACK, 
         Color_index::YELLOW, Color_index::BLACK, Color_index::BLACK, Color_index::YELLOW, Color_index::BLACK, Color_index::YELLOW, Color_index::YELLOW, Color_index::BLACK, Color_index::BLACK, Color_index::YELLOW, Color_index::YELLOW, Color_index::BLACK, Color_index::YELLOW, Color_index::BLACK, Color_index::BLACK, Color_index::YELLOW, 
         Color_index::YELLOW, Color_index::YELLOW, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::YELLOW, Color_index::YELLOW, Color_index::BLACK, Color_index::BLACK, Color_index::YELLOW, Color_index::YELLOW, Color_index::BLACK, Color_index::BLACK, Color_index::BLACK, Color_index::YELLOW, Color_index::YELLOW, 
@@ -10484,7 +10484,7 @@ constexpr PROGMEM uint8_t FRAMES[TOTAL_FRAME_COUNT][NUMBER_OF_LEDS] = {
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, 
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, 
         Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED, Color_index::RED
-    },//Last frame of playoffs (743)
+    }//Last frame of Playoffs (743)
 };
 
 #endif
