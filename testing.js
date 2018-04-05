@@ -135,10 +135,6 @@ function setupSelector() {
 
 var draw_count = 0;
 
-function arrayToHTMLColor(arr) {
-	return "#" + arr[0] + arr[1] + arr[2];
-}
-
 function draw() {
 	ctx.fillStyle = "#000";
 	ctx.fillRect(0, 0, 800, 600);
@@ -225,7 +221,7 @@ function clearSelections() {
 function exportSelections() {
 	var to_export = "";
 
-	to_export += "var selector = [\n";
+	to_export += "selector = [\n";
 	for (var i = 0; i < selector.length; i++) {
 		to_export += "\t[ //Switch position " + i + "\n";
 		for (var j = 0; j < selector[i].length; j++) {
@@ -247,19 +243,8 @@ function exportSelections() {
 }
 
 function importSelections() {
-	var to_import = document.getElementById("import_export").value.split(/[\[\]]+/);
-	for (var i = to_import.length - 1; i >= 0; i--) {
-		var comment_pos = to_import[i].indexOf("//");
-		if (comment_pos != -1) {
-			to_import[i] = to_import[i].substring(to_import[i].indexOf("\n"));
-		}
-		to_import[i] = to_import[i].replace(/[\s]/g, "");
-		if (to_import[i].length == 0 || to_import[i] == "," || to_import[i] == "varselector=") {
-			to_import.splice(i, 1);
-		}
-	}
+	eval(document.getElementById("import_export").value);
 	for (var i = 0; i < selector.length; i++) {
-		selector[i] = to_import[i].split(",");
 		for (var j = 0; j < selector[i].length; j++) {
 			document.getElementById("di_" + i + "_" + j).innerHTML = designs[selector[i][j]].name;
 		}

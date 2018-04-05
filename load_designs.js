@@ -1,5 +1,4 @@
 var colors = new Map();
-colors.set("111111", "BLACK");     //01
 colors.set("000000", "BLACK");     //01
 colors.set("ffffff", "WHITE");     //02
 colors.set("ff0000", "RED");       //03
@@ -16,6 +15,10 @@ colors.set("003333", "DIM_CYAN");  //13
 colors.set("bbbb00", "DIM_YELLOW");//14
 colors.set("bb6600", "DIM_ORANGE");//15
 colors.set("002222", "DARK_CYAN"); //16
+
+function arrayToHTMLColor(arr) {
+	return "#" + arr.join("");
+}
 
 var n_files = 0;
 

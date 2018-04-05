@@ -30,8 +30,8 @@
 				<button type="button" id="color_button" onclick="picking = true;" style="background-color: #888888;">Picker</button>
 				<div id="unsupported_colors">
 					<div id="unsupported_colors_header"><b>Other colors are not supported</b></div>
-					<button type="button" id="hex" onclick="updateHexInputColor();" style="background-color: #888888;">Hex</button>
-					<button type="button" id="custom" onclick="color = document.getElementById('custom').style.backgroundColor;" style="background-color: #888888;">Custom</button>
+					<button type="button" id="hex" onclick="updateHexInputColor();">Hex</button>
+					<button type="button" id="custom" onclick="color = document.getElementById('custom').style.backgroundColor;">Custom</button>
 				
 					<div id="sliders">
 						<input type="range" id="rSl" min="0" max="255" value="127" step="1" style="background-color: #f11;" oninput="updatePickerColor()"></input>
@@ -43,25 +43,26 @@
 					</div>
 				</div>
 				<br/>
-				<button type="button" id="shift_left" onclick="shiftFrameLeft();" style="background-color: #888888;">Shift Frame Left</button>
-				<button type="button" id="shift_right" onclick="shiftFrameRight();" style="background-color: #888888;">Shift Frame Right</button>
-				<button type="button" id="shift_up" onclick="shiftFrameUp();" style="background-color: #888888;">Shift Frame Up</button>
-				<button type="button" id="shift_down" onclick="shiftFrameDown();" style="background-color: #888888;">Shift Frame Down</button>
-				<button type="button" id="add" onclick="addFrame();" style="background-color: #888888;">+Frame</button>
-				<button type="button" id="clone" onclick="cloneFrame();" style="background-color: #888888;">+Copy</button>
+				<button type="button" id="shift_left" onclick="shiftFrameLeft();">Shift Frame Left</button>
+				<button type="button" id="shift_right" onclick="shiftFrameRight();">Shift Frame Right</button>
+				<button type="button" id="shift_up" onclick="shiftFrameUp();">Shift Frame Up</button>
+				<button type="button" id="shift_down" onclick="shiftFrameDown();">Shift Frame Down</button>
+				<button type="button" id="add" onclick="addFrame();">+Frame</button>
+				<button type="button" id="clone" onclick="cloneFrame();">+Copy</button>
 				<br>
-				<button type="button" id="left" onclick="lastFrame();" style="background-color: #888888; width: 25px;"><</button>
+				<button type="button" id="left" onclick="lastFrame();" style="width: 25px;"><</button>
 				<input type="range" id="fSl" min="1" max="1" value="1" step="1" style="background-color: #888;" oninput="updateFrame()"></input>
-				<button type="button" id="left" onclick="nextFrame();" style="background-color: #888888; width: 25px;">></button>
+				<button type="button" id="left" onclick="nextFrame();" style="width: 25px;">></button>
 				<h5 id="fLabel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1/1</h5>
 				<button type="button" id="delete" onclick="deleteFrame();" style="background-color: #888888;">-Frame</button>
 				<br/>
-				<button type="button" id="input" onclick="input()" style="background-color: #888888;">Input Color Array</button>
-				<button type="button" id="output" onclick="output();" style="background-color: #888888;">Output Color Array</button>
-				<button type="button" id="output" onclick="outputConst();" style="background-color: #888888;">Output C Code Array</button>
+				<button type="button" id="input" onclick="inputJSArray()">Input Color Array</button>
+				<button type="button" id="output" onclick="outputJSArray();">Output Color Array</button>
+				<button type="button" id="output" onclick="outputCArray();">Output C Code Array</button>
 			</div>
 		</div>
 		<h6 id="display" style = "margin-top: 50px;"></h6>
+		<script src="load_designs.js"></script>
 		<script src="design.js"></script>
 	</body>
 </html>
