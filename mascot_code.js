@@ -61,7 +61,7 @@ CRGB index_to_color(const uint8_t); \n\
 				if(s < checked_designs.length - 1){
 					display += ",";
 				}
-				display += "  //" + designs[checked_designs[s]].name + " " + s + "\n";
+				display += "  //" + designs[checked_designs[s]].name + " - Design " + s + ", selector " + ((Math.floor(s / 10) + 1) * 100 + s % 10) + " " + "\n";
 			}
 			display += "};\n";
 		}
