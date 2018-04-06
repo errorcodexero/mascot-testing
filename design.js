@@ -10,8 +10,10 @@ var f = 0;
 var color = "#ff0000";
 
 var mouse_down = false;
+
 var pick_primed = false;
 var fill_primed = false;
+var rect_stage = 0;
 
 function createDefaultColor() {
 	return ["11", "11", "11"];
@@ -284,6 +286,7 @@ function primePick() {
 	if (!pick_primed) {
 		pick_primed = true;
 		fill_primed = false;
+		rect_stage = 0;
 		canvas.style.cursor = "url('dropper_cursor.png'), pointer";
 	} else {
 		pick_primed = false;
@@ -295,6 +298,7 @@ function primeFill() {
 	if (!fill_primed) {
 		fill_primed = true;
 		pick_primed = false;
+		rect_stage = 0;
 		canvas.style.cursor = "url('paint_cursor.png'), pointer";
 	} else {
 		fill_primed = false;
@@ -302,10 +306,23 @@ function primeFill() {
 	}
 }
 
-function FillCrawler(x, y) {
+function primeRect() {
+	if (rect_stage == 0) {
+		rect_stage = 1;
+		fill_primed = false;
+		pick_primed = false;
+		canvas.style.cursor = "se-resize";
+	} else {
+		rect_stage = 0;
+		resetCursor();
+	}
+}
+
+function Point(x, y) {
 	this.x = x;
 	this.y = y;
 }
+
 var fill_crawlers = [];
 var fill_initial_color;
 var fill_crawl_interval;
@@ -313,7 +330,7 @@ function trySpawnCrawler(x, y, new_crawlers) {
 	var in_bounds = x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT;
 	if (in_bounds && fill_initial_color == arrayToHTMLColor(screen[f][y][x])) {
 		screen[f][y][x] = hexColorToArray(color);
-		new_crawlers.push(new FillCrawler(x, y));
+		new_crawlers.push(new Point(x, y));
 	}
 }
 
@@ -334,6 +351,8 @@ function updateCrawlers() {
 	}
 }
 
+var rect_initial_pt;
+
 function tryColorCell(e) {
 	e = window.event || e;
 
@@ -351,9 +370,21 @@ function tryColorCell(e) {
 		} else if (fill_primed) {
 			fill_initial_color = arrayToHTMLColor(screen[f][y][x]);
 			fill_crawl_interval = setInterval(updateCrawlers, 10);
-			fill_crawlers = [new FillCrawler(x, y)];
+			fill_crawlers = [new Point(x, y)];
 			resetCursor();
 			fill_primed = false;
+		} else if (rect_stage == 1) {
+			rect_initial_pt = new Point(x, y);
+			canvas.style.cursor = "nw-resize";
+			rect_stage = 2;
+		} else if (rect_stage == 2) {
+			for (var i = rect_initial_pt.y; i < y + 1; i++) {
+				for (var j = rect_initial_pt.x; j < x + 1; j++) {
+					screen[f][i][j] = hexColorToArray(color);
+				}
+			}
+			resetCursor();
+			rect_stage = 0;
 		} else {
 			if (color.startsWith("#")) {	
 				screen[f][y][x] = hexColorToArray(color);
