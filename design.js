@@ -10,7 +10,8 @@ var f = 0;
 var color = "#ff0000";
 
 var mouse_down = false;
-var picking = false;
+var pick_primed = false;
+var fill_primed = false;
 
 function createDefaultColor() {
 	return ["11", "11", "11"];
@@ -211,7 +212,6 @@ function shiftFrameDown(){
 	screen[f] = new_frame;
 }
 
-
 function outputJSArray() {
 	var display = "[";
 	for (a = 0; a < screen.length; a++) {
@@ -276,6 +276,64 @@ function draw() {
 	//document.getElementById("design").style.border = "5px solid "+color+";";
 }
 
+function resetCursor() {
+	canvas.style.cursor = "default";
+}
+
+function primePick() {
+	if (!pick_primed) {
+		pick_primed = true;
+		fill_primed = false;
+		canvas.style.cursor = "url('dropper_cursor.png'), pointer";
+	} else {
+		pick_primed = false;
+		resetCursor();
+	}
+}
+
+function primeFill() {
+	if (!fill_primed) {
+		fill_primed = true;
+		pick_primed = false;
+		canvas.style.cursor = "url('paint_cursor.png'), pointer";
+	} else {
+		fill_primed = false;
+		resetCursor();
+	}
+}
+
+function FillCrawler(x, y) {
+	this.x = x;
+	this.y = y;
+}
+var fill_crawlers = [];
+var fill_initial_color;
+var fill_crawl_interval;
+function trySpawnCrawler(x, y, new_crawlers) {
+	var in_bounds = x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT;
+	if (in_bounds && fill_initial_color == arrayToHTMLColor(screen[f][y][x])) {
+		screen[f][y][x] = hexColorToArray(color);
+		new_crawlers.push(new FillCrawler(x, y));
+	}
+}
+
+function updateCrawlers() {
+	var new_crawlers = [];
+
+	fill_crawlers.forEach(x => {
+		trySpawnCrawler(x.x + 1, x.y, new_crawlers);
+		trySpawnCrawler(x.x - 1, x.y, new_crawlers);
+		trySpawnCrawler(x.x, x.y + 1, new_crawlers);
+		trySpawnCrawler(x.x, x.y - 1, new_crawlers);
+	});
+
+	if (new_crawlers.length == 0) {
+		clearInterval(fill_crawl_interval);
+	} else {
+		fill_crawlers = new_crawlers;
+	}
+}
+
 function tryColorCell(e) {
 	e = window.event || e;
 
@@ -286,13 +344,23 @@ function tryColorCell(e) {
 	if (mouse_x > 0 && mouse_x < 800 && mouse_y > 0 && mouse_y < 600) {
 		var x = Math.round((mouse_x - 25) / 50);
 		var y = Math.round((mouse_y - 25) / 50);
-		if (color.startsWith("#")) {	
-			screen[f][y][x][0] = color.substr(1,2);
-			screen[f][y][x][1] = color.substr(3,2);
-			screen[f][y][x][2] = color.substr(5,2);
+		if (pick_primed) {
+			color = arrayToHTMLColor(screen[f][y][x]);
+			resetCursor();
+			pick_primed = false;
+		} else if (fill_primed) {
+			fill_initial_color = arrayToHTMLColor(screen[f][y][x]);
+			fill_crawl_interval = setInterval(updateCrawlers, 10);
+			fill_crawlers = [new FillCrawler(x, y)];
+			resetCursor();
+			fill_primed = false;
 		} else {
-			var split = color.substring(color.indexOf("(") + 1, color.indexOf(")")).split(",").map(x => x.trim());
-			split.forEach((c, i) => screen[f][y][x][i] = toHex(c));
+			if (color.startsWith("#")) {	
+				screen[f][y][x] = hexColorToArray(color);
+			} else {
+				var split = color.substring(color.indexOf("(") + 1, color.indexOf(")")).split(",").map(x => x.trim());
+				split.forEach((c, i) => screen[f][y][x][i] = toHex(c));
+			}
 		}
 	}
 }

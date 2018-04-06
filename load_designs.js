@@ -21,6 +21,14 @@ function arrayToHTMLColor(arr) {
 	return "#" + arr.join("");
 }
 
+function hexColorToArray(hex_color) {
+	var arr = [];
+	arr[0] = color.substr(1,2);
+	arr[1] = color.substr(3,2);
+	arr[2] = color.substr(5,2);
+	return arr;
+}
+
 var n_files = 0;
 
 var designs = {};

@@ -28,7 +28,7 @@
 				<button type="button" id="color_button" onclick="color = '#002222';" style="background-color: #002222;">Dark Cyan</button>
 				<button type="button" id="color_button" onclick="color = '#bbbb00';" style="background-color: #bbbb00;">Dim Yellow</button>
 				<button type="button" id="color_button" onclick="color = '#bb0000';" style="background-color: #bb0000;">Dim Red</button>
-				<button type="button" id="color_button" onclick="picking = true;" style="background-color: #888888;">Picker</button>
+				<button type="button" id="color_button" onclick="primePick();" style="background-color: #888888;">Picker</button>
 				<div id="unsupported_colors">
 					<div id="unsupported_colors_header"><b>Other colors are not supported</b></div>
 					<button type="button" id="hex" onclick="updateHexInputColor();">Hex</button>
@@ -48,6 +48,9 @@
 				<button type="button" id="shift_right" onclick="shiftFrameRight();">Shift Frame Right</button>
 				<button type="button" id="shift_up" onclick="shiftFrameUp();">Shift Frame Up</button>
 				<button type="button" id="shift_down" onclick="shiftFrameDown();">Shift Frame Down</button>
+				<br/>
+				<button onclick="primeFill()">Fill</button>
+				<br/>
 				<button type="button" id="add" onclick="addFrame();">+Frame</button>
 				<button type="button" id="clone" onclick="cloneFrame();">+Copy</button>
 				<br>
