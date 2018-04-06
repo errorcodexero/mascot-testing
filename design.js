@@ -12,13 +12,30 @@ var color = "#ff0000";
 var mouse_down = false;
 var picking = false;
 
-var screen = [new Array()];
-for (i = 0; i < HEIGHT; i++) {
-	screen[0][i] = new Array();
-	for (j = 0; j < WIDTH; j++) {
-		screen[0][i][j] = ["11","11","11"];
-	}
+function createDefaultColor() {
+	return ["11", "11", "11"];
 }
+
+function createBlankArray(len) {
+	return new Array(len).fill().map(x => createDefaultColor());
+}
+
+function createBlankFrame() {
+	return new Array(HEIGHT).fill().map(x => createBlankArray(WIDTH));
+}
+
+var screen = [createBlankFrame()];
+
+var overflow;
+function resetOverflow() {
+	overflow = {
+		top: [],
+		bottom: [],
+		right: [],
+		left: []
+	};
+}
+resetOverflow();
 
 function toHex(n) {
 	return ("0" + parseInt(n).toString(16)).slice(-2);
@@ -60,12 +77,8 @@ function updateFrameLabel() {
 }
 
 function addFrame(){
-	var new_frame = new Array(HEIGHT).fill().map(x =>
-		new Array(WIDTH).fill().map(x => ["11", "11", "11"])
-	);
-
 	f++;
-	screen.splice(f, 0, new_frame);
+	screen.splice(f, 0, createBlankFrame());
 	updateFrameLabel();
 }
 
@@ -87,12 +100,13 @@ function deleteFrame(){
 
 function updateFrame() {
 	f = document.getElementById("fSl").value - 1;
-	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + (f + 1) + "/" + document.getElementById("fSl").max;
+	updateFrameLabel();
 }
 
 function nextFrame() {
 	if (f < screen.length - 1) {
 		f++;
+		resetOverflow();
 		updateFrameLabel();
 	}
 }
@@ -100,20 +114,42 @@ function nextFrame() {
 function lastFrame() {
 	if (f > 0) {
 		f--;
+		resetOverflow();
 		updateFrameLabel();
 	}
+}
+
+function shiftOverflowNext(side) {
+	overflow[side].forEach(x => {
+		x.splice(0, 0, createDefaultColor());
+		x.length--;
+	});
+}
+
+function shiftOverflowPrev(side) {
+	overflow[side].forEach(x => {
+		x.shift();
+		x[WIDTH - 1] = createDefaultColor();
+	});
 }
 
 function shiftFrameLeft(){
 	var new_frame = new Array();
 
+	var right_overflow = overflow.right.length > 0 ? copyArray(overflow.right.pop()) : createBlankArray(HEIGHT);
 	for (i = 0; i < HEIGHT; i++) {
 		new_frame[i] = new Array();
 		for (j = 1; j < WIDTH; j++) {
 			new_frame[i][j - 1] = copyArray(screen[f][i][j]);
 		}
-		new_frame[i][WIDTH - 1] =  ["11","11","11"];
+		new_frame[i][WIDTH - 1] = right_overflow[i];
 	}
+
+	overflow.left.push([]);
+	screen[f].map((x, i) => overflow.left[overflow.left.length - 1][i] = x[0]);
+	
+	shiftOverflowPrev("top");
+	shiftOverflowPrev("bottom");
 	
 	screen[f] = new_frame;
 }
@@ -121,13 +157,20 @@ function shiftFrameLeft(){
 function shiftFrameRight(){
 	var new_frame = new Array();
 
+	var left_overflow = overflow.left.length > 0 ? copyArray(overflow.left.pop()) : createBlankArray(HEIGHT);
 	for (i = 0; i < HEIGHT; i++) {
 		new_frame[i] = new Array();
 		for (j = 0; j < WIDTH - 1; j++) {
 			new_frame[i][j + 1] = copyArray(screen[f][i][j]);
 		}
-		new_frame[i][0] =  ["11","11","11"];
+		new_frame[i][0] = left_overflow[i];
 	}
+
+	overflow.right.push([]);
+	screen[f].map((x, i) => overflow.right[overflow.right.length - 1][i] = x[WIDTH - 1]);
+
+	shiftOverflowNext("top");
+	shiftOverflowNext("bottom");
 	
 	screen[f] = new_frame;
 }
@@ -136,12 +179,16 @@ function shiftFrameUp(){
 	var new_frame = new Array();
 
 	for (i = 1; i < HEIGHT; i++) {
-		new_frame[i - 1] = new Array();
-		for (j = 0; j < WIDTH; j++) {
-			new_frame[i - 1][j] = copyArray(screen[f][i][j]);
-		}
-	}
-	new_frame[HEIGHT - 1] = new Array(WIDTH).fill().map(x => ["11","11","11"]);
+		new_frame[i - 1] = copyArray(screen[f][i]);
+	}	
+	var bottom_overflow = overflow.bottom.length > 0 ? copyArray(overflow.bottom.pop()) : createBlankArray(WIDTH);
+	new_frame[HEIGHT - 1] = bottom_overflow;
+
+	overflow.top.push([]);
+	screen[f][0].map((x, i) => overflow.top[overflow.top.length - 1][i] = x);
+
+	shiftOverflowPrev("left");
+	shiftOverflowPrev("right");
 
 	screen[f] = new_frame;
 }
@@ -149,13 +196,17 @@ function shiftFrameUp(){
 function shiftFrameDown(){
 	var new_frame = new Array();
 
-	new_frame[0] = new Array(WIDTH).fill().map(x => (["11","11","11"]));
 	for (i = 0; i < HEIGHT - 1; i++) {
-		new_frame[i + 1] = new Array();
-		for (j = 0; j < WIDTH; j++) {
-			new_frame[i + 1][j] = copyArray(screen[f][i][j]);
-		}
+		new_frame[i + 1] = copyArray(screen[f][i]);
 	}
+	var top_overflow = overflow.top.length > 0 ? copyArray(overflow.top.pop()) : createBlankArray(WIDTH);
+	new_frame[0] = top_overflow;
+
+	overflow.bottom.push([]);
+	screen[f][HEIGHT - 1].map((x, i) => overflow.bottom[overflow.bottom.length - 1][i] = x);
+
+	shiftOverflowNext("right");
+	shiftOverflowNext("left");
 	
 	screen[f] = new_frame;
 }
@@ -213,8 +264,8 @@ function draw() {
 	ctx.fillStyle = "#000";
 	ctx.fillRect(0, 0, 800, 600);
 	
-	for (i = 0; i < screen[f].length; i++) {
-		for (j = 0; j < screen[f][i].length; j++) {
+	for (i = 0; i < HEIGHT; i++) {
+		for (j = 0; j < WIDTH; j++) {
 			ctx.fillStyle = arrayToHTMLColor(screen[f][i][j]);
 			ctx.beginPath();
 			ctx.arc(25 + 50 * j, 25 + 50 * i, 10, 0, 2 * Math.PI, false);
