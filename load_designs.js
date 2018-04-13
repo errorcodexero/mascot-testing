@@ -1,32 +1,23 @@
-var colors = new Map();
-colors.set("000000", "BLACK");     //01
-colors.set("111111", "BLACK");     //01
-colors.set("ffffff", "WHITE");     //02
-colors.set("ff0000", "RED");       //03
-colors.set("00ff00", "GREEN");     //04
-colors.set("0000ff", "BLUE");      //05
-colors.set("00ffff", "CYAN");      //06
-colors.set("ff00ff", "MAGENTA");   //07
-colors.set("ffff00", "YELLOW");    //08
-colors.set("ff8800", "ORANGE");    //09
-colors.set("ff6464", "PINK");      //10
-colors.set("bb0000", "DIM_RED");   //11
-colors.set("000055", "DIM_BLUE");  //12
-colors.set("003333", "DIM_CYAN");  //13
-colors.set("bbbb00", "DIM_YELLOW");//14
-colors.set("bb6600", "DIM_ORANGE");//15
-colors.set("002222", "DARK_CYAN"); //16
+var color_map = new Map();
+color_map.set("#000000", "BLACK");     //01
+color_map.set("#ffffff", "WHITE");     //02
+color_map.set("#ff0000", "RED");       //03
+color_map.set("#00ff00", "GREEN");     //04
+color_map.set("#0000ff", "BLUE");      //05
+color_map.set("#00ffff", "CYAN");      //06
+color_map.set("#ff00ff", "MAGENTA");   //07
+color_map.set("#ffff00", "YELLOW");    //08
+color_map.set("#ff8800", "ORANGE");    //09
+color_map.set("#ff6464", "PINK");      //10
+color_map.set("#bb0000", "DIM_RED");   //11
+color_map.set("#000055", "DIM_BLUE");  //12
+color_map.set("#003333", "DIM_CYAN");  //13
+color_map.set("#bbbb00", "DIM_YELLOW");//14
+color_map.set("#bb6600", "DIM_ORANGE");//15
+color_map.set("#002222", "DARK_CYAN"); //16
 
 function arrayToHTMLColor(arr) {
 	return "#" + arr.join("");
-}
-
-function hexColorToArray(hex_color) {
-	var arr = [];
-	arr[0] = color.substr(1,2);
-	arr[1] = color.substr(3,2);
-	arr[2] = color.substr(5,2);
-	return arr;
 }
 
 var n_files = 0;
@@ -133,4 +124,16 @@ function addLoaded() {
 
 		onDesignsLoaded();
 	}
+}
+
+function cleanNode(node) {
+  for(var i = 0; i < node.childNodes.length; i++) {
+    var child = node.childNodes[i];
+    if (child.nodeType === 8 || (child.nodeType === 3 && !/\S/.test(child.nodeValue))) {
+      node.removeChild(child);
+      i--;
+    } else if (child.nodeType === 1) {
+      cleanNode(child);
+    }
+  }
 }

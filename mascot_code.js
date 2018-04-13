@@ -79,8 +79,8 @@ CRGB index_to_color(const uint8_t); \n\
 					for (i = 0; i < screen[a].length; i++) {
 						display += "        ";
 						for (j = 0; j < screen[a][i].length; j++) {
-							display += "Color_index::"+colors.get(screen[a][i][j][0]+screen[a][i][j][1]+screen[a][i][j][2]);
-							if(colors.get(screen[a][i][j][0]+screen[a][i][j][1]+screen[a][i][j][2]) == undefined) undefined_color = true;
+							display += "Color_index::"+color_map.get(screen[a][i][j]);
+							if(color_map.get(screen[a][i][j]) == undefined) undefined_color = true;
 							if ((i + 1) < screen[a].length || (j + 1) < screen[a][i].length) display += ", ";
 						}
 						display += "\n";

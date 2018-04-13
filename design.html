@@ -9,64 +9,54 @@
 		<nav>
 			<a href="index.html">Tester</a>
 		</nav>
-		<div id="simulator">
-			<canvas id="design" width="800" height="600" style="border: 5px solid #111111;"></canvas>
-			<div id="modes" style="width: 355px">
-				<button type="button" id="color_button" onclick="color = '#ff0000';" style="background-color: #ff0000;">Red</button>
-				<button type="button" id="color_button" onclick="color = '#00ff00';" style="background-color: #00ff00;">Green</button>
-				<button type="button" id="color_button" onclick="color = '#0000ff';" style="background-color: #0000ff;">Blue</button>
-				<button type="button" id="color_button" onclick="color = '#00ffff';" style="background-color: #00ffff;">Cyan</button>
-				<button type="button" id="color_button" onclick="color = '#ff00ff';" style="background-color: #ff00ff;">Magenta</button>
-				<button type="button" id="color_button" onclick="color = '#ffff00';" style="background-color: #ffff00;">Yellow</button>
-				<button type="button" id="color_button" onclick="color = '#ffffff';" style="background-color: #ffffff;">White</button>
-				<button type="button" id="color_button" onclick="color = '#111111';" style="background-color: #111111;">Black</button>
-				<button type="button" id="color_button" onclick="color = '#ff6464';" style="background-color: #ff6464;">Pink</button>
-				<button type="button" id="color_button" onclick="color = '#ff8800';" style="background-color: #ff8800;">Orange</button>
-				<button type="button" id="color_button" onclick="color = '#003333';" style="background-color: #003333;">Dim Cyan</button>
-				<button type="button" id="color_button" onclick="color = '#000055';" style="background-color: #000055;">Dim Blue</button>
-				<button type="button" id="color_button" onclick="color = '#bb6600';" style="background-color: #bb6600;">Dim Orange</button>
-				<button type="button" id="color_button" onclick="color = '#002222';" style="background-color: #002222;">Dark Cyan</button>
-				<button type="button" id="color_button" onclick="color = '#bbbb00';" style="background-color: #bbbb00;">Dim Yellow</button>
-				<button type="button" id="color_button" onclick="color = '#bb0000';" style="background-color: #bb0000;">Dim Red</button>
-				<button type="button" id="color_button" onclick="primePick();" style="background-color: #888888;">Picker</button>
-				<div id="unsupported_colors">
-					<div id="unsupported_colors_header"><b>Other colors are not supported</b></div>
-					<button type="button" id="hex" onclick="updateHexInputColor();">Hex</button>
-					<button type="button" id="custom" onclick="color = document.getElementById('custom').style.backgroundColor;">Custom</button>
-				
-					<div id="sliders">
-						<input type="range" id="rSl" min="0" max="255" value="127" step="1" style="background-color: #f11;" oninput="updatePickerColor()"></input>
-						<h5 id="rLabel" style="color: #a00;">127</h5>
-						<input type="range" id="gSl" min="0" max="255" value="127" step="1" style="background-color: #0f0;" oninput="updatePickerColor()"></input>
-						<h5 id="gLabel" style="color: #0a0;">127</h5>
-						<input type="range" id="bSl" min="0" max="255" value="127" step="1" style="background-color: #11f;" oninput="updatePickerColor()"></input>
-						<h5 id="bLabel" style="color: #00a;">127</h5>
-					</div>
+		<canvas id="design" width="800" height="600" style="border: 5px solid #111111;"></canvas>
+		<div id="design_controls">
+			<div id="named_colors">
+				<button id="picker_button" onclick="primePick()">Picker</button>
+			</div>
+			<div id="unsupported_colors">
+				<div id="unsupported_colors_header"><b>Warning: Other colors are not supported</b></div>
+				<div id="unsupported_colors_choices">
+					<button id="hex" onclick="updateHexInputColor();">Hex</button>
+					<button id="custom" onclick="selected_color = rgbToColor(this.style.backgroundColor)" style="background-color: #888">Custom</button>
 				</div>
-				<br/>
-				<button type="button" id="shift_left" onclick="shiftFrameLeft();">Shift Frame Left</button>
-				<button type="button" id="shift_right" onclick="shiftFrameRight();">Shift Frame Right</button>
-				<button type="button" id="shift_up" onclick="shiftFrameUp();">Shift Frame Up</button>
-				<button type="button" id="shift_down" onclick="shiftFrameDown();">Shift Frame Down</button>
-				<br/>
+				<div id="unsupported_colors_sliders">
+					<input type="range" id="red_slider" min="0" max="255" value="127" step="1" style="background-color: #f11;" oninput="updatePickerColor()"></input>
+					<h5 id="red_label" style="color: #a00;">127</h5>
+					<input type="range" id="green_slider" min="0" max="255" value="127" step="1" style="background-color: #0f0;" oninput="updatePickerColor()"></input>
+					<h5 id="green_label" style="color: #0a0;">127</h5>
+					<input type="range" id="blue_slider" min="0" max="255" value="127" step="1" style="background-color: #11f;" oninput="updatePickerColor()"></input>
+					<h5 id="blue_label" style="color: #00a;">127</h5>
+				</div>
+			</div>
+			<div id="shift_buttons">
+				<button onclick="shiftFrameLeft()">Shift Frame Left</button>
+				<button onclick="shiftFrameRight()">Shift Frame Right</button>
+				<button onclick="shiftFrameUp()">Shift Frame Up</button>
+				<button onclick="shiftFrameDown()">Shift Frame Down</button>
+			</div>
+			<div id="tool_buttons">
 				<button onclick="primeFill()">Fill</button>
 				<button onclick="primeRect()">Rectangle</button>
-				<br/>
-				<button type="button" id="add" onclick="addFrame();">+Frame</button>
-				<button type="button" id="clone" onclick="cloneFrame();">+Copy</button>
-				<br>
-				<button type="button" id="left" onclick="lastFrame();" style="width: 25px;"><</button>
-				<input type="range" id="fSl" min="1" max="1" value="1" step="1" style="background-color: #888;" oninput="updateFrame()"></input>
-				<button type="button" id="left" onclick="nextFrame();" style="width: 25px;">></button>
-				<h5 id="fLabel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1/1</h5>
-				<button type="button" id="delete" onclick="deleteFrame();" style="background-color: #888888;">-Frame</button>
-				<br/>
-				<button type="button" id="input" onclick="inputJSArray()">Input Color Array</button>
-				<button type="button" id="output" onclick="outputJSArray();">Output Color Array</button>
-				<button type="button" id="output" onclick="outputCArray();">Output C Code Array</button>
+			</div>
+			<div id="frame_buttons">
+				<button onclick="deleteFrame()">-Frame</button>
+				<button onclick="addFrame()">+Frame</button>
+				<button onclick="cloneFrame()">+Copy</button>
+			</div>
+			<div id="frame_controls">
+				<button onclick="lastFrame()">&lt;</button>
+				<input type="range" id="frame_slider" min="1" max="1" value="1" step="1" style="background-color: #888;" oninput="updateFrame()"></input>
+				<button onclick="nextFrame()">&gt;</button>
+				<h5 id="frame_label">1/1</h5>
+			</div>
+			<div id="code_tools">
+				<button onclick="inputJSArray()">Input Color Array</button>
+				<button onclick="outputJSArray()">Output Color Array</button>
+				<button onclick="outputCArray()">Output C Code Array</button>
 			</div>
 		</div>
-		<h6 id="display" style = "margin-top: 50px;"></h6>
+		<textarea id="designer_display"></textarea>
 		<script src="load_designs.js"></script>
 		<script src="design.js"></script>
 	</body>

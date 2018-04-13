@@ -8,17 +8,6 @@ var current_design = "smile";
 var DRAW_DELAY = 200;
 var draw_interval;
 
-function cleanNode(node) {
-  for(var i = 0; i < node.childNodes.length; i++) {
-    var child = node.childNodes[i];
-    if (child.nodeType === 8 || (child.nodeType === 3 && !/\S/.test(child.nodeValue))) {
-      node.removeChild(child);
-      i--;
-    } else if (child.nodeType === 1) {
-      cleanNode(child);
-    }
-  }
-}
 cleanNode(document.body);
 
 onCategoryCreation = function(category) {
@@ -142,7 +131,7 @@ function draw() {
 	var frame = draw_count % designs[current_design].pattern.length;
 	for (i = 0; i < designs[current_design].pattern[0].length; i++) {
 		for (j = 0; j < designs[current_design].pattern[0][0].length; j++) {
-			ctx.fillStyle = arrayToHTMLColor(designs[current_design].pattern[frame][i][j]);
+			ctx.fillStyle = designs[current_design].pattern[frame][i][j];
 			ctx.beginPath();
 			ctx.arc(25 + 50 * j, 25 + 50 * i, 10, 0, 2 * Math.PI, false);
 			ctx.fill();

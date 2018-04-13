@@ -7,16 +7,92 @@ const WIDTH = 16;
 const HEIGHT = 12;
 
 var f = 0;
-var color = "#ff0000";
 
 var mouse_down = false;
+var in_grid = false;
+var grid_x = 0, grid_y = 0;
 
 var pick_primed = false;
 var fill_primed = false;
 var rect_stage = 0;
 
+cleanNode(document.body);
+
+function toHex(n) {
+	return ("0" + n.toString(16)).slice(-2);
+}
+
+class Color {
+	constructor(r, g, b) {
+		this.r = r;
+		this.g = g;
+		this.b = b;
+	}
+
+	copy() {
+		return new Color(this.r, this.g, this.b);
+	}
+
+	hex() {
+		return "#" + toHex(this.r) + toHex(this.g) + toHex(this.b);
+	}
+
+	display_color() {
+		var CHANNEL_MIN = 25;
+		var new_r = Math.max(this.r, CHANNEL_MIN);
+		var new_g = Math.max(this.g, CHANNEL_MIN);
+		var new_b = Math.max(this.b, CHANNEL_MIN);
+		return new Color(new_r, new_g, new_b).hex();
+	}
+
+	inverse() {
+		return new Color(255 - this.r, 255 - this.g, 255 - this.b);
+	}
+
+	name() {
+		return color_map.get(this.hex());
+	}
+
+	equals(c) {
+		return this.r == c.r && this.g == c.g && this.b == c.b;
+	}
+}
+var selected_color = new Color(255, 0, 0);
+
+function hexToColor(hex) {
+	return new Color(parseInt(hex.substr(1,2), 16), parseInt(hex.substr(3,2), 16), parseInt(hex.substr(5,2), 16));
+}
+
+function rgbToColor(rgb) {
+	var split = rgb.substring(rgb.indexOf("(") + 1, rgb.indexOf(")")).split(",").map(x => x.trim());
+	return new Color(split[0], split[1], split[2]);
+}
+
+var named_colors = document.getElementById("named_colors");
+var picker_button = document.getElementById("picker_button");
+for (var c of color_map.keys()) {
+	var button = document.createElement("button");
+	button.style.backgroundColor = c;
+	button.setAttribute("onclick", "selected_color = hexToColor('" + c + "')");
+
+	var color = hexToColor(c);
+
+	var close_to_black = Math.sqrt(Math.pow(color.r, 2) + Math.pow(color.g, 2) + Math.pow(color.b, 2)) < 220;
+	button.style.color = close_to_black ? "white" : "black";
+	button.setAttribute("onmouseenter", "this.style.color = '" + (close_to_black ? "black" : "white") + "'");
+	button.setAttribute("onmouseleave", "this.style.color = '" + (close_to_black ? "white" : "black") + "'");
+
+	var name_parts = color_map.get(c).toLowerCase().split("_");
+	for (var i = 0; i < name_parts.length; i++) {
+		name_parts[i] = name_parts[i].charAt(0).toUpperCase() + name_parts[i].slice(1);
+	}
+	button.innerHTML = name_parts.join(" ");
+
+	named_colors.insertBefore(button, picker_button);
+}
+
 function createDefaultColor() {
-	return ["11", "11", "11"];
+	return new Color(0, 0, 0);
 }
 
 function createBlankArray(len) {
@@ -40,24 +116,20 @@ function resetOverflow() {
 }
 resetOverflow();
 
-function toHex(n) {
-	return ("0" + parseInt(n).toString(16)).slice(-2);
-}
-
 function updatePickerColor() {
-	var r  = document.getElementById("rSl").value;
-	document.getElementById("rLabel").innerHTML = r;
-	var g = document.getElementById("gSl").value;
-	document.getElementById("gLabel").innerHTML = g;
-	var b = document.getElementById("bSl").value;
-	document.getElementById("bLabel").innerHTML = b;
+	var r  = document.getElementById("red_slider").value;
+	document.getElementById("red_label").innerHTML = r;
+	var g = document.getElementById("green_slider").value;
+	document.getElementById("green_label").innerHTML = g;
+	var b = document.getElementById("blue_slider").value;
+	document.getElementById("blue_label").innerHTML = b;
 	document.getElementById("custom").style.backgroundColor = "rgb(" + r + ", " + g + ", " + b + ")";
 }
 
 function updateHexInputColor() {
 	var input = prompt('Input hex code:');
-	color = input;
-	document.getElementById("hex").style.backgroundColor = input;
+	selected_color = hexToColor(input);
+	document.getElementById("hex").style.backgroundColor = selected_color.hex();
 }
 
 function copyArray(arr) {
@@ -73,10 +145,10 @@ function copyArray(arr) {
 }
 
 function updateFrameLabel() {
-	var slider = document.getElementById("fSl");
+	var slider = document.getElementById("frame_slider");
 	slider.max = screen.length;
 	slider.value = f + 1;
-	document.getElementById("fLabel").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + (f+1) + "/" + document.getElementById("fSl").max;
+	document.getElementById("frame_label").innerHTML = (f+1) + "/" + screen.length;
 }
 
 function addFrame(){
@@ -217,47 +289,54 @@ function shiftFrameDown(){
 function outputJSArray() {
 	var display = "[";
 	for (a = 0; a < screen.length; a++) {
-		display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;[";
+		display += "\n\t[";
 		for (i = 0; i < screen[0].length; i++) {
-			display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[";
+			display += "\n\t\t[";
 			for (j = 0; j < screen[0][0].length; j++) {
-				display += '["' + screen[a][i][j].join('","') + '"]';
+				display += "\"" + screen[a][i][j].hex() + "\"";
 				if (j != screen[0][0].length - 1) display += ", ";
 			}
 			display += "]";
 			if (i != screen[0].length - 1) display += ",";
 		}
-		display += "<br/>&nbsp;&nbsp;&nbsp;&nbsp;]";
+		display += "\n\t]";
 		if (a != screen.length - 1) display += ",";
 	}
-	display +="<br/>]";
-	document.getElementById("display").innerHTML = display;
+	display += "\n]";
+	document.getElementById("designer_display").value = display;
 }
 
 function inputJSArray() {
 	var input = prompt("Paste array");
-	eval("screen = " + input + ";");
+	console.log(screen);
+	eval("var js_input = " + input + ";");
+	js_input.forEach((x, i) =>
+		x.forEach((y, j) =>
+			y.forEach((z, k) => screen[i][j][k] = hexToColor(z))
+		)
+	);
 	if (f > screen.length - 1) {
 		f = screen.length - 1; 
 		updateFrameLabel();
 	}
+	console.log(screen);
 }
 
 function outputCArray() {
 	var display = "";
 	for (a = 0; a < screen.length; a++) {
-		display += "{<br/>";
+		display += "{\n";
 		for (i = 0; i < screen[a].length; i++) {
-			display += "&nbsp;&nbsp;&nbsp;&nbsp;";
+			display += "\t";
 			for (j = 0; j < screen[a][i].length; j++) {
-				display += "Color_index::" + colors.get(screen[a][i][j].join());
+				display += "Color_index::" + screen[a][i][j].name();
 				if (i != screen[a].length - 1 || j != screen[a][i].length - 1) display += ", ";
 			}
-			display += "<br/>";
+			display += "\n";
 		}
-		display += "},<br/>";
+		display += "},\n";
 	}
-	document.getElementById("display").innerHTML = display;
+	document.getElementById("designer_display").value = display;
 }
 
 setInterval(draw, 50);
@@ -266,16 +345,23 @@ function draw() {
 	ctx.fillStyle = "#000";
 	ctx.fillRect(0, 0, 800, 600);
 	
+	if (in_grid) {
+		ctx.fillStyle = screen[f][grid_y][grid_x].inverse().display_color();
+		ctx.beginPath();
+		ctx.arc(25 + 50 * grid_x, 25 + 50 * grid_y, 13, 0, 2 * Math.PI, false);
+		ctx.fill();
+	}
+
 	for (i = 0; i < HEIGHT; i++) {
 		for (j = 0; j < WIDTH; j++) {
-			ctx.fillStyle = arrayToHTMLColor(screen[f][i][j]);
+			ctx.fillStyle = screen[f][i][j].display_color();
 			ctx.beginPath();
 			ctx.arc(25 + 50 * j, 25 + 50 * i, 10, 0, 2 * Math.PI, false);
 			ctx.fill();
 		}
 	}
 	
-	//document.getElementById("design").style.border = "5px solid "+color+";";
+	canvas.style.border = "5px solid " + selected_color.hex();
 }
 
 function resetCursor() {
@@ -328,8 +414,8 @@ var fill_initial_color;
 var fill_crawl_interval;
 function trySpawnCrawler(x, y, new_crawlers) {
 	var in_bounds = x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT;
-	if (in_bounds && fill_initial_color == arrayToHTMLColor(screen[f][y][x])) {
-		screen[f][y][x] = hexColorToArray(color);
+	if (in_bounds && fill_initial_color.equals(screen[f][y][x])) {
+		screen[f][y][x] = selected_color.copy();
 		new_crawlers.push(new Point(x, y));
 	}
 }
@@ -353,55 +439,60 @@ function updateCrawlers() {
 
 var rect_initial_pt;
 
-function tryColorCell(e) {
-	e = window.event || e;
-
+function updateMousePos(e) {
 	var rect = canvas.getBoundingClientRect();
 	var mouse_x = Math.round((e.clientX - rect.left));
 	var mouse_y = Math.round((e.clientY - rect.top));
 
 	if (mouse_x > 0 && mouse_x < 800 && mouse_y > 0 && mouse_y < 600) {
-		var x = Math.round((mouse_x - 25) / 50);
-		var y = Math.round((mouse_y - 25) / 50);
+		in_grid = true;
+		grid_x = Math.round((mouse_x - 25) / 50);
+		grid_y = Math.round((mouse_y - 25) / 50);
+	} else {
+		in_grid = false;
+	}
+}
+
+function tryColorCell() {	
+	if (in_grid) {
 		if (pick_primed) {
-			color = arrayToHTMLColor(screen[f][y][x]);
+			selected_color = screen[f][grid_y][grid_x].copy();
 			resetCursor();
 			pick_primed = false;
 		} else if (fill_primed) {
-			fill_initial_color = arrayToHTMLColor(screen[f][y][x]);
+			fill_initial_color = screen[f][grid_y][grid_x].copy();
 			fill_crawl_interval = setInterval(updateCrawlers, 10);
-			fill_crawlers = [new Point(x, y)];
+			fill_crawlers = [new Point(grid_x, grid_y)];
 			resetCursor();
 			fill_primed = false;
 		} else if (rect_stage == 1) {
-			rect_initial_pt = new Point(x, y);
+			rect_initial_pt = new Point(grid_x, grid_y);
 			canvas.style.cursor = "nw-resize";
 			rect_stage = 2;
 		} else if (rect_stage == 2) {
-			for (var i = rect_initial_pt.y; i < y + 1; i++) {
-				for (var j = rect_initial_pt.x; j < x + 1; j++) {
-					screen[f][i][j] = hexColorToArray(color);
+			for (var i = rect_initial_pt.y; i < grid_y + 1; i++) {
+				for (var j = rect_initial_pt.x; j < grid_x + 1; j++) {
+					screen[f][i][j] = selected_color.copy();
 				}
 			}
 			resetCursor();
 			rect_stage = 0;
 		} else {
-			if (color.startsWith("#")) {	
-				screen[f][y][x] = hexColorToArray(color);
-			} else {
-				var split = color.substring(color.indexOf("(") + 1, color.indexOf(")")).split(",").map(x => x.trim());
-				split.forEach((c, i) => screen[f][y][x][i] = toHex(c));
-			}
+			screen[f][grid_y][grid_x] = selected_color.copy();
 		}
 	}
 }
 
 document.onmousemove = function(e) {	
-	if (mouse_down) tryColorCell(e);
+	e = window.event || e;
+	updateMousePos(e);
+	if (mouse_down) tryColorCell();
 }
 
 document.onmousedown = function(e) {
-	tryColorCell(e);
+	e = window.event || e;
+	updateMousePos(e);
+	tryColorCell();
     mouse_down = true;
 }
 

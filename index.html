@@ -9,21 +9,19 @@
 		<nav>
 			<a href="design.html">Designer</a>
 		</nav>
-		<div id="simulator">
-			<div id="testing_column">
-				<canvas id="testing" width="800" height="600"></canvas>
-				<button id="generate_code" onclick="generateArduinoCode()">Generate Arduino Code</button>
+		<div id="testing_column">
+			<canvas id="testing" width="800" height="600"></canvas>
+			<button id="generate_code" onclick="generateArduinoCode()">Generate Arduino Code</button>
+		</div>
+		<div id="modes"></div>
+		<div id="selections_column">
+			<div id="selections"></div>
+			<div id="selections_controls">
+				<button onclick="clearSelections()">Clear</button>
+				<button onclick="exportSelections()">Export</button>
+				<button onclick="importSelections()">Import</button>
 			</div>
-			<div id="modes"></div>
-			<div id="selections_column">
-				<div id="selections"></div>
-				<div id="selections_controls">
-					<button onclick="clearSelections()">Clear</button>
-					<button onclick="exportSelections()">Export</button>
-					<button onclick="importSelections()">Import</button>
-				</div>
-				<textarea id="import_export"></textarea>
-			</div>
+			<textarea id="import_export"></textarea>
 		</div>
 		<script src="load_designs.js"></script>
 		<script src="testing.js"></script>

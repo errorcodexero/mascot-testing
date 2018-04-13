@@ -1,6 +1,5 @@
 h5 {
-	margin-top: 3px;
-	margin-bottom: -2px;
+	margin: 0px;
 }
 
 button, .design_button, .dial_item {
@@ -19,40 +18,141 @@ button, .design_button {
 	font-size: 14px;
 }
 
-.design_button, .dial_item {
-	-moz-user-select: none;
-	user-select: none;
-	padding: 0px 8px;
-}
-
-.design_button {
-	display: flex;
-	align-items: center;
-	justify-content: center;	
-	float: left;
-	width: 128px;
-	height: 19px;
-}
-
-.design_button:active {
-	box-shadow: 0 0 5px -1px #00823F;
-}
-
 button:hover, .design_button:hover {
 	color: #fff;
 }
 
-canvas {
+input[type=range] {
+	-webkit-appearance: none; 
+	outline: 0;
+	height: 20px;
+	background-color: #222;
+	border-style: hidden;
+	border-width: 3px;
+	margin-top: 3px;
+	margin-bottom: 0px;
+	margin-right: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+/* DESIGNER */
+
+#design {
+	margin-right: 20px;
 	float: left;
 }
 
-#color_button {
-	width: 100px;
+#design_controls {
+	width: 355px;
+	overflow: hidden;
 }
 
-#old_screen {
-	background-color: #353535;
+#design_controls > div {
+	margin-bottom: 10px;
 }
+
+#named_colors {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 0px 10px;
+}
+
+#unsupported_colors {
+	width: calc(100% - 12px);
+	border-style: dashed;
+	border-color: #F33;
+	border-width: 3px;
+	background-color: #FAA;
+	margin-top: 3px;
+	padding: 3px;
+}
+
+#unsupported_colors_header {
+	color: #000;
+	font-size: 15px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-bottom: 5px;
+}
+
+#unsupported_colors_choices {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 0px 10px;
+	margin-bottom: 5px;
+}
+
+#unsupported_colors_sliders {
+	display: grid;
+	grid-template-columns: 1fr 30px;
+	grid-gap: 5px 5px;
+}
+
+#unsupported_colors_sliders h5 {
+	display: inline-block;
+}
+
+#unsupported_colors_sliders input {
+	display: inline-block;
+	width: 100%;
+}
+
+#shift_buttons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 0px 10px;
+}
+
+#tool_buttons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 0px 10px;
+}
+
+#frame_buttons {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 0px 10px;
+}
+
+#frame_controls {
+	display: grid;
+	grid-template-columns: 30px 1fr 30px;
+	grid-gap: 0px 10px;
+}
+
+#frame_controls button {
+	padding: 0px 3px;
+}
+
+#frame_controls input {
+	width: 100%;
+}
+
+#frame_controls h5 {
+	grid-column-start: 2;
+	text-align: center;
+}
+
+#code_tools {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 3px 10px;
+}
+
+#code_tools button:last-child {
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+#designer_display {
+	height: 200px;
+	width: 100%;
+	margin-top: 40px;
+}
+
+/* TESTER */
 
 #testing_column {
 	display: inline-block;
@@ -68,6 +168,12 @@ canvas {
 	height: 50px;
 	margin-top: 30px;
 	margin-bottom: 30px;
+}
+
+#modes {
+	display: inline-block;
+	margin-left: 10px;
+	vertical-align: top;
 }
 
 .category {
@@ -87,8 +193,19 @@ canvas {
 	font-family: "DejaVu Sans";
 }
 
-.design_container {
-	
+.design_button, .dial_item {
+	-moz-user-select: none;
+	user-select: none;
+	padding: 0px 8px;
+}
+
+.design_button {
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	float: left;
+	width: 128px;
+	height: 19px;
 }
 
 #selections_column {
@@ -127,9 +244,8 @@ canvas {
 	height: 50px;
 }
 
-#import_export {
-	width: 100%;
-	height: 300px;
+.design_button:active {
+	box-shadow: 0 0 5px -1px #00823F;
 }
 
 .switch_head {
@@ -165,6 +281,13 @@ canvas {
 	vertical-align: top;
 }
 
+#import_export {
+	width: 100%;
+	height: 300px;
+}
+
+/* CODE GENERATOR */
+
 #copy_button {
 	width: 200px;
 	height: 70px;
@@ -183,66 +306,4 @@ canvas {
 	font-size: 9px;
 	width: 100%;
 	height: calc(100% - 100px);
-}
-
-#rSl{
-	width: 300px;
-}
-
-#gSl{
-	width: 300px;
-}
-
-#bSl{
-	width: 300px;
-}
-
-#fSl{
-	width: 242px;
-}
-
-#modes {
-	display: inline-block;
-	margin-left: 10px;
-	vertical-align: top;
-}
-
-#simulator {
-	height: 600px;
-}
-
-#unsupported_colors {
-	outline: 1px;
-	border-style: dashed;
-	border-color: #000;
-	border-color: #F33;
-	background-color: #FAA;
-	float: left;
-	margin-top: 3px;
-	padding: 3px 3px 3px 3px;
-}
-
-#unsupported_colors_header {
-	color: #000;
-	font-size: 15px;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-/*#sliders {
-	height: 600px;
-	width: 25px;
-	display: block;
-}*/
-
-input[type=range] {
-	-webkit-appearance: none; 
-	outline: 0;
-	width: 100px;
-	height: 20px;
-	background-color: #222;
-	border-style: hidden;
-	border-width: 3px;
-	margin-top: 3px;
-	margin-bottom: 0px;
 }
