@@ -81,8 +81,8 @@ var selector = [
 		"maze", //Design 24, selector 304 
 		"box_flame", //Design 25, selector 305 
 		"i_heart_robots", //Design 26, selector 306 
-		"woah", //Design 27, selector 307 
-		"bear_2046", //Design 28, selector 308 
+		"playoffs_red", //Design 27, selector 307 
+		"playoffs_blue", //Design 28, selector 308 
 		"nose" //Design 29, selector 309 
 	]
 ];
@@ -142,7 +142,7 @@ function draw() {
 
 function setDesign(design) {
 	current_design = design; 
-	count = 0; 
+	draw_count = 0; 
 
 	clearInterval(draw_interval); 
 	draw_interval = setInterval(draw, designs[design].speed);
