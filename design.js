@@ -293,7 +293,7 @@ function outputJSArray() {
 		for (i = 0; i < screen[0].length; i++) {
 			display += "\n\t\t[";
 			for (j = 0; j < screen[0][0].length; j++) {
-				display += "\"" + screen[a][i][j].hex() + "\"";
+				display += "[\"" + screen[a][i][j].hex().substring(1,3) + "\", \"" + screen[a][i][j].hex().substring(3,5) + "\", \"" + screen[a][i][j].hex().substring(5,7) + "\"]";
 				if (j != screen[0][0].length - 1) display += ", ";
 			}
 			display += "]";
